@@ -8,7 +8,7 @@ const initialState = {
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue,dispatch}) => {
     const res=await axios.get('https://jsonplaceholder.typicode.com/posts')
-    dispatch(setPosts(res.data))
+    dispatch(setThemes(res.data))
 })
 
 
@@ -28,3 +28,6 @@ export const themesSlice = createSlice({
 
     }
 })
+
+export const {setThemes}=themesSlice.actions
+export default themesSlice.reducer
