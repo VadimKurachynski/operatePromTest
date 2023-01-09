@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    themes: [],
+    themes: []
 }
 
 
@@ -21,12 +21,15 @@ export const themesSlice = createSlice({
         },
 
     },
-    extraReducers:{
-        [getThemes.fulfilled]:()=> console.log('getPosts: fullfield'),//вызывается тогда когда запрос прошел успешно
-        [getThemes.pending]:()=> console.log('getPosts: pending'),//вызывается тогда когда вызывается getPosts, когда отправился запрос
-        [getThemes.rejected]:()=> console.log('getPosts: rejected'),//если получили ошибку
-
-    }
+    extraReducers:(builder)=> {
+        builder
+            .addCase(getThemes.pending,()=> console.log('getThemes: pending'))
+            .addCase(getThemes.fulfilled,()=> console.log('getThemes: fulfilled'))
+            .addCase(getThemes.rejected,()=> console.log('getThemes: rejected'))
+             //pending : Вызывается прямо перед выполнением запроса
+            //fulfilled : Вызывается в том случае если запрос успешно выполнился
+            //rejected : Вызывается в случае ошибки
+         }
 })
 
 export const {setThemes}=themesSlice.actions

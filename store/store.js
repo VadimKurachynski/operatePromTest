@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {themesSlice} from "../features/themes/themesSlice";
+import themesSlice from "../features/themes/themesSlice";
 
 
 
