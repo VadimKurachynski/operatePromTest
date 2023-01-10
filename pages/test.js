@@ -1,5 +1,6 @@
 import s from "../styles/test.module.css";
 import React from 'react';
+import {Button} from "antd";
 
 
 
@@ -22,27 +23,50 @@ const Der = () => {
             <style jsx global>
                 {`body {
                   font-family: sans-serif;
-                  color: green;
-                  background: #5d90a6;
+                  color: #d27941;
+                  background: #81c4ff;
                   //height: 100vh;
                 } `}</style>
 
             <div className={s.wrapper}>
-                <div className={s.header}>header</div>
-                <div className={s.content}>
-                    <div className={s.container}>
-                        <div className={s.myflexcont}>
-                            <div className={s.myflexbox}>{tema}</div>
-                            <div className={s.myflexbox}>{text}</div>
-                        </div>
-                        <div className={s.myflexcont}>
-                            <div className={s.myflexbox}>{tema}</div>
-                            <div className={s.myflexbox}>{text}</div>
-                        </div>
-                    </div>
-                </div>
 
+                <div className={s.header}>header</div>
+                    <div className={s.container}>
+                <div className={s.content}>
+
+                      <a href={"#rerr"}>  <div className={s.myflexcont}>
+                            <div className={s.myflexbox}>{tema}</div>
+                            <div className={s.myflexbox}>{text}</div>
+                        </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+                    <a href={"#rerr"}>  <div className={s.myflexcont}>
+                        <div className={s.myflexbox}>{tema}</div>
+                        <div className={s.myflexbox}>{text}</div>
+                    </div></a>
+
+                </div>
+                </div>
                 <div className={s.footer}>footer</div>
+
             </div>
         </>
     )
