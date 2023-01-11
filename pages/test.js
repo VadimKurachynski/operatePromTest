@@ -3,7 +3,11 @@ import React, {useState} from 'react';
 import {Button} from "antd";
 import Head from 'next/head'
 import {Roboto} from '@next/font/google'
-import { ConfigProvider,Slider, Switch, } from 'antd';
+import {Slider, Switch,} from 'antd';
+import { Col, InputNumber, Row} from 'antd';
+import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
+import IntegerStep from "../component/IntegerStep";
+import DecimalStep from "../component/DecimalStep";
 const roboto = Roboto({
     weight: '400',
     subsets: ['latin'],
@@ -13,6 +17,7 @@ function handleClick(e) {
     e.preventDefault();
     console.log(e);
 }
+
 const onChange = (checked) => {
     console.log(`switch to ${checked}`);
 };
@@ -25,11 +30,14 @@ function print(g1, g2) {
 
 const Der = () => {
 
-
-    const [disabled, setDisabled] = useState(false);
-    const onChange = (checked) => {
-        setDisabled(checked);
+    const [inputValue, setInputValue] = useState(1);
+    const onChange = (newValue) => {
+        setInputValue(newValue);
     };
+
+
+
+
 
 
 
@@ -43,41 +51,62 @@ const Der = () => {
         "газораспределительной системы и газопотребления"
     return (
         <>
-
-
             <div className={roboto.className}>
-            <Head>
-                <title>My page title</title>
+                <Head>
+                    <title>My page title</title>
 
 
-            </Head>
+                </Head>
 
 
-            <div className={s.wrapper}>
+                <div className={s.wrapper}>
 
-                <div className={s.header}>header</div>
+                    <div className={s.header}>header</div>
 
-                <div className={s.content}>
-                    <div className={s.container}>
+                    <div className={s.content}>
+                        <div className={s.container}>
 
-                        <div onClick={() => print(`${theme}`, `${questions}`)} className={s.myflexcont}>
-                            <div className={s.myflexboxName}>{tema}</div>
-                            <div className={s.myflexboxText}>{text}</div>
+                            <div onClick={() => print(`${theme}`, `${questions}`)} className={s.myflexcont}>
+                                <div className={s.myflexboxName}>{tema}</div>
+                                <div className={s.myflexboxText}>{text}</div>
+                            </div>
+
+
+                            <div className={s.myButtonFlex}>
+
+                                <div className={s.switchOne}>
+                                    <div>Вопросы в случайном порядке:</div>
+                                    <div><Switch checkedChildren={<CheckOutlined/>}
+                                                 unCheckedChildren={<CloseOutlined/>}
+                                                 defaultChecked/></div>
+                                </div>
+
+                                <div className={s.switchTwo}>
+                                    <div>Перемешивать ответы :</div>
+                                   <div><Switch checkedChildren={<CheckOutlined/>}
+                                                unCheckedChildren={<CloseOutlined/>}
+                                                defaultChecked/></div>
+                                </div>
+
+
+                                <div className={s.sliderOne}>
+
+
+                                    <div>
+                                        <IntegerStep />
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
                         </div>
-                        <div className={s.myButtonFlex}>
-                            <Switch   defaultChecked onChange={onChange} />
-                            
-                            <Slider style={{  borderColor: "yellow" }} range defaultValue={[20, 50]} disabled={disabled} />
-                            Disabled: <Switch  size="small" checked={disabled} onChange={onChange} />
-                        </div>
-
-
-
                     </div>
-                </div>
-                <div className={s.footer}>footer</div>
+                    <div className={s.footer}>footer</div>
 
-            </div>
+                </div>
             </div>
         </>
     )

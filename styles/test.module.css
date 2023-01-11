@@ -53,15 +53,7 @@
 /*}*/
 
 
-.myButtonFlex {
 
-    margin: 0 20px 0px 20px;
-    border: solid grey 2px;
-    border-radius: 10px;
-    color: #0f0f10;
-    height: 100px;
-    min-width: 300px;
-}
 
 
 
@@ -111,4 +103,28 @@ background: #ecd7af;
 }
 
 
+.myButtonFlex {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 20px 0px 20px;
+    border: solid grey 2px;
+    border-radius: 10px;
+    color: #0f0f10;
+    /*height: 100px;*/
+    min-width: 300px;
+    padding: 10px;
+}
 
+.switchOne{
+    margin: 10px 0 10px 0;
+    /*background-color: #24ec93;*/
+}
+
+.switchTwo{
+    margin: 0 0 10px 0;
+    /*background-color: #1fd77b;*/
+}
+
+.sliderOne{
+    margin: 10px 100px 10px 100px;
+}
