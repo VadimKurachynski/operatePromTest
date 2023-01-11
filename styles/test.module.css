@@ -1,55 +1,66 @@
 
 
-.myflexcont {
+.myflexcont  {
     display: flex;
     flex-flow: column nowrap;
-    /*align-content: flex-start;*/
     align-content: center;
     justify-content: center;
-    /*border: yellow 1px solid;*/
-    margin: 0 20px 10px 20px;
+    margin: 0 20px 0px 20px;
     min-width: 300px;
-    /*max-width: 1200px;*/
-    font-size: 1.0em;
+    /*font-size: 1.0em;*/
     opacity: 1;
 }
+
 
 .myflexcont:hover {
     opacity: 0.6;
     cursor: pointer;
 }
-.myflexcont:active .myflexbox  {
-
+.myflexcont:active .myflexboxName {
     background: #f1f5f3;
-
+}
+.myflexcont:active .myflexboxText {
+    background: #f1f5f3;
 }
 
-.myflexbox {
-    padding: 5px;
-    box-shadow: 2px 5px 5px grey;
-}
-.myflexbox:nth-child(1) {
+
+.myflexboxName  {
     flex: 1 1 auto;
+    box-shadow: 2px 5px 5px grey;
+    padding: 5px;
     align-self: flex-start;
     border: solid grey 3px;
     border-radius: 10px;
     font-weight: 600;
     color: #080c33;
     margin: 8px 0 0 0;
-
+    opacity: 1;
 }
-.myflexbox:nth-child(2) {
+.myflexboxText  {
     flex: 1 1 auto;
+    box-shadow: 2px 5px 5px grey;
+    padding: 5px;
     border: solid grey 2px;
     border-radius: 10px;
     color: #0f0f10;
+    opacity: 1;
 }
+.myflexboxText:hover .myflexboxName{
+    opacity: 0.6;
+}
+/*.myflexboxName:hover{*/
+/*    opacity: 0.6;*/
+/*}*/
 
-.myflexbox:nth-child(3) {
-    flex: 1 1 auto;
+
+.myButtonFlex {
+
+    margin: 0 20px 0px 20px;
     border: solid grey 2px;
     border-radius: 10px;
     color: #0f0f10;
+    height: 100px;
+    min-width: 300px;
 }
 
 
@@ -98,4 +109,6 @@
     /*padding: 20px;*/
 background: #ecd7af;
 }
+
+
 

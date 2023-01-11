@@ -1,10 +1,9 @@
 import s from "../styles/test.module.css";
-import React from 'react';
+import React, {useState} from 'react';
 import {Button} from "antd";
 import Head from 'next/head'
 import {Roboto} from '@next/font/google'
-import React from 'react';
-import { Switch } from 'antd';
+import { ConfigProvider,Slider, Switch, } from 'antd';
 const roboto = Roboto({
     weight: '400',
     subsets: ['latin'],
@@ -23,7 +22,17 @@ function print(g1, g2) {
     console.log(g1, g2);
 }
 
+
 const Der = () => {
+
+
+    const [disabled, setDisabled] = useState(false);
+    const onChange = (checked) => {
+        setDisabled(checked);
+    };
+
+
+
     const tema = "Тема 999: Вопросов 1340";
     const theme = "999";
     const questions = "1340";
@@ -34,18 +43,15 @@ const Der = () => {
         "газораспределительной системы и газопотребления"
     return (
         <>
+
+
             <div className={roboto.className}>
             <Head>
                 <title>My page title</title>
 
 
             </Head>
-            <style jsx global>
-                {`body {
-                  color: #d27941;
-                  background: #81c4ff;
-                }
-                `}</style>
+
 
             <div className={s.wrapper}>
 
@@ -55,12 +61,16 @@ const Der = () => {
                     <div className={s.container}>
 
                         <div onClick={() => print(`${theme}`, `${questions}`)} className={s.myflexcont}>
-                            <div className={s.myflexbox}>{tema}</div>
-                            <div className={s.myflexbox}>{text}</div>
-                            <div className={s.myflexbox}>
-
-                            </div>
+                            <div className={s.myflexboxName}>{tema}</div>
+                            <div className={s.myflexboxText}>{text}</div>
                         </div>
+                        <div className={s.myButtonFlex}>
+                            <Switch   defaultChecked onChange={onChange} />
+                            
+                            <Slider style={{  borderColor: "yellow" }} range defaultValue={[20, 50]} disabled={disabled} />
+                            Disabled: <Switch  size="small" checked={disabled} onChange={onChange} />
+                        </div>
+
 
 
                     </div>
