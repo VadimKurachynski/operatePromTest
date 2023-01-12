@@ -76,8 +76,16 @@ const Der = () => {
                                                  unCheckedChildren={<CloseOutlined/>}
                                                  defaultChecked/></div>
                                 </div>
+
                                 <div className={s.sliderOne}>
+
+                                    <div className={s.switchThree}>
                                     <div>Выбрать диапазон вопросов:</div>
+                                    <div><Switch checkedChildren={<CheckOutlined/>}
+                                                 unCheckedChildren={<CloseOutlined/>}
+                                                 defaultChecked/></div>
+                                    </div>
+
                                     <div>
                                         <IntegerStep/>
                                     </div>

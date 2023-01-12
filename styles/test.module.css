@@ -132,5 +132,21 @@ background: #ecd7af;
 }
 
 .sliderOne{
-    margin: 10px 100px 10px 10px;
+
+
+}
+
+.switchThree{
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    margin: 10px 0 10px 10px;
+    /*background-color: #1fd77b;*/
+}
+
+.inputNumber{
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    margin: 10px 0 10px 10px;
 }
