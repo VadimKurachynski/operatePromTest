@@ -7,7 +7,7 @@ import {Slider, Switch,} from 'antd';
 import {Col, InputNumber, Row} from 'antd';
 import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
 import IntegerStep from "../component/IntegerStep";
-import DecimalStep from "../component/DecimalStep";
+
 
 const roboto = Roboto({
     weight: '400',
