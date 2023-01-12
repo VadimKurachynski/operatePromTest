@@ -1,6 +1,6 @@
 import {Col, InputNumber, Row, Slider} from "antd";
 import React, {useState} from "react";
-import s from "../styles/test.module.css";
+import s from "../../styles/test.module.css";
 
 const IntegerStep = () => {
     const [inputValueOne, setInputValueOne] = useState(1);
@@ -27,7 +27,7 @@ const IntegerStep = () => {
                 />
             </div>
 
-
+<div className={s.inputNumber}>
             <div>
                 <InputNumber
                     min={1}
@@ -45,7 +45,7 @@ const IntegerStep = () => {
                     onChange={onChangeTwo}
                 />
             </div>
-
+        </div>
 
         </>
     )

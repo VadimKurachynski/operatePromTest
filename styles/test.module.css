@@ -116,15 +116,21 @@ background: #ecd7af;
 }
 
 .switchOne{
-    margin: 10px 0 10px 0;
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    margin: 10px 0 10px 10px;
     /*background-color: #24ec93;*/
 }
 
 .switchTwo{
-    margin: 0 0 10px 0;
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    margin: 0 0 10px 10px;
     /*background-color: #1fd77b;*/
 }
 
 .sliderOne{
-    margin: 10px 100px 10px 100px;
+    margin: 10px 100px 10px 10px;
 }
