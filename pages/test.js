@@ -61,35 +61,13 @@ const Der = () => {
                                 <div className={s.myflexboxName}>{tema}</div>
                                 <div className={s.myflexboxText}>{text}</div>
                             </div>
+
                             <div className={s.myButtonFlex}>
-
-
-                                <div className={s.switchOne}>
-                                    <div> Перемешать вопросы:</div>
-                                    <div><Switch checkedChildren={<CheckOutlined/>}
-                                                 unCheckedChildren={<CloseOutlined/>}
-                                                 defaultChecked/></div>
-                                </div>
-                                <div className={s.switchTwo}>
-                                    <div>Перемешивать ответы :</div>
-                                    <div><Switch checkedChildren={<CheckOutlined/>}
-                                                 unCheckedChildren={<CloseOutlined/>}
-                                                 defaultChecked/></div>
-                                </div>
-
-                                <div className={s.sliderOne}>
-
-                                    <div className={s.switchThree}>
-                                    <div>Выбрать диапазон вопросов:</div>
-                                    <div><Switch checkedChildren={<CheckOutlined/>}
-                                                 unCheckedChildren={<CloseOutlined/>}
-                                                 defaultChecked/></div>
-                                    </div>
 
                                     <div>
                                         <IntegerStep/>
                                     </div>
-                                </div>
+
 
                             </div>
 
