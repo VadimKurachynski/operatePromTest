@@ -65,7 +65,7 @@ const Der = () => {
 
 
                                 <div className={s.switchOne}>
-                                    <div> Вопросы в случайном порядке:</div>
+                                    <div> Перемешать вопросы:</div>
                                     <div><Switch checkedChildren={<CheckOutlined/>}
                                                  unCheckedChildren={<CloseOutlined/>}
                                                  defaultChecked/></div>
