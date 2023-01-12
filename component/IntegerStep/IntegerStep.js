@@ -38,50 +38,59 @@ const IntegerStep = () => {
 
                 <div className={s.switchBlock}>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                 unCheckedChildren={<CloseOutlined/>}
-                                 defaultChecked/></div>
+                                                    unCheckedChildren={<CloseOutlined/>}
+                                                    defaultChecked/></div>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                 unCheckedChildren={<CloseOutlined/>}
-                                 defaultChecked/></div>
+                                                    unCheckedChildren={<CloseOutlined/>}
+                                                    defaultChecked/></div>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                 unCheckedChildren={<CloseOutlined/>}
-                                 checked={disabled} onChange={onChange}
+                                                    unCheckedChildren={<CloseOutlined/>}
+                                                    checked={disabled} onChange={onChange}
                     /></div>
 
                 </div>
             </div>
 
 
-            <div>
-                <Slider range defaultValue={[0, 100]}
-                        disabled={!disabled}
-                        value={[inputValueOne, inputValueTwo]}
-                        onChange={onChangeSlider}
-                />
-            </div>
 
-            <div className={s.inputNumber}>
-                <div>
-                    <InputNumber
-                        disabled={!disabled}
-                        min={1}
-                        max={100}
-                        value={inputValueOne}
-                        onChange={onChangeOne}
+
+            <div >
+                <div className={s.slider}>
+                    <Slider range defaultValue={[0, 100]}
+                            disabled={!disabled}
+                            value={[inputValueOne, inputValueTwo]}
+                            onChange={onChangeSlider}
                     />
                 </div>
 
-                <div>
-                    <InputNumber
-                        disabled={!disabled}
-                        min={1}
-                        max={100}
-                        value={inputValueTwo}
-                        onChange={onChangeTwo}
-                    />
+                <div className={s.inputNumber}>
+                    <div>
+                        <InputNumber
+                            disabled={!disabled}
+                            min={1}
+                            max={100}
+                            value={inputValueOne}
+                            onChange={onChangeOne}
+                            style={{
+                                width: 60,
+                            }}
+                        />
+                    </div>
+
+                    <div>
+                        <InputNumber
+                            disabled={!disabled}
+                            min={1}
+                            max={100}
+                            value={inputValueTwo}
+                            onChange={onChangeTwo}
+                            style={{
+                                width: 60,
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
-
         </>
     )
 };

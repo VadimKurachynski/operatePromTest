@@ -144,7 +144,15 @@ background: #ecd7af;
 .inputNumber{
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 1rem;
 
+}
+
+.sliderBlockNone{
+    display: none;
+}
+
+.sliderBlockContent{
+    display: contents;
 }
