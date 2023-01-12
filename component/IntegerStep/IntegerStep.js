@@ -8,7 +8,7 @@ const IntegerStep = () => {
     const [inputValueTwo, setInputValueTwo] = useState(100);
     const [disabled, setDisabled] = useState(false);
     const onChange = (checked) => {
-        console.log(checked)
+
         setDisabled(checked);
     };
 
@@ -24,33 +24,34 @@ const IntegerStep = () => {
     };
 
 
-
-
     return (
         <>
 
-            <div className={s.switchOne}>
-                <div> Перемешать вопросы:</div>
-                <div><Switch checkedChildren={<CheckOutlined/>}
-                             unCheckedChildren={<CloseOutlined/>}
-                             defaultChecked/></div>
-            </div>
-            <div className={s.switchTwo}>
-                <div>Перемешивать ответы :</div>
-                <div><Switch checkedChildren={<CheckOutlined/>}
-                             unCheckedChildren={<CloseOutlined/>}
-                             defaultChecked/></div>
+            <div className={s.allBlock}>
+
+                <div className={s.nameBloсk}>
+                    <div className={s.item}>Перемешать вопросы:</div>
+                    <div className={s.item}>Перемешивать ответы:</div>
+                    <div className={s.item}>Выбрать диапазон вопросов:</div>
+                </div>
+
+
+                <div className={s.switchBlock}>
+                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                 unCheckedChildren={<CloseOutlined/>}
+                                 defaultChecked/></div>
+                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                 unCheckedChildren={<CloseOutlined/>}
+                                 defaultChecked/></div>
+                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                 unCheckedChildren={<CloseOutlined/>}
+                                 checked={disabled} onChange={onChange}
+                    /></div>
+
+                </div>
             </div>
 
 
-            <div className={s.switchThree}>
-                <div>Выбрать диапазон вопросов:</div>
-                <div><Switch checkedChildren={<CheckOutlined/>}
-                             unCheckedChildren={<CloseOutlined/>}
-                             // defaultChecked
-                             checked={disabled} onChange={onChange}
-                /></div>
-            </div>
             <div>
                 <Slider range defaultValue={[0, 100]}
                         disabled={!disabled}

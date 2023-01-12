@@ -61,16 +61,9 @@ const Der = () => {
                                 <div className={s.myflexboxName}>{tema}</div>
                                 <div className={s.myflexboxText}>{text}</div>
                             </div>
-
                             <div className={s.myButtonFlex}>
-
-                                    <div>
-                                        <IntegerStep/>
-                                    </div>
-
-
+                                <IntegerStep/>
                             </div>
-
                         </div>
                     </div>
                     <div className={s.footer}>footer</div>

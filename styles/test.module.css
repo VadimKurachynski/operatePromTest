@@ -115,38 +115,36 @@ background: #ecd7af;
     padding: 10px;
 }
 
-.switchOne{
+
+
+
+
+
+
+
+
+.allBlock{
+    border: solid 1px blue;
     display: flex;
     flex-flow: row;
-    gap: 1rem;
-    margin: 10px 0 10px 10px;
-    /*background-color: #24ec93;*/
+    /*gap: 0.8rem;*/
 }
 
-.switchTwo{
-    display: flex;
-    flex-flow: row;
-    gap: 1rem;
-    margin: 0 0 10px 10px;
-    /*background-color: #1fd77b;*/
+.nameBlock div{
+  margin: 10px;
 }
 
-.sliderOne{
+.item{
+    margin: 10px;
+   /*border: solid 1px red;*/
+    height: 30px;
 
-
-}
-
-.switchThree{
-    display: flex;
-    flex-flow: row;
-    gap: 1rem;
-    margin: 10px 0 10px 10px;
-    /*background-color: #1fd77b;*/
 }
 
 .inputNumber{
     display: flex;
     flex-flow: row;
+    justify-content: space-between;
     gap: 1rem;
-    margin: 10px 0 10px 10px;
+
 }
