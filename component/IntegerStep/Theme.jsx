@@ -1,15 +1,17 @@
-import {InputNumber,Slider, Switch, Button, Space } from "antd";
 import React, {useState} from "react";
 import s from "../../styles/test.module.css";
-import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
+import {InputNumber,Slider, Switch, Button, Space } from "antd";
+import {CheckOutlined, CloseOutlined, LeftCircleOutlined,IssuesCloseOutlined} from "@ant-design/icons";
 
 const Theme = () => {
     const [inputValueOne, setInputValueOne] = useState(1);
     const [inputValueTwo, setInputValueTwo] = useState(100);
-    const [disabled, setDisabled] = useState(false);
+    const [disabledRange, setDisabledRange] = useState(false);
+    const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
+    
 
     const onChange = (checked) => {
-        setDisabled(checked);
+        setDisabledRange(checked);
     };
     const onChangeSlider = (newValue) => {
         setInputValueOne(newValue[0]);
@@ -44,12 +46,12 @@ const Theme = () => {
                 <div className={s.myflexboxText}>{text}</div>
             </div>
 
-            <div className={s.myButtonFlex}>
+            <div className={s.myButtonFlex} style={{display: disabledSwitchBlock ? "block" : "none"}}>
             <div className={s.allBlock}>
                 <div className={s.nameBloсk}>
                     <div className={s.item}>Перемешать вопросы:</div>
                     <div className={s.item}>Перемешивать ответы:</div>
-                    <div className={s.item}>Выбор диапазона вопросов:</div>
+                    <div className={s.item}>Диапазон вопросов:</div>
                 </div>
                 <div className={s.switchBlock}>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
@@ -60,7 +62,7 @@ const Theme = () => {
                                                     defaultChecked/></div>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
                                                     unCheckedChildren={<CloseOutlined/>}
-                                                    checked={disabled} onChange={onChange}
+                                                    checked={disabledRange} onChange={onChange}
                     /></div>
 
                 </div>
@@ -68,10 +70,10 @@ const Theme = () => {
             </div>
 
 
-            <div style={{display: disabled ? "block" : "none"}}>
+            <div style={{display: disabledRange ? "block" : "none"}}>
                 <div className={s.slider}>
                     <Slider range defaultValue={[0, 100]}
-                            disabled={!disabled}
+                            disabled={!disabledRange}
                             value={[inputValueOne, inputValueTwo]}
                             onChange={onChangeSlider}
                     />
@@ -80,7 +82,7 @@ const Theme = () => {
                 <div className={s.inputNumber}>
                     <div>
                         <InputNumber
-                            disabled={!disabled}
+                            disabled={!disabledRange}
                             min={1}
                             max={100}
                             value={inputValueOne}
@@ -93,7 +95,7 @@ const Theme = () => {
 
                     <div>
                         <InputNumber
-                            disabled={!disabled}
+                            disabled={!disabledRange}
                             min={1}
                             max={100}
                             value={inputValueTwo}
@@ -105,7 +107,8 @@ const Theme = () => {
                     </div>
                 </div>
             </div>
-               <div className={s.mainButton}><Button type="primary">НАЧАТЬ ТЕСТИРОВАНИЕ</Button></div>
+               <div className={s.mainButton}><Button type="primary" icon={<IssuesCloseOutlined />} >НАЧАТЬ ТЕСТИРОВАНИЕ</Button></div>
+                <div className={s.mainButton}><Button type="primary" icon={<LeftCircleOutlined />}>вернуться к выбору темы</Button></div>
             </div>
         </>
     )

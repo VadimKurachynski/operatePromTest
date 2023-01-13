@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import s from "../styles/test.module.css";
-import {Button} from "antd";
 import Head from 'next/head'
 import {Roboto} from '@next/font/google'
-import {Slider, Switch,} from 'antd';
-import {Col, InputNumber, Row} from 'antd';
-import {CheckOutlined, CloseOutlined} from '@ant-design/icons';
 import Theme from "../component/IntegerStep/Theme";
 
 
