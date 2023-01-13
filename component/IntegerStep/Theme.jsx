@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import s from "../../styles/test.module.css";
-import {InputNumber,Slider, Switch, Button, Space } from "antd";
-import {CheckOutlined, CloseOutlined, LeftCircleOutlined,IssuesCloseOutlined} from "@ant-design/icons";
+import {InputNumber, Slider, Switch, Button, Space} from "antd";
+import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
 
 const Theme = () => {
     const [inputValueOne, setInputValueOne] = useState(1);
     const [inputValueTwo, setInputValueTwo] = useState(100);
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
-    
+
 
     const onChange = (checked) => {
         setDisabledRange(checked);
@@ -47,68 +47,70 @@ const Theme = () => {
             </div>
 
             <div className={s.myButtonFlex} style={{display: disabledSwitchBlock ? "block" : "none"}}>
-            <div className={s.allBlock}>
-                <div className={s.nameBloсk}>
-                    <div className={s.item}>Перемешать вопросы:</div>
-                    <div className={s.item}>Перемешивать ответы:</div>
-                    <div className={s.item}>Диапазон вопросов:</div>
-                </div>
-                <div className={s.switchBlock}>
-                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                                    unCheckedChildren={<CloseOutlined/>}
-                                                    defaultChecked={false}/></div>
-                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                                    unCheckedChildren={<CloseOutlined/>}
-                                                    defaultChecked/></div>
-                    <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
-                                                    unCheckedChildren={<CloseOutlined/>}
-                                                    checked={disabledRange} onChange={onChange}
-                    /></div>
+                <div className={s.allBlock}>
+                    <div className={s.nameBloсk}>
+                        <div className={s.item}>Перемешать вопросы:</div>
+                        <div className={s.item}>Перемешивать ответы:</div>
+                        <div className={s.item}>Диапазон вопросов:</div>
+                    </div>
+                    <div className={s.switchBlock}>
+                        <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                                        unCheckedChildren={<CloseOutlined/>}
+                                                        defaultChecked={false}/></div>
+                        <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                                        unCheckedChildren={<CloseOutlined/>}
+                                                        defaultChecked/></div>
+                        <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
+                                                        unCheckedChildren={<CloseOutlined/>}
+                                                        checked={disabledRange} onChange={onChange}
+                        /></div>
+
+                    </div>
 
                 </div>
 
-            </div>
 
-
-            <div style={{display: disabledRange ? "block" : "none"}}>
-                <div className={s.slider}>
-                    <Slider range defaultValue={[0, 100]}
-                            disabled={!disabledRange}
-                            value={[inputValueOne, inputValueTwo]}
-                            onChange={onChangeSlider}
-                    />
-                </div>
-
-                <div className={s.inputNumber}>
-                    <div>
-                        <InputNumber
-                            disabled={!disabledRange}
-                            min={1}
-                            max={100}
-                            value={inputValueOne}
-                            onChange={onChangeOne}
-                            style={{
-                                width: 60,
-                            }}
+                <div style={{display: disabledRange ? "block" : "none"}}>
+                    <div className={s.slider}>
+                        <Slider range defaultValue={[0, 100]}
+                                disabled={!disabledRange}
+                                value={[inputValueOne, inputValueTwo]}
+                                onChange={onChangeSlider}
                         />
                     </div>
 
-                    <div>
-                        <InputNumber
-                            disabled={!disabledRange}
-                            min={1}
-                            max={100}
-                            value={inputValueTwo}
-                            onChange={onChangeTwo}
-                            style={{
-                                width: 60,
-                            }}
-                        />
+                    <div className={s.inputNumber}>
+                        <div>
+                            <InputNumber
+                                disabled={!disabledRange}
+                                min={1}
+                                max={100}
+                                value={inputValueOne}
+                                onChange={onChangeOne}
+                                style={{
+                                    width: 60,
+                                }}
+                            />
+                        </div>
+
+                        <div>
+                            <InputNumber
+                                disabled={!disabledRange}
+                                min={1}
+                                max={100}
+                                value={inputValueTwo}
+                                onChange={onChangeTwo}
+                                style={{
+                                    width: 60,
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
-               <div className={s.mainButton}><Button type="primary" icon={<IssuesCloseOutlined />} >НАЧАТЬ ТЕСТИРОВАНИЕ</Button></div>
-                <div className={s.mainButton}><Button type="primary" icon={<LeftCircleOutlined />}>вернуться к выбору темы</Button></div>
+                <div className={s.mainButton}><Button type="primary" icon={<IssuesCloseOutlined/>}>НАЧАТЬ
+                    ТЕСТИРОВАНИЕ</Button></div>
+                <div className={s.mainButton}><Button type="primary" icon={<LeftCircleOutlined/>}>вернуться к выбору
+                    темы</Button></div>
             </div>
         </>
     )

@@ -11,13 +11,13 @@ const roboto = Roboto({
 })
 
 
-const Der = () => {
+const PageThems = () => {
 
     return (
         <>
             <div className={roboto.className}>
                 <Head>
-                    <title>My page title</title>
+                    <title>Выбор темы</title>
                 </Head>
                 <div className={s.wrapper}>
                     <div className={s.header}>header</div>
@@ -33,4 +33,4 @@ const Der = () => {
         </>
     )
 }
-export default Der;
+export default PageThems;
