@@ -7,11 +7,10 @@ const Theme = () => {
     const [inputValueOne, setInputValueOne] = useState(1);
     const [inputValueTwo, setInputValueTwo] = useState(100);
     const [disabled, setDisabled] = useState(false);
-    const onChange = (checked) => {
 
+    const onChange = (checked) => {
         setDisabled(checked);
     };
-
     const onChangeSlider = (newValue) => {
         setInputValueOne(newValue[0]);
         setInputValueTwo(newValue[1]);
@@ -24,7 +23,6 @@ const Theme = () => {
     };
 
     function print(g1, g2) {
-
         console.log(g1, g2);
     }
 
