@@ -27,7 +27,6 @@ const PageThems = () => {
                         </div>
                     </div>
                     <div className={s.footer}>footer</div>
-
                 </div>
             </div>
         </>

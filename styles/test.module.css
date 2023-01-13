@@ -112,13 +112,8 @@ background: #ecd7af;
     /*height: 100px;*/
     min-width: 300px;
     padding: 10px;
+
 }
-
-
-
-
-
-
 
 
 
@@ -145,20 +140,16 @@ background: #ecd7af;
     flex-flow: row;
     justify-content: space-around;
     gap: 0.9rem;
-
 }
-
 .sliderBlockNone{
     display: none;
 }
-
 .sliderBlockContent{
     display: contents;
 }
-
-.mainButton{
-    width:220px;
-    margin: 15px 0 0 0;
-    align-self:center;
-
+.mainButton {
+    text-align: center;
+}
+.mainButton button{
+    margin: 20px;
 }

@@ -23,9 +23,9 @@ const Theme = () => {
     const onChangeTwo = (newValue) => {
         setInputValueTwo(newValue);
     };
-
-    function print(g1, g2) {
-        console.log(g1, g2);
+    const onClickSwitchBlock=(e)=> {
+        console.log(e.currentTarget)
+        setDisabledSwitchBlock(!disabledSwitchBlock);
     }
 
 
@@ -41,10 +41,11 @@ const Theme = () => {
 
     return (
         <>
-            <div onClick={() => print(`${theme}`, `${questions}`)} className={s.myflexcont}>
+            <div id="123456789" className={s.myflexcont} onClick={onClickSwitchBlock}>
                 <div className={s.myflexboxName}>{tema}</div>
                 <div className={s.myflexboxText}>{text}</div>
             </div>
+
 
             <div className={s.myButtonFlex} style={{display: disabledSwitchBlock ? "block" : "none"}}>
                 <div className={s.allBlock}>
@@ -107,11 +108,13 @@ const Theme = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className={s.mainButton}><Button type="primary" icon={<IssuesCloseOutlined/>}>НАЧАТЬ
                     ТЕСТИРОВАНИЕ</Button></div>
-                <div className={s.mainButton}><Button type="primary" icon={<LeftCircleOutlined/>}>вернуться к выбору
-                    темы</Button></div>
+
             </div>
+
+
         </>
     )
 };
