@@ -1,4 +1,4 @@
-import {Col, InputNumber, Row, Slider, Switch} from "antd";
+import {InputNumber,Slider, Switch, Button, Space } from "antd";
 import React, {useState} from "react";
 import s from "../../styles/test.module.css";
 import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
@@ -49,7 +49,7 @@ const Theme = () => {
                 <div className={s.nameBloсk}>
                     <div className={s.item}>Перемешать вопросы:</div>
                     <div className={s.item}>Перемешивать ответы:</div>
-                    <div className={s.item}>Выбрать диапазон вопросов:</div>
+                    <div className={s.item}>Выбор диапазона вопросов:</div>
                 </div>
                 <div className={s.switchBlock}>
                     <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
@@ -64,6 +64,7 @@ const Theme = () => {
                     /></div>
 
                 </div>
+
             </div>
 
 
@@ -104,7 +105,7 @@ const Theme = () => {
                     </div>
                 </div>
             </div>
-
+               <div className={s.mainButton}><Button type="primary">НАЧАТЬ ТЕСТИРОВАНИЕ</Button></div>
             </div>
         </>
     )
