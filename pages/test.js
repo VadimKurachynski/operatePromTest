@@ -24,6 +24,8 @@ const PageThems = () => {
                     <div className={s.content}>
                         <div className={s.container}>
                             <Theme/>
+                            <div style={{display: false ? "block" : "none"}}><Theme/></div>
+
                         </div>
                     </div>
                     <div className={s.footer}>footer</div>

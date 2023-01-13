@@ -4,11 +4,21 @@ import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
 
 const Theme = () => {
+
+    const idThema="11111111111"
+    const theme = "Тема 999: Вопросов 1340";
+    const text = "Лица, ответственные за безопасную эксплуатацию объектов " +
+        "газораспределительной системы и газопотребления = Лица, осуществляющие " +
+        " и являющиеся ответственными за ведение работ при выполнении работ и (или)" +
+        " оказании услуг по обслуживанию, ремонту объектов " +
+        "газораспределительной системы и газопотребления"
+    const countQuections=1340;
+
+
     const [inputValueOne, setInputValueOne] = useState(1);
-    const [inputValueTwo, setInputValueTwo] = useState(100);
+    const [inputValueTwo, setInputValueTwo] = useState(countQuections);
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
-
 
     const onChange = (checked) => {
         setDisabledRange(checked);
@@ -29,20 +39,11 @@ const Theme = () => {
     }
 
 
-    const tema = "Тема 999: Вопросов 1340";
-    const theme = "999";
-    const questions = "1340";
-    const text = "Лица, ответственные за безопасную эксплуатацию объектов " +
-        "газораспределительной системы и газопотребления = Лица, осуществляющие " +
-        " и являющиеся ответственными за ведение работ при выполнении работ и (или)" +
-        " оказании услуг по обслуживанию, ремонту объектов " +
-        "газораспределительной системы и газопотребления"
-
-
     return (
         <>
-            <div id="123456789" className={s.myflexcont} onClick={onClickSwitchBlock}>
-                <div className={s.myflexboxName}>{tema}</div>
+
+            <div id={idThema} className={s.myflexcont} onClick={onClickSwitchBlock}>
+                <div className={s.myflexboxName}>{theme}</div>
                 <div className={s.myflexboxText}>{text}</div>
             </div>
 
@@ -70,12 +71,14 @@ const Theme = () => {
 
                 </div>
 
-
                 <div style={{display: disabledRange ? "block" : "none"}}>
                     <div className={s.slider}>
-                        <Slider range defaultValue={[0, 100]}
+                        <Slider range defaultValue={[1, countQuections]}
                                 disabled={!disabledRange}
-                                value={[inputValueOne, inputValueTwo]}
+                                min={1}
+                                max={countQuections}
+                               value={[inputValueOne, inputValueTwo]}
+
                                 onChange={onChangeSlider}
                         />
                     </div>
@@ -85,7 +88,7 @@ const Theme = () => {
                             <InputNumber
                                 disabled={!disabledRange}
                                 min={1}
-                                max={100}
+                                max={countQuections}
                                 value={inputValueOne}
                                 onChange={onChangeOne}
                                 style={{
@@ -98,7 +101,7 @@ const Theme = () => {
                             <InputNumber
                                 disabled={!disabledRange}
                                 min={1}
-                                max={100}
+                                max={countQuections}
                                 value={inputValueTwo}
                                 onChange={onChangeTwo}
                                 style={{

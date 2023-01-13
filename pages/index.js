@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import {getThemes} from "../features/themes/themesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import s from "../styles/styleMe.module.css"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
