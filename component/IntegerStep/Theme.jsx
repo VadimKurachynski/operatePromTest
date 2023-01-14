@@ -1,17 +1,18 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "../../styles/test.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
+import {useDispatch, useSelector} from "react-redux";
+import {getThemes} from "../../features/themes/themesSlice";
 
-const Theme = () => {
+const Theme = (props) => {
+console.log(props)
 
-    const idThema="11111111111"
-    const theme = "Тема 999: Вопросов 1340";
-    const text = "Лица, ответственные за безопасную эксплуатацию объектов " +
-        "газораспределительной системы и газопотребления = Лица, осуществляющие " +
-        " и являющиеся ответственными за ведение работ при выполнении работ и (или)" +
-        " оказании услуг по обслуживанию, ремонту объектов " +
-        "газораспределительной системы и газопотребления"
+
+    const idThema="444";
+    // const theme = "Тема 999: Вопросов 1340";
+    const theme = props.theme.themenumber;
+    const text = props.theme.themename
     const countQuections=1340;
 
 
