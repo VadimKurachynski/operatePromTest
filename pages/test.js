@@ -35,33 +35,15 @@ const PageThemes = () => {
 
 
 
-
-
-
-
                 <div className={s.wrapper}>
                     <div className={s.header}>header</div>
                     <div className={s.content}>
                         <div className={s.container}>
 
-                            {/*<Theme/>*/}
-
-         {/*                   {themes.map((theme)=>(*/}
-         {/*                       <span key={theme.themenumber}>*/}
-         {/*  <div className={s.title}>Тема {theme.themenumber<9?'0'+theme.themenumber:theme.themenumber}</div>*/}
-         {/*    <div className={s.title}>Название: {theme.themename}</div>*/}
-         {/*    <div className={s.title}>Кол-во вопросов: {theme.numberofquestions}</div>*/}
-         {/*</span>  ))}*/}
-
                             {themes.map((theme)=>(
-                               <div key={theme.themenumber}> <Theme theme={theme}/></div>
+                               <div key={theme.themenumber} style={{marginTop: "15px"}}> <Theme theme={theme}/></div>
                             ))}
 
-
-
-
-
-                            {/*<div style={{display: false ? "block" : "none"}}><Theme/></div>*/}
 
                         </div>
                     </div>
