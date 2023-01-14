@@ -54,7 +54,7 @@ const PageThemes = () => {
          {/*</span>  ))}*/}
 
                             {themes.map((theme)=>(
-                                <Theme theme={theme}/>
+                               <div key={theme.themenumber}> <Theme theme={theme}/></div>
                             ))}
 
 

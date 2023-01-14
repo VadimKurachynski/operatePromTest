@@ -6,12 +6,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getThemes} from "../../features/themes/themesSlice";
 
 const Theme = (props) => {
-console.log(props)
 
 
-    const idThema="444";
+
+    const idThema=props.theme.themenumber;
     // const theme = "Тема 999: Вопросов 1340";
-    const theme = props.theme.themenumber;
+    const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
     const text = props.theme.themename
     const countQuections=1340;
 
