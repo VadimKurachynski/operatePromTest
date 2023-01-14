@@ -67,6 +67,7 @@
     min-height: 100vh;
     flex-direction: column;
     background: #24ec93;
+
 }
 
 .header{
@@ -79,7 +80,7 @@
     z-index: 1000;
 }
 .content{
-    margin: 20px 0 0px  0;
+    margin: 0px;
     flex: 1 1 auto;
     background: #ecd7af;
 }
@@ -88,6 +89,7 @@
     width: 100%;
     min-height: 100px;
     background: #3a3937;
+    z-index: 1001;
 }
 
 

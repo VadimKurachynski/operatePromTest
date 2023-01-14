@@ -2,18 +2,13 @@ import React, {useEffect, useState} from "react";
 import s from "../../styles/test.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
-import {useDispatch, useSelector} from "react-redux";
-import {getThemes} from "../../features/themes/themesSlice";
 
 const Theme = (props) => {
 
-
-
     const idThema=props.theme.themenumber;
-    // const theme = "Тема 999: Вопросов 1340";
     const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
-    const text = props.theme.themename
-    const countQuections=1340;
+    const text = props.theme.themename;
+    const countQuections=props.theme.numberofquestions;
 
 
     const [inputValueOne, setInputValueOne] = useState(1);
@@ -42,12 +37,10 @@ const Theme = (props) => {
 
     return (
         <>
-
             <div id={idThema} className={s.myflexcont} onClick={onClickSwitchBlock}>
                 <div className={s.myflexboxName}>{theme}</div>
                 <div className={s.myflexboxText}>{text}</div>
             </div>
-
 
             <div className={s.myButtonFlex} style={{display: disabledSwitchBlock ? "block" : "none"}}>
                 <div className={s.allBlock}>
@@ -79,7 +72,6 @@ const Theme = (props) => {
                                 min={1}
                                 max={countQuections}
                                value={[inputValueOne, inputValueTwo]}
-
                                 onChange={onChangeSlider}
                         />
                     </div>
