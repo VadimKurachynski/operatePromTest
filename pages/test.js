@@ -20,8 +20,7 @@ const PageThemes = () => {
         dispatch(getThemes());
     },[]);
 
-    const themes=useSelector((state)=>state.themes.themes)
-
+    const {themes,selectTheme}=useSelector((state)=>state.themes)
 
 
 
@@ -41,7 +40,7 @@ const PageThemes = () => {
                         <div className={s.container}>
 
                             {themes.map((theme)=>(
-                               <div key={theme.themenumber} style={{marginTop: "15px"}}> <Theme theme={theme}/></div>
+                                 <div key={theme.themenumber} style={{display: (theme.themenumber==selectTheme||selectTheme==0) ? "block" : "none"}}> <Theme theme={theme}/></div>
                             ))}
 
 

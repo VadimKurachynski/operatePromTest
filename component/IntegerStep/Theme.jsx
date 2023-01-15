@@ -2,10 +2,12 @@ import React, {useEffect, useState} from "react";
 import s from "../../styles/test.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
+import {setSelectTheme} from "../../features/themes/themesSlice";
+import {useDispatch} from "react-redux";
 
 const Theme = (props) => {
-
-    const idThema=props.theme.themenumber;
+    const dispatch=useDispatch()
+    const idTheme=props.theme.themenumber;
     const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
     const text = props.theme.themename;
     const countQuections=props.theme.numberofquestions;
@@ -30,14 +32,23 @@ const Theme = (props) => {
         setInputValueTwo(newValue);
     };
     const onClickSwitchBlock=(e)=> {
-        console.log(e.currentTarget)
+        const idT=e.currentTarget.id
+        console.log(e.currentTarget.id)
+        dispatch(setSelectTheme(+idT))
         setDisabledSwitchBlock(!disabledSwitchBlock);
+
     }
 
 
+
+
+const startTest=(e)=>{
+    console.log(e.currentTarget)
+}
+
     return (
         <>
-            <div id={idThema} className={s.myflexcont} onClick={onClickSwitchBlock}>
+            <div id={idTheme} className={s.myflexcont} onClick={onClickSwitchBlock}>
                 <div className={s.myflexboxName}>{theme}</div>
                 <div className={s.myflexboxText}>{text}</div>
             </div>
@@ -105,7 +116,7 @@ const Theme = (props) => {
                     </div>
                 </div>
 
-                <div className={s.mainButton}><Button type="primary" icon={<IssuesCloseOutlined/>}>НАЧАТЬ
+                <div  className={s.mainButton}><Button id={idTheme} type="primary" icon={<IssuesCloseOutlined/>} onClick={startTest}>НАЧАТЬ
                     ТЕСТИРОВАНИЕ</Button></div>
 
             </div>

@@ -2,7 +2,8 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-    themes: []
+    themes: [],
+    selectTheme:0,
 }
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
@@ -10,12 +11,19 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
     dispatch(setThemes(res.data))
 })
 
+
+
+
 export const themesSlice = createSlice({
     name: 'themes',
     initialState,
     reducers: {
         setThemes: (state, action) => {
             state.themes = action.payload
+        },
+        setSelectTheme:(state,action)=> {
+
+            state.selectTheme = action.payload
         },
     },
     // extraReducers: (builder) => {
@@ -29,5 +37,5 @@ export const themesSlice = createSlice({
     // }
 })
 
-export const {setThemes} = themesSlice.actions
+export const {setThemes, setSelectTheme} = themesSlice.actions
 export default themesSlice.reducer
