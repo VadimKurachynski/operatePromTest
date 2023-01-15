@@ -33,8 +33,11 @@ const Theme = (props) => {
     };
     const onClickSwitchBlock=(e)=> {
         const idT=e.currentTarget.id
-        console.log(e.currentTarget.id)
-        dispatch(setSelectTheme(+idT))
+        if (disabledSwitchBlock){
+            dispatch(setSelectTheme(0))
+        }else {
+            dispatch(setSelectTheme(+idT))
+        }
         setDisabledSwitchBlock(!disabledSwitchBlock);
 
     }
