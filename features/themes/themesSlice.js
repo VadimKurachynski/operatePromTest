@@ -9,7 +9,7 @@ const initialState = {
 
 export const getTheme = createAsyncThunk('themes/getNumberTheme', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${selectTheme}`,{withCredentials:true})
-    dispatch(setThemes(res.data))
+    dispatch(setQuestionsSelectTheme(res.data))
 })
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
@@ -43,5 +43,5 @@ export const themesSlice = createSlice({
     // }
 })
 
-export const {setThemes, setSelectTheme,setQuestionsSelectTheme} = themesSlice.actions
+export const {setThemes, setSelectTheme, setQuestionsSelectTheme} = themesSlice.actions
 export default themesSlice.reducer
