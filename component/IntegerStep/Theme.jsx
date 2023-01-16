@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import s from "../../styles/test.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
-import {CheckOutlined, CloseOutlined, LeftCircleOutlined, IssuesCloseOutlined} from "@ant-design/icons";
-import {setSelectTheme} from "../../features/themes/themesSlice";
+import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
+import {getThemeQuestions, getThemes, setSelectTheme} from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
 
 const Theme = (props) => {
@@ -42,11 +42,9 @@ const Theme = (props) => {
 
     }
 
-
-
-
 const startTest=(e)=>{
-    console.log(e.currentTarget)
+    // console.log(e.currentTarget.id)
+    dispatch(getThemeQuestions());
 }
 
     return (

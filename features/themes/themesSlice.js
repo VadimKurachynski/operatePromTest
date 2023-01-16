@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import {useSelector} from "react-redux";
 
 const initialState = {
     themes: [],
@@ -7,8 +8,10 @@ const initialState = {
     selectTheme:0,
 }
 
-export const getTheme = createAsyncThunk('themes/getNumberTheme', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${selectTheme}`,{withCredentials:true})
+const h=345;
+export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (_, {rejectWithValue, dispatch}) => {
+
+    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${h}`,{withCredentials:true})
     dispatch(setQuestionsSelectTheme(res.data))
 })
 
@@ -29,6 +32,7 @@ export const themesSlice = createSlice({
             state.selectTheme = action.payload
         },
         setQuestionsSelectTheme: (state, action) => {
+            console.log(action.payload)
             state.questionsSelectTheme = action.payload
         },
     },
