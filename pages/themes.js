@@ -17,32 +17,23 @@ const roboto = Roboto({
 
 const PageThemes = () => {
 
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getThemes());
-    },[]);
+    }, []);
 
-    const {themes,selectTheme}=useSelector((state)=>state.themes)
+    const {themes, selectTheme} = useSelector((state) => state.themes)
 
 
     return (
         <>
-            <div className={roboto.className}>
-                <HeadTest />
-                <div className={s.wrapper}>
-                   <HeaderTest />
-                    <div className={s.content}>
-                        <div className={s.container}>
-                            {themes.map((theme)=>(
-                                 <div key={theme.themenumber}
-                                      style={{display: (theme.themenumber===selectTheme||selectTheme===0) ? "block" : "none"}}>
-                                     <Theme theme={theme}/>
-                                 </div> ))}
-                        </div>
-                    </div>
-                    <FooterTest />
-                </div>
-            </div>
+
+            {themes.map((theme) => (
+                <div key={theme.themenumber}
+                     style={{display: (theme.themenumber === selectTheme || selectTheme === 0) ? "block" : "none"}}>
+                    <Theme theme={theme}/>
+                </div>))}
+
         </>
     )
 }

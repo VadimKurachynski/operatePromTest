@@ -17,24 +17,7 @@ const PageTest = () => {
 
     return (
         <>
-            <div className={roboto.className}>
-                <HeadTest />
-                <div className={s.wrapper}>
-                    <HeaderTest />
-                    <div className={s.content}>
-                        <div className={s.container}>
-
-
                             <div>САМ ТЕСТ</div>
-
-
-                        </div>
-                    </div>
-                    <FooterTest />
-                </div>
-            </div>
-
-
 
         </>
 
