@@ -23,16 +23,12 @@ const PageThemes = () => {
     const {themes,selectTheme}=useSelector((state)=>state.themes)
 
 
-
-
     return (
         <>
             <div className={roboto.className}>
                 <Head>
                     <title>Выбор темы</title>
                 </Head>
-
-
 
                 <div className={s.wrapper}>
                     <div className={s.header}>header</div>
@@ -41,16 +37,10 @@ const PageThemes = () => {
 
                             {themes.map((theme)=>(
                                  <div key={theme.themenumber}
-                                      style={{display: (theme.themenumber==selectTheme||selectTheme==0) ? "block" : "none"}}>
+                                      style={{display: (theme.themenumber===selectTheme||selectTheme===0) ? "block" : "none"}}>
                                      <Theme theme={theme}/>
                                  </div>
                             ))}
-
-
-
-
-
-
 
 
                         </div>
