@@ -8,12 +8,19 @@ const initialState = {
     selectTheme:0,
 }
 
-const h=345;
-export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (_, {rejectWithValue, dispatch}) => {
 
-    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${h}`,{withCredentials:true})
+
+
+    export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (userId,{rejectWithValue, dispatch}) => {
+        console.log(userId)
+    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${userId}`,{withCredentials:true})
     dispatch(setQuestionsSelectTheme(res.data))
 })
+
+
+
+
+
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.get('http://localhost:5000/api/themesname',{withCredentials:true})

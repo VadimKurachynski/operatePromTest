@@ -43,8 +43,7 @@ const Theme = (props) => {
     }
 
 const startTest=(e)=>{
-    // console.log(e.currentTarget.id)
-    dispatch(getThemeQuestions());
+    dispatch(getThemeQuestions(e.currentTarget.id));
 }
 
     return (
