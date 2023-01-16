@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import s from "../styles/test.module.css";
+import s from "../styles/themes.module.css";
 import Head from 'next/head'
 import {Roboto} from '@next/font/google'
-import Theme from "../component/IntegerStep/Theme";
+import Theme from "../component/theme/Theme";
 import {useDispatch, useSelector} from "react-redux";
 import {getThemes} from "../features/themes/themesSlice";
 
@@ -41,7 +41,6 @@ const PageThemes = () => {
                                      <Theme theme={theme}/>
                                  </div>
                             ))}
-
 
                         </div>
                     </div>

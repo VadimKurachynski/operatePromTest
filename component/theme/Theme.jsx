@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import s from "../../styles/test.module.css";
+import s from "../../styles/themes.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
 import {getThemeQuestions, getThemes, setSelectTheme} from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
+import { useRouter } from 'next/router'
 
 const Theme = (props) => {
     const dispatch=useDispatch()
@@ -11,6 +12,9 @@ const Theme = (props) => {
     const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
     const text = props.theme.themename;
     const countQuections=props.theme.numberofquestions;
+    const router = useRouter()
+
+
 
 
     const [inputValueOne, setInputValueOne] = useState(1);
@@ -44,6 +48,7 @@ const Theme = (props) => {
 
 const startTest=(e)=>{
     dispatch(getThemeQuestions(e.currentTarget.id));
+    router.push('/test')
 }
 
     return (
