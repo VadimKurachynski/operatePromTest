@@ -1,23 +1,28 @@
-import s from "../styles/themes.module.css";
-import {Roboto} from '@next/font/google'
-import HeadTest from "../component/head/HeadThemes";
-import HeaderTest from "../component/header/Header";
-import FooterTest from "../component/footer/Footer";
 import React from "react";
+import {useSelector} from "react-redux";
 
-const roboto = Roboto({
-    weight: '400',
-    subsets: ['latin'],
-})
+
 
 
 const PageTest = () => {
-
-
-
+    const {themes, selectTheme,questionsSelectTheme} = useSelector((state) => state.themes)
+    console.log(questionsSelectTheme)
+    console.log(selectTheme)
+    console.log(themes)
     return (
         <>
                             <div>САМ ТЕСТ</div>
+            <div>
+                { questionsSelectTheme.map((qu)=>(
+                    <div key={qu.nomvoprosa}>
+                        {qu.vopros}</div>
+                ))
+                }
+            </div>
+
+
+
+
 
         </>
 

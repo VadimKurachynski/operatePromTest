@@ -1,7 +1,7 @@
 import React from "react";
 
 import HeadTest from "../head/HeadThemes";
-import s from "../../styles/themes.module.css";
+import s from "../layout/layout.module.css"
 import HeaderTest from "../header/Header";
 import FooterTest from "../footer/Footer";
 import {Roboto} from "@next/font/google";

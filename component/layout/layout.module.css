@@ -1,0 +1,23 @@
+.wrapper{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #24ec93;
+    color: #0f0f10;
+}
+
+.content{
+    margin: 0px;
+    flex: 1 1 auto;
+    background: #ecd7af;
+}
+
+.container{
+    max-width: 1200px;
+    height: 100%;
+    /*border: 1px solid red;*/
+    margin: auto;
+    padding: 60px 0 50px 0;
+    /*padding: 20px;*/
+    background: #ecd7af;
+}

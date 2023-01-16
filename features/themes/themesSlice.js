@@ -29,7 +29,6 @@ export const themesSlice = createSlice({
             state.selectTheme = action.payload
         },
         setQuestionsSelectTheme: (state, action) => {
-            console.log(action.payload)
             state.questionsSelectTheme = action.payload
         },
     },
