@@ -9,14 +9,17 @@ const PageTest = () => {
      // console.log(questionsSelectTheme)
     // console.log(selectTheme)
     // console.log(themes)
-   questionsSelectTheme.sort((x, y) => x.nomvoprosa - y.nomvoprosa);
+
+    const arraySort = [...questionsSelectTheme]
+    arraySort.sort((x, y) => x.nomvoprosa - y.nomvoprosa);
+    arraySort.sort(() => 0.5-Math.random());
 
     return (
         <>
 
                             <div>САМ ТЕСТ</div>
             <div>
-                { questionsSelectTheme2.map((qu)=>(
+                { arraySort.map((qu)=>(
 
                     <div key={qu.nomvoprosa}>
                         {qu.nomvoprosa}</div>
