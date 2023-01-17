@@ -15,7 +15,7 @@ const PageTest = () => {
             <div>
                 { questionsSelectTheme.map((qu)=>(
                     <div key={qu.nomvoprosa}>
-                        {qu.vopros}</div>
+                        {qu.nomvoprosa}</div>
                 ))
                 }
             </div>
