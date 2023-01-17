@@ -41,6 +41,10 @@ export const themesSlice = createSlice({
         setQuestionsSelectThemeRandom: (state, action) => {
             state.questionsSelectTheme = action.payload
         },
+        setThemeSetting: (state, action) => {
+            debugger
+            state.selectTheme = action.payload
+        },
     },
     // extraReducers: (builder) => {
     //     builder
@@ -53,5 +57,5 @@ export const themesSlice = createSlice({
     // }
 })
 
-export const {setThemes, setSelectTheme, setQuestionsSelectTheme, setQuestionsSelectThemeRandom} = themesSlice.actions
+export const {setThemes, setSelectTheme, setQuestionsSelectTheme,setThemeSetting, setQuestionsSelectThemeRandom} = themesSlice.actions
 export default themesSlice.reducer

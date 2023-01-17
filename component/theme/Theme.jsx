@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import s from "../../styles/themes.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
-import {getThemeQuestions, getThemes, setSelectTheme} from "../../features/themes/themesSlice";
+import {getThemeQuestions, getThemes, setSelectTheme, setThemeSetting} from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
 import { useRouter } from 'next/router'
 
@@ -22,7 +22,7 @@ const Theme = (props) => {
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
     const [disabledMixQuestions, setdisabledMixQuestions] = useState(false);
-    const [disabledMixAnswers, setdisabledMixAnswers] = useState(false);
+    const [disabledMixAnswers, setdisabledMixAnswers] = useState(true);
 
     const onChangeMixQuestions = (checked) => {
         setdisabledMixQuestions(checked);
@@ -57,8 +57,10 @@ const Theme = (props) => {
 const startTest=(e)=>{
     // dispatch(getThemeQuestions(e.currentTarget.id));
     // router.push('/test')
-
+    // dispatch(getThemeQuestions(e.currentTarget.id));
+    dispatch(setThemeSetting(inputValueOne,inputValueTwo,disabledMixQuestions,disabledMixAnswers));
     console.log(inputValueOne,inputValueTwo)
+    console.log(disabledMixQuestions,disabledMixAnswers)
 }
 
     return (
