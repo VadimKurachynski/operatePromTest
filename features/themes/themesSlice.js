@@ -6,7 +6,7 @@ const initialState = {
     themes: [],
     questionsSelectTheme: [],
     selectTheme: 0,
-    selectQuestions:[],
+    selectQuestionsRange:[],
     mixQuestions: false,
     mixAnswers: true,
 }
@@ -42,8 +42,15 @@ export const themesSlice = createSlice({
             state.questionsSelectTheme = action.payload
         },
         setThemeSetting: (state, action) => {
-            debugger
-            state.selectTheme = action.payload
+            const {inputValueOne,inputValueTwo,disabledMixQuestions,disabledMixAnswers}=action.payload;
+            state.mixQuestions=disabledMixQuestions;
+            state.mixAnswers=disabledMixAnswers;
+            if(inputValueOne<inputValueTwo){
+                state.selectQuestionsRange=[inputValueOne,inputValueTwo]
+            }else {
+                state.selectQuestionsRange=[inputValueTwo,inputValueOne]
+            }
+
         },
     },
     // extraReducers: (builder) => {

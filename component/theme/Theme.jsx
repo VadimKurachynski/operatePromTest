@@ -55,7 +55,7 @@ const Theme = (props) => {
     }
 
 const startTest=(e)=>{
-    // dispatch(getThemeQuestions(e.currentTarget.id));
+     dispatch(getThemeQuestions(e.currentTarget.id));
     // router.push('/test')
     dispatch(setThemeSetting({
         inputValueOne:inputValueOne,
