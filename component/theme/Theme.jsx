@@ -21,7 +21,15 @@ const Theme = (props) => {
     const [inputValueTwo, setInputValueTwo] = useState(countQuections);
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
+    const [disabledMixQuestions, setdisabledMixQuestions] = useState(false);
+    const [disabledMixAnswers, setdisabledMixAnswers] = useState(false);
 
+    const onChangeMixQuestions = (checked) => {
+        setdisabledMixQuestions(checked);
+    };
+    const onChangeMixAnswers = (checked) => {
+        setdisabledMixAnswers(checked);
+    };
     const onChange = (checked) => {
         setDisabledRange(checked);
     };
@@ -47,8 +55,10 @@ const Theme = (props) => {
     }
 
 const startTest=(e)=>{
-    dispatch(getThemeQuestions(e.currentTarget.id));
-    router.push('/test')
+    // dispatch(getThemeQuestions(e.currentTarget.id));
+    // router.push('/test')
+
+    console.log(inputValueOne,inputValueTwo)
 }
 
     return (
@@ -68,13 +78,19 @@ const startTest=(e)=>{
                     <div className={s.switchBlock}>
                         <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
                                                         unCheckedChildren={<CloseOutlined/>}
-                                                        defaultChecked={false}/></div>
+                                                        defaultChecked={false}
+                                                        onChange={onChangeMixQuestions}
+                            /></div>
+
                         <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
                                                         unCheckedChildren={<CloseOutlined/>}
-                                                        defaultChecked/></div>
+                                                        defaultChecked
+                                                        onChange={onChangeMixAnswers}
+                            /></div>
                         <div className={s.item}><Switch checkedChildren={<CheckOutlined/>}
                                                         unCheckedChildren={<CloseOutlined/>}
-                                                        checked={disabledRange} onChange={onChange}
+                                                        checked={disabledRange}
+                                                        onChange={onChange}
                         /></div>
 
                     </div>

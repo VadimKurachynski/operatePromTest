@@ -4,18 +4,24 @@ import {useSelector} from "react-redux";
 
 const initialState = {
     themes: [],
-    questionsSelectTheme:[],
-    selectTheme:0,
+    questionsSelectTheme: [],
+    selectTheme: 0,
+    selectQuestions:[],
+    mixQuestions: false,
+    mixAnswers: true,
 }
 
-    export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (numberThemes,{rejectWithValue, dispatch}) => {
-    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`,{withCredentials:true})
+export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (numberThemes, {
+    rejectWithValue,
+    dispatch
+}) => {
+    const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
     dispatch(setQuestionsSelectTheme(res.data))
-        console.log(res.data)
+    console.log(res.data)
 })
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get('http://localhost:5000/api/themesname',{withCredentials:true})
+    const res = await axios.get('http://localhost:5000/api/themesname', {withCredentials: true})
     dispatch(setThemes(res.data))
 })
 
@@ -26,10 +32,13 @@ export const themesSlice = createSlice({
         setThemes: (state, action) => {
             state.themes = action.payload
         },
-        setSelectTheme:(state,action)=> {
+        setSelectTheme: (state, action) => {
             state.selectTheme = action.payload
         },
         setQuestionsSelectTheme: (state, action) => {
+            state.questionsSelectTheme = action.payload
+        },
+        setQuestionsSelectThemeRandom: (state, action) => {
             state.questionsSelectTheme = action.payload
         },
     },
@@ -44,5 +53,5 @@ export const themesSlice = createSlice({
     // }
 })
 
-export const {setThemes, setSelectTheme, setQuestionsSelectTheme} = themesSlice.actions
+export const {setThemes, setSelectTheme, setQuestionsSelectTheme, setQuestionsSelectThemeRandom} = themesSlice.actions
 export default themesSlice.reducer
