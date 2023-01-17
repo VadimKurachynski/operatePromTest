@@ -57,10 +57,11 @@ const Theme = (props) => {
 const startTest=(e)=>{
     // dispatch(getThemeQuestions(e.currentTarget.id));
     // router.push('/test')
-    // dispatch(getThemeQuestions(e.currentTarget.id));
-    dispatch(setThemeSetting(inputValueOne,inputValueTwo,disabledMixQuestions,disabledMixAnswers));
-    console.log(inputValueOne,inputValueTwo)
-    console.log(disabledMixQuestions,disabledMixAnswers)
+    dispatch(setThemeSetting({
+        inputValueOne:inputValueOne,
+        inputValueTwo:inputValueTwo,
+        disabledMixQuestions:disabledMixQuestions,
+        disabledMixAnswers:disabledMixAnswers}));
 }
 
     return (
