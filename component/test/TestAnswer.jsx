@@ -25,12 +25,12 @@ const TestAnswer = () => {
 
     }}onChange={onChange} >
         <Space direction="vertical">
-          <div className={s.radio}> <Radio value={1}><span className={s.dd}> отметка (ставится штамп) «зарегистрировано»</span></Radio></div>
-            <div className={s.radio}> <Radio value={2}>Делается отметка (ставится штамп) о регистрации потенциально
+          <div className={s.radio}> <Radio value={1}><span className={s.radioText}> отметка (ставится штамп) «зарегистрировано»</span></Radio></div>
+            <div className={s.radio}> <Radio value={2}><span className={s.radioText}>Делается отметка (ставится штамп) о регистрации потенциально
                 опасного объекта с указанием регистрирующего органа, регистрационного номера,
                 даты регистрации и фамилии, собственного имени, отчества (если таковое имеется)
-                должностного лица регистрирующего органа</Radio></div>
-                <div className={s.radio}> <Radio value={3}>Регистрационный номер потенциально опасного объекта</Radio></div>
+                должностного лица регистрирующего органа</span></Radio></div>
+                <div className={s.radio}> <Radio value={3}><span className={s.radioText}>Регистрационный номер потенциально опасного объекта</span></Radio></div>
         </Space>
     </Radio.Group>
 
