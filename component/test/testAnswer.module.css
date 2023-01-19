@@ -1,8 +1,15 @@
 .radio {
     border: solid 1px grey;
     font-size: 25px;
+   background-color: #f3e2c4;
 }
 
 .radioText{
     font-size: 18px;
+}
+
+.question{
+    margin: 20px 0px 40px 0px;
+    background-color: #f3e2c4;
+
 }

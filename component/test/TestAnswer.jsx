@@ -18,10 +18,11 @@ const TestAnswer = () => {
 
     return(
 <>
-        <div>Answer</div>
+
+<div className={s.question}>Какими полномочиями наделен работник службы промышленной безопасности (инженер по промышленной безопасности,
+    ответственное лицо, на которое возложены соответствующие обязанности)?</div>
 
     <Radio.Group style={{
-
     }}onChange={onChange} >
         <Space direction="vertical">
           <div className={s.radio}> <Radio value={1}><span className={s.radioText}> отметка (ставится штамп) «зарегистрировано»</span></Radio></div>
