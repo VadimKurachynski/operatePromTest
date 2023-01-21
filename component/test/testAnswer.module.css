@@ -31,7 +31,7 @@ font-weight: 600;
     align-items: center;
     border: 1px solid grey;
     justify-content: space-between;
-    width: 80px;
+    width: 75px;
 }
 .tableText{
     font-size: 12px;
@@ -39,44 +39,67 @@ font-weight: 600;
     text-align: center;
 }
 
+.tableS1{
+    color: black;
+    font-weight: 600;
+}
+.tableS2{
+    color: green;
+    font-weight: 600;
+}
+.tableS3{
+    color: red;
+    font-weight: 600;
+}
 
 .question{
     /*margin: 0 0 40px 0;*/
-    font-size: 1.2em;
+    font-size: 1.1em;
     /*padding: 0 20px 0 20px ;*/
 
 }
 .questionText{
-    text-indent: 10px;
+    text-indent: 30px;
     margin-top: 50px;
 margin-bottom: 30px;
+   background-color: #f3f0f0;
 }
 
 .boxRadio{
     font-family: Arial;
 
-    border: 1px solid blue;
+
 
 }
 
 
 .radio {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 10px;
+
 }
 
 .radioText{
     font-family: Arial;
-    font-size: 18px;
     line-height: 1.0;
+    font-size: 1.3em;
 }
 
 
 
 
 .correctAnswer{
-    /*margin: 20px 0 40px 0;*/
+    margin-top: 20px;
 }
 
 
+.buttonNext{
+   margin-top: 20px;
+    text-align: center;
+}
+.buttonNextText{
 
 
+}

@@ -34,16 +34,16 @@ const TestAnswer = () => {
             <div className={s.table}>
                 <div className={s.column}>
                     <div className={s.tableText}>кол-во пройденных вопросов</div>
-                    <div>60</div>
+                    <div className={s.tableS1}>60</div>
                 </div>
 
                 <div className={s.column}>
                     <div className={s.tableText}>кол-во правильных ответов</div>
-                    <div>40</div>
+                    <div className={s.tableS2}>40</div>
                 </div>
                 <div className={s.column}>
                     <div className={s.tableText}>кол-во ошибок</div>
-                    <div>20</div>
+                    <div className={s.tableS3}>20</div>
                 </div>
             </div>
 
@@ -73,7 +73,7 @@ const TestAnswer = () => {
                 рассматривать документы по вопросам промышленной безопасности
             </div>
 
-            <div><Button type="primary">следующий вопрос</Button></div>
+    <div className={s.buttonNext}><Button type="primary"><span className={s.buttonNextText} >СЛЕДУЮЩИЙ ВОПРОС</span></Button></div>
 
             <div>Литература:</div>
             <div>Закон Республики Беларусь от 5 января 2016 г. № 354-З «О промышленной безопасности». статья 30</div>
