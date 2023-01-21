@@ -2,6 +2,7 @@
 .body{
     padding: 0 10px 0 10px;
     font-family: Arial;
+    color: #0f0f10;
 }
 
 .nameTheme{
@@ -53,53 +54,59 @@ font-weight: 600;
 }
 
 .question{
-    /*margin: 0 0 40px 0;*/
-    font-size: 1.1em;
-    /*padding: 0 20px 0 20px ;*/
-
+    font-size: 17px;
 }
 .questionText{
-    text-indent: 30px;
-    margin-top: 50px;
-margin-bottom: 30px;
-   background-color: #f3f0f0;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+font-weight: 600;
+    text-align: center;
 }
 
 .boxRadio{
     font-family: Arial;
-
-
-
 }
 
 
 .radio {
-    margin-bottom: 0px;
-    border: 1px solid grey;
+    margin-bottom: 5px;
+    border: 1px solid #ece8e8;
     padding: 5px;
     border-radius: 10px;
 
+    /*box-shadow: 2px 2px 2px #b7b7bd;*/
 }
 
 .radioText{
     font-family: Arial;
+    color: #0f0f10;
     line-height: 1.0;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 
 
 
-.correctAnswer{
-    margin-top: 20px;
-}
 
 
 .buttonNext{
-   margin-top: 20px;
+   margin-top: 25px;
     text-align: center;
 }
 .buttonNextText{
+}
 
+.blokCorrectAnswer{
+    font-size: 14px;
+    margin-top: 40px;
+}
 
+.latin{
+   font-style: italic;
+}
+
+.hr{
+    width: 100%;
+    margin-bottom: 5px;
 }
