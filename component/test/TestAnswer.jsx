@@ -25,7 +25,7 @@ const TestAnswer = () => {
 
     <div className={s.question}><QuestionCircleOutlined style={{ fontSize: '24px' }}/>   Какими полномочиями наделен работник службы промышленной безопасности (инженер по промышленной безопасности,
     ответственное лицо, на которое возложены соответствующие обязанности)?</div>
-
+<div className={s.boxRadio}>
     <Radio.Group style={{
     }}onChange={onChange} >
         <Space direction="vertical">
@@ -37,6 +37,7 @@ const TestAnswer = () => {
                 <div className={s.radio}> <Radio value={3}><span className={s.radioText}>Регистрационный номер потенциально опасного объекта</span></Radio></div>
         </Space>
     </Radio.Group>
+</div>
 <div className={s.correctAnswer}>Правильный ответ:
     Проводить анализ состояния промышленной безопасности, соблюдения требований промышленной безопасности,
     рассматривать документы по вопросам промышленной безопасности</div>

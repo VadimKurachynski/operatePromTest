@@ -1,22 +1,28 @@
 .radio {
-    border: solid 1px grey;
-    font-size: 20px;
-   background-color: #f3e2c4;
+    /*border: solid 1px grey;*/
+    font-size: 16px;
+    margin-bottom: 20px;
 
 }
 
 .radioText{
-    font-size: 20px;
-    font-family: Arial;
+    font-size: 18px;
+
+
 }
 
 .question{
     margin: 20px 0px 40px 0px;
-    background-color: #f3e2c4;
+
     font-family: Arial;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .correctAnswer{
     margin: 20px 0px 40px 0px;
+}
+
+.boxRadio{
+    padding: 20px;
+    border: 1px solid grey;
 }

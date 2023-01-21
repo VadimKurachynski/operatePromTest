@@ -4,18 +4,14 @@ import HeadTest from "../head/HeadThemes";
 import s from "../layout/layout.module.css"
 import HeaderTest from "../header/Header";
 import FooterTest from "../footer/Footer";
-import {Roboto} from "@next/font/google";
 
 
-const roboto = Roboto({
-    weight: '400',
-    subsets: ['latin'],
-})
+
+
 
 const Layout = ({children}) => {
     return (
         <>
-            <div className={roboto.className}>
                 <HeadTest/>
                 <div className={s.wrapper}>
                     <HeaderTest/>
@@ -26,7 +22,6 @@ const Layout = ({children}) => {
                     </div>
                     <FooterTest/>
                 </div>
-            </div>
         </>
     )
 }

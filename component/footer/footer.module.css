@@ -1,7 +1,6 @@
 .footer{
-    /*position: fixed;*/
     width: 100%;
-    min-height: 100px;
+    min-height: 60px;
     background: #3a3937;
     z-index: 1001;
     color: #f1f5f3;

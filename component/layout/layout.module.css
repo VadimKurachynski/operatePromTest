@@ -1,24 +1,27 @@
 .wrapper{
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vm ;
     flex-direction: column;
-    background: #24ec93;
     color: #0f0f10;
+    border: 3px solid green;
 }
 
 .content{
-    margin: 0px;
     flex: 1 1 auto;
-    background: #ecd7af;
-    padding: 0 20px 0 20px;
+    background: #f5f2f1;
+   margin: 50px 0 0 0;
+    border:  3px solid blue ;
 }
 
 .container{
     max-width: 1200px;
     height: 100%;
-    /*border: 1px solid red;*/
-    margin: auto;
-    padding: 60px 0 50px 0;
-    /*padding: 20px;*/
-    background: #ecd7af;
+    margin:auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    background: #fdfdfe;
+    border: solid 1px red
+
 }
+
