@@ -5,6 +5,7 @@ import {Input, Radio, Space} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
+import Image from "next/image";
 
 const {Panel} = Collapse;
 const text = `
@@ -76,7 +77,16 @@ const TestAnswer = () => {
                         безопасности
                         (инженер по промышленной безопасности,
                         ответственное лицо, на которое возложены соответствующие обязанности)?
+                    </div>
 
+                    <div className={s.imageBox}>
+                        <Image
+                            src="/images__1.jpg"
+                            // src="next.svg"
+                            alt="Picture"
+                            width={100}
+                            height={100}
+                        />
                     </div>
                 </div>
                 <div className={s.boxRadio}>
