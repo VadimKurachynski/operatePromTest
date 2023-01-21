@@ -6,23 +6,35 @@
 }
 
 .radioText{
-    font-size: 18px;
 
-
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 1.0;
 }
 
 .question{
-    margin: 20px 0px 40px 0px;
+    margin: 0 0 40px 0;
+    font-size: 1.1em;
+    padding: 0 20px 0 20px ;
 
-    font-family: Arial;
-    font-size: 18px;
 }
 
+.questionText{
+    text-indent: 50px;
+
+}
 .correctAnswer{
-    margin: 20px 0px 40px 0px;
+    margin: 20px 0 40px 0;
 }
 
 .boxRadio{
-    padding: 20px;
-    border: 1px solid grey;
+
+    border: 1px solid blue;
+
+}
+
+.boxCountQuestions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

@@ -22,9 +22,21 @@ const TestAnswer = () => {
     return(
 <>
 
+    {/*<QuestionCircleOutlined style={{ fontSize: '30px' }}/>*/}
+    <div>Тема 01 - Председатель (заместитель председателя) комиссии для проверки знаний по вопросам промышленной безопасности, созданной в субъекте промышленной безопасности</div>
+    <div className={s.boxCountQuestions}><div>Вопрос № 1</div> <div>Вопросов: 80</div></div>
 
-    <div className={s.question}><QuestionCircleOutlined style={{ fontSize: '24px' }}/>   Какими полномочиями наделен работник службы промышленной безопасности (инженер по промышленной безопасности,
-    ответственное лицо, на которое возложены соответствующие обязанности)?</div>
+<div>
+    <div>кол-во пройденных вопросов</div>
+    <div>кол-во правильных ответов</div>
+    <div>кол-во ошибок</div>
+    <div>60</div>
+    <div>40</div>
+    <div>20</div>
+</div>
+
+    <div className={s.question}>    <div className={s.questionText}> Какими полномочиями наделен работник службы промышленной безопасности (инженер по промышленной безопасности,
+    ответственное лицо, на которое возложены соответствующие обязанности)?</div></div>
 <div className={s.boxRadio}>
     <Radio.Group style={{
     }}onChange={onChange} >
