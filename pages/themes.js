@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import s from "../styles/themes.module.css";
+import s from "../component/theme/themes.module.css";
 import {Roboto} from '@next/font/google'
 import Theme from "../component/theme/Theme";
 import {useDispatch, useSelector} from "react-redux";

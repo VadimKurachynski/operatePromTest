@@ -8,8 +8,8 @@
     margin: 0 20px 0px 20px;
     min-width: 300px;
     opacity: 1;
+    padding-bottom: 20px;
 }
-
 
 .myflexcont:hover {
     opacity: 0.6;
@@ -22,7 +22,6 @@
     background: #f1f5f3;
 }
 
-
 .myflexboxName  {
     flex: 1 1 auto;
     box-shadow: 2px 5px 5px grey;
@@ -34,6 +33,7 @@
     color: #080c33;
     margin: 8px 0 0 0;
     opacity: 1;
+    border: 1px solid #4c3807;
 }
 .myflexboxText  {
     flex: 1 1 auto;
@@ -47,9 +47,6 @@
 .myflexboxText:hover .myflexboxName{
     opacity: 0.6;
 }
-/*.myflexboxName:hover{*/
-/*    opacity: 0.6;*/
-/*}*/
 
 @media screen and (max-width: 600px) {
     .myflexcont{
