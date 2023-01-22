@@ -82,7 +82,7 @@ const TestAnswer = () => {
                     <div className={s.imageBox}>
                         <Image
                             src="/images__1.jpg"
-                            // src="next.svg"
+
                             alt="Picture"
                             width={100}
                             height={100}
