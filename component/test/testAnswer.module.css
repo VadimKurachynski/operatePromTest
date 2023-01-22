@@ -36,8 +36,9 @@ font-weight: 600;
 }
 .tableText{
     font-size: 12px;
-    padding: 3px;
+    font-weight: 600;
     text-align: center;
+    line-height: 1.0;
 }
 
 .tableS1{

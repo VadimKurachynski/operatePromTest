@@ -34,10 +34,11 @@ const TestAnswer = () => {
         <>
             <div className={s.body}>
 
-                <Collapse  onChangePanel={onChangePanel}>
-                    <Panel  header="Тема 01--Вопрос 1 из 80" key="1">
+                <Collapse onChangePanel={onChangePanel}>
+                    <Panel header="Тема 01--Вопрос 1 из 80" key="1">
 
-                        <div className={s.nameTheme}>Тема 01 - Председатель (заместитель председателя) комиссии для проверки
+                        <div className={s.nameTheme}>Тема 01 - Председатель (заместитель председателя) комиссии для
+                            проверки
                             знаний по вопросам промышленной
                             безопасности, созданной в субъекте промышленной безопасности
                         </div>
@@ -47,31 +48,30 @@ const TestAnswer = () => {
                         </div>
 
 
-
-                        <Tooltip title="3 done / 3 in progress / 4 to do">
-                            <Progress format={(percent) => `${percent} Days`}
-                                percent={500}
-                                success={{
-                                    percent: 10,
-
-                                }}
-                                type="circle"
-                            />
-                        </Tooltip>
-
                         <div className={s.table}>
+
+
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во пройденных вопросов</div>
                                 <div className={s.tableS1}>60</div>
+                                <div className={s.tableS1}>
+                                    <Progress type="circle" percent={10} strokeColor="blue" width={50}/>
+                                </div>
                             </div>
 
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во правильных ответов</div>
                                 <div className={s.tableS2}>40</div>
+                                <div className={s.tableS2}>
+                                    <Progress type="circle" percent={75} strokeColor="green" width={50}/>
+                                </div>
                             </div>
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во ошибок</div>
                                 <div className={s.tableS3}>20</div>
+                                <div className={s.tableS3}>
+                                    <Progress type="circle" percent={10} strokeColor="red" width={50}/>
+                                </div>
                             </div>
                         </div>
 
@@ -79,13 +79,10 @@ const TestAnswer = () => {
                 </Collapse>
 
 
-
-
-
-
                 <div className={s.question}>
 
-                    <div className={s.questionText}> <QuestionCircleOutlined style={{ fontSize: '25px' }}/><br/> Какими полномочиями наделен работник службы промышленной
+                    <div className={s.questionText}><QuestionCircleOutlined style={{fontSize: '25px'}}/><br/> Какими
+                        полномочиями наделен работник службы промышленной
                         безопасности
                         (инженер по промышленной безопасности,
                         ответственное лицо, на которое возложены соответствующие обязанности)?
@@ -124,22 +121,19 @@ const TestAnswer = () => {
                     {/*<hr className={s.hr}/>*/}
 
 
-
-                    <Collapse  onChangePanel={onChangePanel}>
-                        <Panel  header="Литература" key="1">
+                    <Collapse onChangePanel={onChangePanel}>
+                        <Panel header="Литература" key="1">
                             <div><span className={s.latin}> Правильный ответ:</span></div>
                             Проводить анализ состояния промышленной безопасности, соблюдения требований промышленной
                             безопасности, рассматривать документы по вопросам промышленной безопасности
                             <br/>
                             <br/>
                             <div><span className={s.latin}> Литература:</span></div>
-                            <div>Закон Республики Беларусь от 5 января 2016 г. № 354-З «О промышленной безопасности». статья 30
+                            <div>Закон Республики Беларусь от 5 января 2016 г. № 354-З «О промышленной безопасности».
+                                статья 30
                             </div>
                         </Panel>
                     </Collapse>
-
-
-
 
 
                 </div>
