@@ -54,22 +54,22 @@ const TestAnswer = () => {
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во пройденных вопросов</div>
                                 <div className={s.tableS1}>60</div>
-                                <div className={s.tableS1}>
-                                    <Progress type="circle" percent={10} strokeColor="blue" width={50}/>
+                                <div className={s.circular}>
+                                    <Progress type="circle" percent={45} strokeColor="blue" width={50}/>
                                 </div>
                             </div>
 
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во правильных ответов</div>
                                 <div className={s.tableS2}>40</div>
-                                <div className={s.tableS2}>
+                                <div className={s.circular}>
                                     <Progress type="circle" percent={75} strokeColor="green" width={50}/>
                                 </div>
                             </div>
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во ошибок</div>
                                 <div className={s.tableS3}>20</div>
-                                <div className={s.tableS3}>
+                                <div className={s.circular}>
                                     <Progress type="circle" percent={10} strokeColor="red" width={50}/>
                                 </div>
                             </div>
