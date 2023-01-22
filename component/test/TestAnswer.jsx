@@ -1,7 +1,7 @@
 import s from "../test/testAnswer.module.css";
 import {useState} from 'react';
 import {useSelector} from "react-redux";
-import {Input, Radio, Space} from 'antd';
+import {Radio, Space, Progress, Tooltip} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
@@ -46,6 +46,18 @@ const TestAnswer = () => {
                             <div>Вопросов: 80</div>
                         </div>
 
+
+
+                        <Tooltip title="3 done / 3 in progress / 4 to do">
+                            <Progress format={(percent) => `${percent} Days`}
+                                percent={500}
+                                success={{
+                                    percent: 10,
+
+                                }}
+                                type="circle"
+                            />
+                        </Tooltip>
 
                         <div className={s.table}>
                             <div className={s.column}>
