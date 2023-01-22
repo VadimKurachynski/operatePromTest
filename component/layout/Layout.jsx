@@ -12,7 +12,7 @@ import FooterTest from "../footer/Footer";
 const Layout = ({children}) => {
     return (
         <>
-                <HeadTest/>
+            <HeadTest/>
                 <div className={s.wrapper}>
                     <HeaderTest/>
                     <div className={s.content}>

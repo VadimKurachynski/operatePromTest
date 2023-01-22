@@ -8,6 +8,7 @@
 .nameTheme{
 font-weight: 600;
     text-align: center;
+    font-size: 14px;
 }
 
 .boxCountQuestions{
@@ -33,9 +34,10 @@ font-weight: 600;
     border: 1px solid #4c3807;
     justify-content: space-between;
     width: 90px;
+    font-size: 16px;
 }
 .tableText{
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     text-align: center;
     line-height: 1.0;
@@ -45,6 +47,7 @@ font-weight: 600;
 .tableS1{
     color: black;
     font-weight: 600;
+    font-size: 16px;
 }
 .tableS2{
     color: green;
@@ -69,6 +72,7 @@ font-weight: 600;
     margin-bottom: 30px;
 font-weight: 600;
     text-align: center;
+    box-shadow: 3px 3px 3px #b7b7bd;
 }
 
 .boxRadio{
@@ -78,11 +82,10 @@ font-weight: 600;
 
 .radio {
     margin-bottom: 5px;
-    border: 1px solid #ece8e8;
+    border: 2px solid #ece8e8;
     padding: 5px;
     border-radius: 10px;
-
-    /*box-shadow: 2px 2px 2px #b7b7bd;*/
+    box-shadow: 2px 2px 2px #b7b7bd;
 }
 
 .radioText{

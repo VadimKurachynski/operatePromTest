@@ -1,16 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import s from "../component/theme/themes.module.css";
-import {Roboto} from '@next/font/google'
 import Theme from "../component/theme/Theme";
 import {useDispatch, useSelector} from "react-redux";
 import {getThemes} from "../features/themes/themesSlice";
 
 
 
-const roboto = Roboto({
-    weight: '400',
-    subsets: ['latin'],
-})
+
 
 
 const PageThemes = () => {

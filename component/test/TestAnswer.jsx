@@ -1,11 +1,12 @@
 import s from "../test/testAnswer.module.css";
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {Radio, Space, Progress, Tooltip} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
+import HeadTest from "../head/HeadThemes";
 
 const {Panel} = Collapse;
 const text = `

@@ -17,7 +17,7 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
 }) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
     dispatch(setQuestionsSelectTheme(res.data))
-    console.log(res.data)
+
 })
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {

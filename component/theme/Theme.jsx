@@ -21,14 +21,14 @@ const Theme = (props) => {
     const [inputValueTwo, setInputValueTwo] = useState(countQuections);
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
-    const [disabledMixQuestions, setdisabledMixQuestions] = useState(false);
-    const [disabledMixAnswers, setdisabledMixAnswers] = useState(true);
+    const [disabledMixQuestions, setDisabledMixQuestions] = useState(false);
+    const [disabledMixAnswers, setDisabledMixAnswers] = useState(true);
 
     const onChangeMixQuestions = (checked) => {
-        setdisabledMixQuestions(checked);
+        setDisabledMixQuestions(checked);
     };
     const onChangeMixAnswers = (checked) => {
-        setdisabledMixAnswers(checked);
+        setDisabledMixAnswers(checked);
     };
     const onChange = (checked) => {
         setDisabledRange(checked);
@@ -70,7 +70,6 @@ const startTest=(e)=>{
                 <div className={s.myflexboxName}>{theme}</div>
                 <div className={s.myflexboxText}>{text}</div>
             </div>
-
             <div className={s.myButtonFlex} style={{display: disabledSwitchBlock ? "block" : "none"}}>
                 <div className={s.allBlock}>
                     <div className={s.nameBloсk}>
