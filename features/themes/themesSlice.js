@@ -6,19 +6,40 @@ const initialState = {
     themes: [],
     questionsSelectTheme: [],
     selectTheme: 0,
-    selectQuestionsRange:[],
+    selectQuestionsRange: [],
     mixQuestions: false,
     mixAnswers: true,
 }
 
-export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (numberThemes, {
-    rejectWithValue,
-    dispatch
-}) => {
+// export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (numberThemes, {
+//     rejectWithValue,
+//     dispatch
+// }) => {
+//     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
+//     console.log(res.data)
+//
+//     dispatch(setQuestionsSelectTheme(res.data))
+//
+// })
+
+export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async ({
+                                                                                        numberThemes,
+                                                                                        inputValueOne,
+                                                                                        inputValueTwo,
+                                                                                        disabledMixQuestions,
+                                                                                        disabledMixAnswers,
+                                                                                    }, {
+                                                                                        rejectWithValue,
+                                                                                        dispatch
+                                                                                    }) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
+    console.log(disabledMixQuestions,
+        disabledMixAnswers)
+
     dispatch(setQuestionsSelectTheme(res.data))
 
 })
+
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.get('http://localhost:5000/api/themesname', {withCredentials: true})
@@ -36,19 +57,22 @@ export const themesSlice = createSlice({
             state.selectTheme = action.payload
         },
         setQuestionsSelectTheme: (state, action) => {
+
             state.questionsSelectTheme = action.payload
         },
         setQuestionsSelectThemeRandom: (state, action) => {
+            console.log(action.payload)
+
             state.questionsSelectTheme = action.payload
         },
         setThemeSetting: (state, action) => {
-            const {inputValueOne,inputValueTwo,disabledMixQuestions,disabledMixAnswers}=action.payload;
-            state.mixQuestions=disabledMixQuestions;
-            state.mixAnswers=disabledMixAnswers;
-            if(inputValueOne<inputValueTwo){
-                state.selectQuestionsRange=[inputValueOne,inputValueTwo]
-            }else {
-                state.selectQuestionsRange=[inputValueTwo,inputValueOne]
+            const {inputValueOne, inputValueTwo, disabledMixQuestions, disabledMixAnswers} = action.payload;
+            state.mixQuestions = disabledMixQuestions;
+            state.mixAnswers = disabledMixAnswers;
+            if (inputValueOne < inputValueTwo) {
+                state.selectQuestionsRange = [inputValueOne, inputValueTwo]
+            } else {
+                state.selectQuestionsRange = [inputValueTwo, inputValueOne]
             }
 
         },
@@ -64,5 +88,11 @@ export const themesSlice = createSlice({
     // }
 })
 
-export const {setThemes, setSelectTheme, setQuestionsSelectTheme,setThemeSetting, setQuestionsSelectThemeRandom} = themesSlice.actions
+export const {
+    setThemes,
+    setSelectTheme,
+    setQuestionsSelectTheme,
+    setThemeSetting,
+    setQuestionsSelectThemeRandom
+} = themesSlice.actions
 export default themesSlice.reducer

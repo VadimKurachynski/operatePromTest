@@ -55,14 +55,23 @@ const Theme = (props) => {
     }
 
 const startTest=(e)=>{
-     dispatch(getThemeQuestions(e.currentTarget.id));
+     dispatch(getThemeQuestions({
+         numberThemes:e.currentTarget.id,
+         inputValueOne:inputValueOne,
+         inputValueTwo:inputValueTwo,
+         disabledMixQuestions:disabledMixQuestions,
+         disabledMixAnswers:disabledMixAnswers,
+
+     }));
+
+    // dispatch(setThemeSetting({
+    //     inputValueOne:inputValueOne,
+    //     inputValueTwo:inputValueTwo,
+    //     disabledMixQuestions:disabledMixQuestions,
+    //     disabledMixAnswers:disabledMixAnswers}));
     // router.push('/test')
-    dispatch(setThemeSetting({
-        inputValueOne:inputValueOne,
-        inputValueTwo:inputValueTwo,
-        disabledMixQuestions:disabledMixQuestions,
-        disabledMixAnswers:disabledMixAnswers}));
 }
+
 
     return (
         <>
