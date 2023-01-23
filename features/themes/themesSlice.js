@@ -33,11 +33,14 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
                                                                                         dispatch
                                                                                     }) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
-    console.log(disabledMixQuestions,
-        disabledMixAnswers)
+    const massiv = [...res.data]
 
+    massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
+    const massfiltr = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
+
+    const massRandom=massfiltr.sort(()=>0.5-Math.random())
+    console.log(massRandom)
     dispatch(setQuestionsSelectTheme(res.data))
-
 })
 
 
@@ -69,11 +72,7 @@ export const themesSlice = createSlice({
             const {inputValueOne, inputValueTwo, disabledMixQuestions, disabledMixAnswers} = action.payload;
             state.mixQuestions = disabledMixQuestions;
             state.mixAnswers = disabledMixAnswers;
-            if (inputValueOne < inputValueTwo) {
-                state.selectQuestionsRange = [inputValueOne, inputValueTwo]
-            } else {
-                state.selectQuestionsRange = [inputValueTwo, inputValueOne]
-            }
+
 
         },
     },
