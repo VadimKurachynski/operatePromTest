@@ -11,16 +11,7 @@ const initialState = {
     mixAnswers: true,
 }
 
-// export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async (numberThemes, {
-//     rejectWithValue,
-//     dispatch
-// }) => {
-//     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
-//     console.log(res.data)
-//
-//     dispatch(setQuestionsSelectTheme(res.data))
-//
-// })
+
 
 export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async ({
                                                                                         numberThemes,
@@ -40,7 +31,8 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
 
     const massRandom=massfiltr.sort(()=>0.5-Math.random())
     console.log(massRandom)
-    dispatch(setQuestionsSelectTheme(res.data))
+    // dispatch(setQuestionsSelectTheme(res.data))
+    dispatch(setQuestionsSelectTheme(massRandom))
 })
 
 

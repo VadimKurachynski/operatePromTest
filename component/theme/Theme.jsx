@@ -61,7 +61,6 @@ const startTest=(e)=>{
          inputValueTwo:inputValueTwo,
          disabledMixQuestions:disabledMixQuestions,
          disabledMixAnswers:disabledMixAnswers,
-
      }));
 
     // dispatch(setThemeSetting({
@@ -69,7 +68,7 @@ const startTest=(e)=>{
     //     inputValueTwo:inputValueTwo,
     //     disabledMixQuestions:disabledMixQuestions,
     //     disabledMixAnswers:disabledMixAnswers}));
-    // router.push('/test')
+    //  router.push('/test')
 }
 
 

@@ -9,15 +9,13 @@ import Image from "next/image";
 import HeadTest from "../head/HeadThemes";
 
 const {Panel} = Collapse;
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
+
 
 const TestAnswer = () => {
-    const {themes, selectTheme, questionsSelectTheme} = useSelector((state) => state.themes)
+    const {selectTheme, questionsSelectTheme} = useSelector((state) => state.themes)
+
     const [value, setValue] = useState(1);
+    const [number, setNumber] = useState(1);
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
@@ -27,16 +25,14 @@ const TestAnswer = () => {
     };
 
 
-    const arraySort = [...questionsSelectTheme]
-    arraySort.sort((x, y) => x.nomvoprosa - y.nomvoprosa);
-    arraySort.sort(() => 0.5 - Math.random());
 
+    const t=`Тема -- Вопрос 1 из 80`;
     return (
         <>
             <div className={s.body}>
 
                 <Collapse onChangePanel={onChangePanel}>
-                    <Panel header="Тема 01--Вопрос 1 из 80" key="1">
+                    <Panel header={t} key="1">
 
                         <div className={s.nameTheme}>Тема 01 - Председатель (заместитель председателя) комиссии для
                             проверки
