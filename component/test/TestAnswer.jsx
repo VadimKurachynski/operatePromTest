@@ -12,8 +12,9 @@ const {Panel} = Collapse;
 
 
 const TestAnswer = (props) => {
-
-
+    const lengthQuestions = props.questionsSelectTheme.length;
+    const selectTheme = props.selectTheme;
+    const questionsSelectTheme = props.questionsSelectTheme;
     const [value, setValue] = useState(1);
     const [number, setNumber] = useState(1);
     const onChange = (e) => {
@@ -24,8 +25,8 @@ const TestAnswer = (props) => {
         console.log(key);
     };
 
-    // const t=`Тема ${ggg} -- Вопрос 1 из 80`;
-    const t="ghjgvhj"
+     const t=`Тема ${selectTheme} -- Вопрос 1 из ${lengthQuestions}`;
+
     return (
         <>
             <div className={s.body}>
@@ -39,7 +40,7 @@ const TestAnswer = (props) => {
                         </div>
                         <div className={s.boxCountQuestions}>
                             <div>Вопрос № 1</div>
-                            <div>Вопросов: 80</div>
+                            <div>Вопросов: {lengthQuestions}</div>
                         </div>
 
 

@@ -9,12 +9,14 @@ import {useSelector} from "react-redux";
 
 
 const PageTest = () => {
-    const {themes, selectTheme} = useSelector((state) => state.themes)
-    console.log(selectTheme,themes)
+    console.log("я на странице pageTest")
+    const {selectTheme,questionsSelectTheme} = useSelector((state) => state.themes)
+
+
 
     return (
         <>
-            <TestAnswer selectTheme={selectTheme}/>
+            <TestAnswer selectTheme={selectTheme} questionsSelectTheme={questionsSelectTheme} />
         </>
     )
 }
