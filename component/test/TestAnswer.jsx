@@ -11,8 +11,8 @@ import HeadTest from "../head/HeadThemes";
 const {Panel} = Collapse;
 
 
-const TestAnswer = () => {
-    const {selectTheme, questionsSelectTheme} = useSelector((state) => state.themes)
+const TestAnswer = (props) => {
+
 
     const [value, setValue] = useState(1);
     const [number, setNumber] = useState(1);
@@ -24,13 +24,11 @@ const TestAnswer = () => {
         console.log(key);
     };
 
-
-
-    const t=`Тема -- Вопрос 1 из 80`;
+    // const t=`Тема ${ggg} -- Вопрос 1 из 80`;
+    const t="ghjgvhj"
     return (
         <>
             <div className={s.body}>
-
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={t} key="1">
 
