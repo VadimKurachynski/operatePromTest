@@ -1,12 +1,12 @@
 import s from "../test/testAnswer.module.css";
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
-import {Radio, Space, Progress, Tooltip} from 'antd';
+import { Radio, Space, Progress, Tooltip} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
-import HeadTest from "../head/HeadThemes";
+import {getThemeQuestions} from "../../features/themes/themesSlice";
 
 const {Panel} = Collapse;
 
@@ -16,16 +16,25 @@ const TestAnswer = (props) => {
     const selectTheme = props.selectTheme;
     const questionsSelectTheme = props.questionsSelectTheme;
     const [value, setValue] = useState(1);
-    const [number, setNumber] = useState(1);
+    const [num, setNum] = useState(1);
+    const [checkedRadio, setCheckedRadio] = useState(0);
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
+        setCheckedRadio(checkedRadio+1);
     };
     const onChangePanel = (key) => {
         console.log(key);
     };
 
-     const t=`Тема ${selectTheme} -- Вопрос 1 из ${lengthQuestions}`;
+     const t=`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`;
+    const startNew=()=>{
+        setNum(num + 1);
+        setCheckedRadio(checkedRadio+1);
+        console.log(checkedRadio)
+        };
+
+
 
     return (
         <>
@@ -33,13 +42,13 @@ const TestAnswer = (props) => {
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={t} key="1">
 
-                        <div className={s.nameTheme}>Тема 01 - Председатель (заместитель председателя) комиссии для
+                        <div className={s.nameTheme}>Тема {selectTheme} - Председатель (заместитель председателя) комиссии для
                             проверки
                             знаний по вопросам промышленной
                             безопасности, созданной в субъекте промышленной безопасности
                         </div>
                         <div className={s.boxCountQuestions}>
-                            <div>Вопрос № 1</div>
+                            <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
 
@@ -77,11 +86,7 @@ const TestAnswer = (props) => {
 
                 <div className={s.question}>
 
-                    <div className={s.questionText}><QuestionCircleOutlined style={{fontSize: '25px'}}/><br/> Какими
-                        полномочиями наделен работник службы промышленной
-                        безопасности
-                        (инженер по промышленной безопасности,
-                        ответственное лицо, на которое возложены соответствующие обязанности)?
+                    <div className={s.questionText}><QuestionCircleOutlined style={{fontSize: '25px'}}/><br/> {questionsSelectTheme[num].vopros}
                     </div>
 
                     <div className={s.imageBox}>
@@ -95,38 +100,33 @@ const TestAnswer = (props) => {
                     </div>
                 </div>
                 <div className={s.boxRadio}>
-                    <Radio.Group style={{}} onChange={onChange}>
+                    <Radio.Group   onChange={onChange} value={2}>
                         <Space direction="vertical">
-                            <div className={s.radio}><Radio value={1}><span className={s.radioText}> отметка (ставится штамп) «зарегистрировано»</span></Radio>
+                            <div className={s.radio}><Radio  value={1} checked={checkedRadio === 0}> <span className={s.radioText}> {questionsSelectTheme[num].otvet1}</span></Radio>
                             </div>
-                            <div className={s.radio}><Radio value={2}><span className={s.radioText}>Делается отметка (ставится штамп) о регистрации потенциально
-                опасного объекта с указанием регистрирующего органа, регистрационного номера,
-                даты регистрации и фамилии, собственного имени, отчества (если таковое имеется)
-                должностного лица регистрирующего органа</span></Radio></div>
-                            <div className={s.radio}><Radio value={3}><span className={s.radioText}>Регистрационный номер потенциально опасного объекта</span></Radio>
+                            <div className={s.radio}><Radio  value={2} checked="true"> <span className={s.radioText}>{questionsSelectTheme[num].otvet2}</span></Radio></div>
+                            <div className={s.radio}><Radio  value={3} > <span className={s.radioText}>{questionsSelectTheme[num].otvet3}</span></Radio>
                             </div>
                         </Space>
                     </Radio.Group>
                 </div>
 
 
-                <div className={s.buttonNext}><Button type="primary"><span
+                <div className={s.buttonNext}><Button onClick={startNew}
+                type="primary"><span
                     className={s.buttonNextText}>СЛЕДУЮЩИЙ ВОПРОС</span></Button></div>
-
                 <div className={s.blokCorrectAnswer}>
-                    {/*<hr className={s.hr}/>*/}
+
 
 
                     <Collapse onChangePanel={onChangePanel}>
                         <Panel header="Литература" key="1">
                             <div><span className={s.latin}> Правильный ответ:</span></div>
-                            Проводить анализ состояния промышленной безопасности, соблюдения требований промышленной
-                            безопасности, рассматривать документы по вопросам промышленной безопасности
+                            {questionsSelectTheme[num].pravotvet}
                             <br/>
                             <br/>
                             <div><span className={s.latin}> Литература:</span></div>
-                            <div>Закон Республики Беларусь от 5 января 2016 г. № 354-З «О промышленной безопасности».
-                                статья 30
+                            <div> {questionsSelectTheme[num].podskazka}
                             </div>
                         </Panel>
                     </Collapse>
@@ -135,6 +135,16 @@ const TestAnswer = (props) => {
                 </div>
 
             </div>
+
+            <Radio.Group label="Options" defaultValue="A">
+                <Radio value="A">Option A</Radio>
+                <Radio value="B">Option B</Radio>
+                <Radio value="C">Option C</Radio>
+                <Radio value="D">Option D</Radio>
+            </Radio.Group>
+
+
+
         </>
     )
 }

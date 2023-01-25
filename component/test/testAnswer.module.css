@@ -76,16 +76,21 @@ font-weight: 600;
 }
 
 .boxRadio{
+    display: flex;
     font-family: Arial;
+
+    justify-content: center;
 }
 
 
 .radio {
     margin-bottom: 5px;
+
     border: 2px solid #ece8e8;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px #b7b7bd;
+
 }
 
 .radioText{
