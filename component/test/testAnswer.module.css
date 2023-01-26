@@ -102,8 +102,12 @@ font-weight: 600;
 
 
 
-
-
+.radioAnswerOK{
+    background:#a3ffa7;
+}
+.radioAnswerNO{
+    background:#ff8983;
+}
 
 .buttonNext{
    margin-top: 25px;

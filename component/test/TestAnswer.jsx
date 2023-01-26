@@ -7,7 +7,7 @@ import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
 import {getThemeQuestions} from "../../features/themes/themesSlice";
-
+import cn from 'classnames';
 const {Panel} = Collapse;
 
 
@@ -15,10 +15,11 @@ const TestAnswer = (props) => {
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const questionsSelectTheme = props.questionsSelectTheme;
-    const [valueRadio, setValueRadio] = useState(1);
+    const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
+    const correctAnswer=questionsSelectTheme[num].nompravotveta;
     const [clickButton, setClickButton] = useState(false);
-    const onChange = (e) => {
+    const onChangeRadio = (e) => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
@@ -32,7 +33,7 @@ const TestAnswer = (props) => {
     const t = `Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`;
     const startNew = () => {
         setNum(num + 1);//следующий вопрос
-        // setValueRadio(0);
+       setValueRadio(0);
         setClickButton(false)
     };
 
@@ -103,11 +104,12 @@ const TestAnswer = (props) => {
                     </div>
                 </div>
                 <div className={s.boxRadio}>
-                    <Radio.Group onChange={onChange} value={valueRadio}>
+                    <Radio.Group onChange={onChangeRadio} value={valueRadio}>
                         <Space direction="vertical">
-                            <div className={s.radio}
-                                 style={questionsSelectTheme[num].nompravotveta === 1 ? {background: '#ff8983'} : {background: '#acffc5'}}>
-                                <Radio value={1}> <span
+
+                                <div   className={cn(s.radio,(correctAnswer===1 && valueRadio===1)? s.radioAnswerOK:s.radioAnswerNO)}>
+
+                                <Radio value={1} > <span
                                     className={s.radioText}> {questionsSelectTheme[num].otvet1}</span></Radio>
                             </div>
                             <div className={s.radio}><Radio value={2}> <span
@@ -127,7 +129,7 @@ const TestAnswer = (props) => {
                 <div className={s.blokCorrectAnswer}>
 
 
-                    <Collapse onChangePanel={onChangePanel}>
+                    <Collapse onChangePanel={onChangePanel} style={clickButton ? {display: 'block'} : {display: 'none'}}>
                         <Panel header="Литература" key="1">
                             <div><span className={s.latin}> Правильный ответ:</span></div>
                             {questionsSelectTheme[num].pravotvet}
