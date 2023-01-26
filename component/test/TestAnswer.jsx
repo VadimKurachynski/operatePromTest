@@ -19,11 +19,21 @@ const TestAnswer = (props) => {
     const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
     const [clickButton, setClickButton] = useState(false);
+    const [disabledRadio, setDisabledRadio] = useState(false);
+    const [correct, setCorrect]=useState(0);
+    const [noCorrect, setNoCorrect]=useState(0);
+
     const onChangeRadio = (e) => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
+        setDisabledRadio(true);
+        (e.target.value===correctAnswer)?setCorrect(correct+1):setNoCorrect(noCorrect+1)
     };
+    const p1=(100*(correct+noCorrect)/lengthQuestions).toFixed(0);
+    const p2=(100*(correct)/lengthQuestions).toFixed(0);
+    const p3=(100*(noCorrect)/lengthQuestions).toFixed(0);
+    debugger
     const onChangePanel = (key) => {
         console.log(key);
     };
@@ -32,6 +42,7 @@ const TestAnswer = (props) => {
         setNum(num + 1);//следующий вопрос
         setValueRadio(0);
         setClickButton(false)
+        setDisabledRadio(false);
     };
 
     const correctAnswer = questionsSelectTheme[num].nompravotveta;
@@ -46,7 +57,7 @@ const TestAnswer = (props) => {
             correctAnswer !== x && valueRadio === x && s.radioAnswerNO,
             correctAnswer === x && valueRadio !== x && valueRadio !== 0 && s.radioAnswerOK,
         )}>
-            <Radio value={x}> <span className={s.radioText}> {questions[x-1]}</span></Radio>
+            <Radio value={x} disabled={disabledRadio}> <span className={s.radioText}> {questions[x-1]}</span></Radio>
         </div>
     );
 
@@ -75,24 +86,24 @@ const TestAnswer = (props) => {
 
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во пройденных вопросов</div>
-                                <div className={s.tableS1}>60</div>
+                                <div className={s.tableS1}>{noCorrect+correct}</div>
                                 <div className={s.circular}>
-                                    <Progress type="circle" percent={45} strokeColor="blue" width={50}/>
+                                    <Progress type="circle" percent={p1} strokeColor="blue" width={50}/>
                                 </div>
                             </div>
 
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во правильных ответов</div>
-                                <div className={s.tableS2}>40</div>
+                                <div className={s.tableS2}>{correct}</div>
                                 <div className={s.circular}>
-                                    <Progress type="circle" percent={75} strokeColor="green" width={50}/>
+                                    <Progress type="circle" percent={p2} strokeColor="green" width={50}/>
                                 </div>
                             </div>
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во ошибок</div>
-                                <div className={s.tableS3}>20</div>
+                                <div className={s.tableS3}>{noCorrect}</div>
                                 <div className={s.circular}>
-                                    <Progress type="circle" percent={10} strokeColor="red" width={50}/>
+                                    <Progress type="circle" percent={p3} strokeColor="red" width={50}/>
                                 </div>
                             </div>
                         </div>
