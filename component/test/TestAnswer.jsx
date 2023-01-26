@@ -17,21 +17,21 @@ const TestAnswer = (props) => {
     const questionsSelectTheme = props.questionsSelectTheme;
     const [value, setValue] = useState(1);
     const [num, setNum] = useState(1);
-    const [checkedRadio, setCheckedRadio] = useState(0);
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
         setValue(e.target.value);
-        setCheckedRadio(checkedRadio+1);
+
     };
+
+
     const onChangePanel = (key) => {
         console.log(key);
     };
 
      const t=`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`;
     const startNew=()=>{
-        setNum(num + 1);
-        setCheckedRadio(checkedRadio+1);
-        console.log(checkedRadio)
+        setNum(num + 1);//следующий вопрос
+        setValue(0);
         };
 
 
@@ -100,12 +100,13 @@ const TestAnswer = (props) => {
                     </div>
                 </div>
                 <div className={s.boxRadio}>
-                    <Radio.Group   onChange={onChange} value={2}>
+                    <Radio.Group   onChange={onChange} value={value}>
                         <Space direction="vertical">
-                            <div className={s.radio}><Radio  value={1} checked={checkedRadio === 0}> <span className={s.radioText}> {questionsSelectTheme[num].otvet1}</span></Radio>
+                            <div className={s.radio} style={value===1?{ background:'#ff8983', color:"#ff8983"} : {background:'#acffc5'}}><Radio  value={1}> <span className={s.radioText} > {questionsSelectTheme[num].otvet1}</span></Radio>
+
                             </div>
-                            <div className={s.radio}><Radio  value={2} checked="true"> <span className={s.radioText}>{questionsSelectTheme[num].otvet2}</span></Radio></div>
-                            <div className={s.radio}><Radio  value={3} > <span className={s.radioText}>{questionsSelectTheme[num].otvet3}</span></Radio>
+                            <div className={s.radio}><Radio  value={2}> <span className={s.radioText}>{questionsSelectTheme[num].otvet2}</span></Radio></div>
+                            <div className={s.radio}><Radio  value={3}> <span className={s.radioText}>{questionsSelectTheme[num].otvet3}</span></Radio>
                             </div>
                         </Space>
                     </Radio.Group>
@@ -136,12 +137,7 @@ const TestAnswer = (props) => {
 
             </div>
 
-            <Radio.Group label="Options" defaultValue="A">
-                <Radio value="A">Option A</Radio>
-                <Radio value="B">Option B</Radio>
-                <Radio value="C">Option C</Radio>
-                <Radio value="D">Option D</Radio>
-            </Radio.Group>
+
 
 
 

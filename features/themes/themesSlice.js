@@ -1,6 +1,7 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import {useSelector} from "react-redux";
+import { useRouter } from 'next/router'
 
 const initialState = {
     themes: [],
@@ -25,14 +26,12 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
                                                                                     }) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
     const massiv = [...res.data]
-
     massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
     const massfiltr = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
-
     const massRandom=massfiltr.sort(()=>0.5-Math.random())
-    console.log(massRandom)
     // dispatch(setQuestionsSelectTheme(res.data))
     dispatch(setQuestionsSelectTheme(massRandom))
+
 })
 
 
