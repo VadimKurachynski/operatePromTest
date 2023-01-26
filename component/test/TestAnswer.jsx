@@ -1,19 +1,20 @@
 import s from "../test/testAnswer.module.css";
 import React, {useState} from 'react';
-import {Radio, Space, Progress, Tooltip} from 'antd';
+import {Radio, Space, Progress} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
 import cn from 'classnames';
-
 const {Panel} = Collapse;
 
 
 const TestAnswer = (props) => {
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
+    const selectNameTheme=props.selectNameTheme;
     const questionsSelectTheme = props.questionsSelectTheme;
+    const selectQuestionsRange=props.selectQuestionsRange;
     const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
     const [clickButton, setClickButton] = useState(false);
@@ -56,17 +57,13 @@ const TestAnswer = (props) => {
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={t} key="1">
 
-                        <div className={s.nameTheme}>Тема {selectTheme} - Председатель (заместитель председателя)
-                            комиссии для
-                            проверки
-                            знаний по вопросам промышленной
-                            безопасности, созданной в субъекте промышленной безопасности
+                        <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
                         <div className={s.boxCountQuestions}>
                             <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
-
+                            <div>{`Вопросы из диапазона: ${selectQuestionsRange[0]}-----${selectQuestionsRange[1]}`}</div>
 
                         <div className={s.table}>
 

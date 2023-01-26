@@ -2,7 +2,13 @@ import React, {useEffect, useState} from "react";
 import s from "./themes.module.css";
 import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
-import {getThemeQuestions, getThemes, setSelectTheme, setThemeSetting} from "../../features/themes/themesSlice";
+import {
+    getThemeQuestions,
+    getThemes,
+    setSelectNameTheme,
+    setSelectTheme,
+    setThemeSetting
+} from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
 import { useRouter } from 'next/router'
 
@@ -45,10 +51,12 @@ const Theme = (props) => {
     };
     const onClickSwitchBlock=(e)=> {
         const idT=e.currentTarget.id
+        console.log(e.currentTarget)
         if (disabledSwitchBlock){
             dispatch(setSelectTheme(0))
         }else {
             dispatch(setSelectTheme(+idT))
+            dispatch(setSelectNameTheme(text))
         }
         setDisabledSwitchBlock(!disabledSwitchBlock);
 

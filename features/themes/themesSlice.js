@@ -7,6 +7,7 @@ const initialState = {
     themes: [],
     questionsSelectTheme: [],
     selectTheme: 0,
+    selectNameTheme:'',
     selectQuestionsRange: [],
     mixQuestions: false,
     mixAnswers: true,
@@ -29,9 +30,8 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
     massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
     const massfiltr = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
     const massRandom=massfiltr.sort(()=>0.5-Math.random())
-    // dispatch(setQuestionsSelectTheme(res.data))
     dispatch(setQuestionsSelectTheme(massRandom))
-
+    dispatch(setSelectQuestionsRange([inputValueOne,inputValueTwo]))
 })
 
 
@@ -47,16 +47,19 @@ export const themesSlice = createSlice({
         setThemes: (state, action) => {
             state.themes = action.payload
         },
+        setSelectQuestionsRange: (state, action) => {
+            state.selectQuestionsRange = action.payload
+        },
         setSelectTheme: (state, action) => {
             state.selectTheme = action.payload
         },
+        setSelectNameTheme: (state, action) => {
+            state.selectNameTheme = action.payload
+        },
         setQuestionsSelectTheme: (state, action) => {
-
             state.questionsSelectTheme = action.payload
         },
         setQuestionsSelectThemeRandom: (state, action) => {
-            console.log(action.payload)
-
             state.questionsSelectTheme = action.payload
         },
         setThemeSetting: (state, action) => {
@@ -83,6 +86,8 @@ export const {
     setSelectTheme,
     setQuestionsSelectTheme,
     setThemeSetting,
+    setSelectNameTheme,
+    setSelectQuestionsRange,
     setQuestionsSelectThemeRandom
 } = themesSlice.actions
 export default themesSlice.reducer
