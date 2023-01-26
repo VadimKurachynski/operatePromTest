@@ -16,8 +16,15 @@ const TestAnswer = (props) => {
     const questionsSelectTheme = props.questionsSelectTheme;
     const selectQuestionsRange=props.selectQuestionsRange;
     const mixQuestions=props.mixQuestions;
-    const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
+    //-----------------------------------------------------
+    const picture=props.questionsSelectTheme[num].picture;
+    const pictureW=props.questionsSelectTheme[num].picturewidth;
+    const pictureH=props.questionsSelectTheme[num].pictureheight;
+    debugger
+    //--------------------------------------------------
+    const [valueRadio, setValueRadio] = useState(0);
+
     const [clickButton, setClickButton] = useState(false);
     const [disabledRadio, setDisabledRadio] = useState(false);
     const [correct, setCorrect]=useState(0);
@@ -33,7 +40,7 @@ const TestAnswer = (props) => {
     const p1=(100*(correct+noCorrect)/lengthQuestions).toFixed(0);
     const p2=(100*(correct)/lengthQuestions).toFixed(0);
     const p3=(100*(noCorrect)/lengthQuestions).toFixed(0);
-    debugger
+
     const onChangePanel = (key) => {
         console.log(key);
     };
@@ -118,14 +125,14 @@ const TestAnswer = (props) => {
                         style={{fontSize: '25px'}}/><br/> {questionsSelectTheme[num].vopros}
                     </div>
 
-                    <div className={s.imageBox}>
-                        <Image
-                            src="/images__1.jpg"
-
-                            alt="Picture"
-                            width={100}
-                            height={100}
-                        />
+                    <div className={s.imageBox} style={picture!=null ? {display: 'block'} : {display: 'none'}} >
+                        rfhnbyrf
+                        {/*<Image*/}
+                        {/*    src={picture && picture}*/}
+                        {/*    alt="Picture"*/}
+                        {/*    width={pictureW && pictureW}*/}
+                        {/*    height={pictureH && pictureH}*/}
+                        {/*/>*/}
                     </div>
                 </div>
                 <div className={s.boxRadio}>
