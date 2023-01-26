@@ -13,7 +13,6 @@ const PageTest = () => {
     const {selectTheme,questionsSelectTheme} = useSelector((state) => state.themes)
 
 
-
     return (
         <>
             <TestAnswer selectTheme={selectTheme} questionsSelectTheme={questionsSelectTheme} />

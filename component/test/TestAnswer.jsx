@@ -1,12 +1,10 @@
 import s from "../test/testAnswer.module.css";
 import React, {useState} from 'react';
-import {useSelector} from "react-redux";
 import {Radio, Space, Progress, Tooltip} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
-import {getThemeQuestions} from "../../features/themes/themesSlice";
 import cn from 'classnames';
 
 const {Panel} = Collapse;
@@ -18,25 +16,38 @@ const TestAnswer = (props) => {
     const questionsSelectTheme = props.questionsSelectTheme;
     const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
-    const correctAnswer = questionsSelectTheme[num].nompravotveta;
     const [clickButton, setClickButton] = useState(false);
     const onChangeRadio = (e) => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
     };
-
-
     const onChangePanel = (key) => {
         console.log(key);
     };
-
     const t = `Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`;
     const startNew = () => {
         setNum(num + 1);//следующий вопрос
         setValueRadio(0);
         setClickButton(false)
     };
+
+    const correctAnswer = questionsSelectTheme[num].nompravotveta;
+    let questions=[props.questionsSelectTheme[num].otvet1,
+        props.questionsSelectTheme[num].otvet2,
+        props.questionsSelectTheme[num].otvet3]
+    const data=[1,2,3];
+    const Answers = data.map((x) =>
+        <div key={x} className={cn(
+            s.radio,
+            correctAnswer === x && valueRadio === x && s.radioAnswerOK,
+            correctAnswer !== x && valueRadio === x && s.radioAnswerNO,
+            correctAnswer === x && valueRadio !== x && valueRadio !== 0 && s.radioAnswerOK,
+        )}>
+            <Radio value={x}> <span className={s.radioText}> {questions[x-1]}</span></Radio>
+        </div>
+    );
+
 
 
     return (
@@ -107,20 +118,7 @@ const TestAnswer = (props) => {
                 <div className={s.boxRadio}>
                     <Radio.Group onChange={onChangeRadio} value={valueRadio}>
                         <Space direction="vertical">
-                            <div className={cn(
-                                s.radio,
-                                correctAnswer === 1 && valueRadio === 1 && s.radioAnswerOK,
-                                correctAnswer != 1 && valueRadio === 1 && s.radioAnswerNO,
-                                correctAnswer === 1 && valueRadio != 1 && valueRadio != 0 && s.radioAnswerOK,
-                            )}>
-                                <Radio value={1}> <span
-                                    className={s.radioText}> {questionsSelectTheme[num].otvet1}</span></Radio>
-                            </div>
-                            <div className={s.radio}><Radio value={2}> <span
-                                className={s.radioText}>{questionsSelectTheme[num].otvet2}</span></Radio></div>
-                            <div className={s.radio}><Radio value={3}> <span
-                                className={s.radioText}>{questionsSelectTheme[num].otvet3}</span></Radio>
-                            </div>
+                            {Answers}
                         </Space>
                     </Radio.Group>
                 </div>
@@ -131,6 +129,17 @@ const TestAnswer = (props) => {
                     type="primary"><span
                     className={s.buttonNextText}>СЛЕДУЮЩИЙ ВОПРОС</span></Button></div>
                 <div className={s.blokCorrectAnswer}>
+
+
+                    <div>
+
+
+
+
+
+
+                    </div>
+
 
 
                     <Collapse onChangePanel={onChangePanel}
