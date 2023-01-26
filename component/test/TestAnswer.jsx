@@ -15,6 +15,7 @@ const TestAnswer = (props) => {
     const selectNameTheme=props.selectNameTheme;
     const questionsSelectTheme = props.questionsSelectTheme;
     const selectQuestionsRange=props.selectQuestionsRange;
+    const mixQuestions=props.mixQuestions;
     const [valueRadio, setValueRadio] = useState(0);
     const [num, setNum] = useState(1);
     const [clickButton, setClickButton] = useState(false);
@@ -59,11 +60,15 @@ const TestAnswer = (props) => {
 
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
+                        <div style={{fontStyle:"italic", textAlign:"center"}}>
+                            {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions?"перемешанные":"не перемешанные"})`}
+
+                        </div>
                         <div className={s.boxCountQuestions}>
                             <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
-                            <div>{`Вопросы из диапазона: ${selectQuestionsRange[0]}-----${selectQuestionsRange[1]}`}</div>
+
 
                         <div className={s.table}>
 

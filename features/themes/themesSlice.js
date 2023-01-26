@@ -1,18 +1,17 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import {useSelector} from "react-redux";
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 
 const initialState = {
     themes: [],
     questionsSelectTheme: [],
     selectTheme: 0,
-    selectNameTheme:'',
+    selectNameTheme: '',
     selectQuestionsRange: [],
     mixQuestions: false,
     mixAnswers: true,
 }
-
 
 
 export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', async ({
@@ -26,12 +25,16 @@ export const getThemeQuestions = createAsyncThunk('theme/getThemeQuestions', asy
                                                                                         dispatch
                                                                                     }) => {
     const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
-    const massiv = [...res.data]
+    let massiv = [...res.data]
     massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
-    const massfiltr = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
-    const massRandom=massfiltr.sort(()=>0.5-Math.random())
-    dispatch(setQuestionsSelectTheme(massRandom))
-    dispatch(setSelectQuestionsRange([inputValueOne,inputValueTwo]))
+    massiv = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
+    if (disabledMixQuestions) {
+        massiv = massiv.sort(() => 0.5 - Math.random())
+    }
+    dispatch(setQuestionsSelectTheme(massiv))
+    dispatch(setmixQuestions(disabledMixQuestions))
+    dispatch(setmixAnswers(disabledMixAnswers))
+    dispatch(setSelectQuestionsRange([inputValueOne, inputValueTwo]))
 })
 
 
@@ -53,6 +56,12 @@ export const themesSlice = createSlice({
         setSelectTheme: (state, action) => {
             state.selectTheme = action.payload
         },
+        setmixQuestions: (state, action) => {
+            state.mixQuestions = action.payload
+        },
+        setmixAnswers: (state, action) => {
+            state.mixAnswers = action.payload
+        },
         setSelectNameTheme: (state, action) => {
             state.selectNameTheme = action.payload
         },
@@ -66,7 +75,6 @@ export const themesSlice = createSlice({
             const {inputValueOne, inputValueTwo, disabledMixQuestions, disabledMixAnswers} = action.payload;
             state.mixQuestions = disabledMixQuestions;
             state.mixAnswers = disabledMixAnswers;
-
 
         },
     },
@@ -88,6 +96,8 @@ export const {
     setThemeSetting,
     setSelectNameTheme,
     setSelectQuestionsRange,
+    setmixAnswers,
+    setmixQuestions,
     setQuestionsSelectThemeRandom
 } = themesSlice.actions
 export default themesSlice.reducer
