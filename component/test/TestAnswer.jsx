@@ -8,7 +8,6 @@ import Image from "next/image";
 import cn from 'classnames';
 const {Panel} = Collapse;
 
-
 const TestAnswer = (props) => {
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
@@ -21,7 +20,7 @@ const TestAnswer = (props) => {
     const picture=props.questionsSelectTheme[num].picture;
     const pictureW=props.questionsSelectTheme[num].picturewidth;
     const pictureH=props.questionsSelectTheme[num].pictureheight;
-    debugger
+
     //--------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
 
