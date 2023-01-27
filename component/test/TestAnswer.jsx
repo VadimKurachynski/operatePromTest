@@ -68,7 +68,6 @@ const TestAnswer = (props) => {
         </div>
     );
 
-
     return (
         <>
             <div className={s.body}>
