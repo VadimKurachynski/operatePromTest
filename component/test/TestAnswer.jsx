@@ -6,39 +6,40 @@ import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
 import cn from 'classnames';
+
 const {Panel} = Collapse;
 
 const TestAnswer = (props) => {
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
-    const selectNameTheme=props.selectNameTheme;
+    const selectNameTheme = props.selectNameTheme;
     const questionsSelectTheme = props.questionsSelectTheme;
-    const selectQuestionsRange=props.selectQuestionsRange;
-    const mixQuestions=props.mixQuestions;
+    const selectQuestionsRange = props.selectQuestionsRange;
+    const mixQuestions = props.mixQuestions;
     const [num, setNum] = useState(1);
     //-----------------------------------------------------
-    const picture=props.questionsSelectTheme[num].picture;
-    const pictureW=props.questionsSelectTheme[num].picturewidth;
-    const pictureH=props.questionsSelectTheme[num].pictureheight;
+    const picture = props.questionsSelectTheme[num].picture;
+    const pictureW = props.questionsSelectTheme[num].picturewidth;
+    const pictureH = props.questionsSelectTheme[num].pictureheight;
 
     //--------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
 
     const [clickButton, setClickButton] = useState(false);
     const [disabledRadio, setDisabledRadio] = useState(false);
-    const [correct, setCorrect]=useState(0);
-    const [noCorrect, setNoCorrect]=useState(0);
+    const [correct, setCorrect] = useState(0);
+    const [noCorrect, setNoCorrect] = useState(0);
 
     const onChangeRadio = (e) => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
         setDisabledRadio(true);
-        (e.target.value===correctAnswer)?setCorrect(correct+1):setNoCorrect(noCorrect+1)
+        (e.target.value === correctAnswer) ? setCorrect(correct + 1) : setNoCorrect(noCorrect + 1)
     };
-    const p1=(100*(correct+noCorrect)/lengthQuestions).toFixed(0);
-    const p2=(100*(correct)/lengthQuestions).toFixed(0);
-    const p3=(100*(noCorrect)/lengthQuestions).toFixed(0);
+    const p1 = (100 * (correct + noCorrect) / lengthQuestions).toFixed(0);
+    const p2 = (100 * (correct) / lengthQuestions).toFixed(0);
+    const p3 = (100 * (noCorrect) / lengthQuestions).toFixed(0);
 
     const onChangePanel = (key) => {
         console.log(key);
@@ -52,10 +53,10 @@ const TestAnswer = (props) => {
     };
 
     const correctAnswer = questionsSelectTheme[num].nompravotveta;
-    let questions=[props.questionsSelectTheme[num].otvet1,
+    let questions = [props.questionsSelectTheme[num].otvet1,
         props.questionsSelectTheme[num].otvet2,
         props.questionsSelectTheme[num].otvet3]
-    const data=[1,2,3];
+    const data = [1, 2, 3];
     const Answers = data.map((x) =>
         <div key={x} className={cn(
             s.radio,
@@ -63,10 +64,9 @@ const TestAnswer = (props) => {
             correctAnswer !== x && valueRadio === x && s.radioAnswerNO,
             correctAnswer === x && valueRadio !== x && valueRadio !== 0 && s.radioAnswerOK,
         )}>
-            <Radio value={x} disabled={disabledRadio}> <span className={s.radioText}> {questions[x-1]}</span></Radio>
+            <Radio value={x} disabled={disabledRadio}> <span className={s.radioText}> {questions[x - 1]}</span></Radio>
         </div>
     );
-
 
 
     return (
@@ -77,8 +77,8 @@ const TestAnswer = (props) => {
 
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
-                        <div style={{fontStyle:"italic", textAlign:"center"}}>
-                            {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions?"перемешанные":"не перемешанные"})`}
+                        <div style={{fontStyle: "italic", textAlign: "center"}}>
+                            {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions ? "перемешанные" : "не перемешанные"})`}
 
                         </div>
                         <div className={s.boxCountQuestions}>
@@ -92,7 +92,7 @@ const TestAnswer = (props) => {
 
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во пройденных вопросов</div>
-                                <div className={s.tableS1}>{noCorrect+correct}</div>
+                                <div className={s.tableS1}>{noCorrect + correct}</div>
                                 <div className={s.circular}>
                                     <Progress type="circle" percent={p1} strokeColor="blue" width={50}/>
                                 </div>
@@ -124,7 +124,7 @@ const TestAnswer = (props) => {
                         style={{fontSize: '25px'}}/><br/> {questionsSelectTheme[num].vopros}
                     </div>
 
-                    <div className={s.imageBox} style={picture!=null ? {display: 'block'} : {display: 'none'}} >
+                    <div className={s.imageBox} style={picture != null ? {display: 'block'} : {display: 'none'}}>
                         rfhnbyrf
                         {/*<Image*/}
                         {/*    src={picture && picture}*/}
@@ -153,12 +153,7 @@ const TestAnswer = (props) => {
                     <div>
 
 
-
-
-
-
                     </div>
-
 
 
                     <Collapse onChangePanel={onChangePanel}
