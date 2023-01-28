@@ -18,9 +18,13 @@ const TestAnswer = (props) => {
     const mixQuestions = props.mixQuestions;
     const [num, setNum] = useState(1);
     //-----------------------------------------------------
-    const picture = props.questionsSelectTheme[num].picture;
-    const pictureW = props.questionsSelectTheme[num].picturewidth;
-    const pictureH = props.questionsSelectTheme[num].pictureheight;
+
+
+    const picture=props.questionsSelectTheme[num].picture||"";
+    const pictureW = props.questionsSelectTheme[num].picturewidth||0;
+    const pictureH = props.questionsSelectTheme[num].pictureheight||0;
+    console.log(picture,pictureW,pictureH)
+
 
     //--------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
@@ -123,13 +127,14 @@ const TestAnswer = (props) => {
                         style={{fontSize: '25px'}}/><br/> {questionsSelectTheme[num].vopros}
                     </div>
 
-                    <div className={s.imageBox} style={picture != null ? {display: 'block'} : {display: 'none'}}>
-                        rfhnbyrf
+                    <div className={s.imageBox} style={picture != "" ? {display: 'block'} : {display: 'none'}}>
+
                         {/*<Image*/}
-                        {/*    src={picture && picture}*/}
-                        {/*    alt="Picture"*/}
-                        {/*    width={pictureW && pictureW}*/}
-                        {/*    height={pictureH && pictureH}*/}
+                            {picture+pictureW+pictureH}
+                            {/*src={picture}*/}
+                            {/*alt="Picture"*/}
+                            {/*width={pictureW && pictureW}*/}
+                            {/*height={pictureH && pictureH}*/}
                         {/*/>*/}
                     </div>
                 </div>
