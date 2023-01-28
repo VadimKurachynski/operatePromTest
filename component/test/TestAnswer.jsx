@@ -13,10 +13,9 @@ const TestAnswer = (props) => {
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const selectNameTheme = props.selectNameTheme;
-    const questionsSelectTheme = props.questionsSelectTheme;
     const selectQuestionsRange = props.selectQuestionsRange;
     const mixQuestions = props.mixQuestions;
-    const [num, setNum] = useState(1);
+    const [num, setNum] = useState(0);
     //-----------------------------------------------------
     const {
         vopros: question = "",
@@ -29,19 +28,14 @@ const TestAnswer = (props) => {
         picture: picture = "",
         picturewidth: pictureW = 0,
         pictureheight: pictureH = 0,
-    } = questionsSelectTheme[num]
-
-    console.log(question)
-
-
-    //--------------------------------------------------
+    } = props.questionsSelectTheme[num]
+    //-------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
-
     const [clickButton, setClickButton] = useState(false);
     const [disabledRadio, setDisabledRadio] = useState(false);
     const [correct, setCorrect] = useState(0);
     const [noCorrect, setNoCorrect] = useState(0);
-
+//-------------------------------------------------------
     const onChangeRadio = (e) => {
         console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
@@ -49,14 +43,9 @@ const TestAnswer = (props) => {
         setDisabledRadio(true);
         (e.target.value === correctAnswer) ? setCorrect(correct + 1) : setNoCorrect(noCorrect + 1)
     };
-    const p1 = (100 * (correct + noCorrect) / lengthQuestions).toFixed(0);
-    const p2 = (100 * (correct) / lengthQuestions).toFixed(0);
-    const p3 = (100 * (noCorrect) / lengthQuestions).toFixed(0);
-
     const onChangePanel = (key) => {
         console.log(key);
     };
-    const t = `Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`;
     const startNew = () => {
         setNum(num + 1);//следующий вопрос
         setValueRadio(0);
@@ -65,10 +54,13 @@ const TestAnswer = (props) => {
     };
 
 
-    let questions = [answer1, answer2, answer3]
+    const p1 = (100 * (correct + noCorrect) / lengthQuestions).toFixed(0);
+    const p2 = (100 * (correct) / lengthQuestions).toFixed(0);
+    const p3 = (100 * (noCorrect) / lengthQuestions).toFixed(0);
 
 
     const data = [1, 2, 3];
+    let questions = [answer1, answer2, answer3];
     const Answers = data.map((x) =>
         <div key={x} className={cn(
             s.radio,
@@ -80,11 +72,12 @@ const TestAnswer = (props) => {
         </div>
     );
 
+
     return (
         <>
             <div className={s.body}>
                 <Collapse onChangePanel={onChangePanel}>
-                    <Panel header={t} key="1">
+                    <Panel header={`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`} key="1">
 
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
@@ -135,7 +128,7 @@ const TestAnswer = (props) => {
                         style={{fontSize: '25px'}}/><br/> {question}
                     </div>
 
-                    <div className={s.imageBox} style={picture != "" ? {display: 'block'} : {display: 'none'}}>
+                    <div className={s.imageBox} style={picture !== null ? {display: 'block'} : {display: 'none'}}>
 
                         {/*<Image*/}
                         {picture + pictureW + pictureH}
@@ -172,11 +165,11 @@ const TestAnswer = (props) => {
                               style={clickButton ? {display: 'block'} : {display: 'none'}}>
                         <Panel header="Литература" key="1">
                             <div><span className={s.latin}> Правильный ответ:</span></div>
-                            {questionsSelectTheme[num].pravotvet}
+                            {correctAnswerString}
                             <br/>
                             <br/>
                             <div><span className={s.latin}> Литература:</span></div>
-                            <div> {questionsSelectTheme[num].podskazka}
+                            <div> {hint}
                             </div>
                         </Panel>
                     </Collapse>
