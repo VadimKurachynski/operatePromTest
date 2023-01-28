@@ -16,15 +16,16 @@ const TestAnswer = (props) => {
     const questionsSelectTheme = props.questionsSelectTheme;
     const selectQuestionsRange = props.selectQuestionsRange;
     const mixQuestions = props.mixQuestions;
-    const [num, setNum] = useState(1);
+    const [num, setNum] = useState(2);
     //-----------------------------------------------------
 
-
-    const picture=props.questionsSelectTheme[num].picture||"";
-    const pictureW = props.questionsSelectTheme[num].picturewidth||0;
-    const pictureH = props.questionsSelectTheme[num].pictureheight||0;
-    console.log(picture,pictureW,pictureH)
-
+    const [nom] = questionsSelectTheme
+    console.log(nom)
+    const {} = nom
+    const picture = props.questionsSelectTheme[num].picture || "";
+    const pictureW = props.questionsSelectTheme[num].picturewidth || 0;
+    const pictureH = props.questionsSelectTheme[num].pictureheight || 0;
+    // console.log(picture,pictureW,pictureH)
 
     //--------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
@@ -130,11 +131,11 @@ const TestAnswer = (props) => {
                     <div className={s.imageBox} style={picture != "" ? {display: 'block'} : {display: 'none'}}>
 
                         {/*<Image*/}
-                            {picture+pictureW+pictureH}
-                            {/*src={picture}*/}
-                            {/*alt="Picture"*/}
-                            {/*width={pictureW && pictureW}*/}
-                            {/*height={pictureH && pictureH}*/}
+                        {picture + pictureW + pictureH}
+                        {/*src={picture}*/}
+                        {/*alt="Picture"*/}
+                        {/*width={pictureW && pictureW}*/}
+                        {/*height={pictureH && pictureH}*/}
                         {/*/>*/}
                     </div>
                 </div>
