@@ -16,16 +16,23 @@ const TestAnswer = (props) => {
     const questionsSelectTheme = props.questionsSelectTheme;
     const selectQuestionsRange = props.selectQuestionsRange;
     const mixQuestions = props.mixQuestions;
-    const [num, setNum] = useState(2);
+    const [num, setNum] = useState(1);
     //-----------------------------------------------------
+    const {
+        vopros: question = "",
+        otvet1: answer1 = "",
+        otvet2: answer2 = "",
+        otvet3: answer3 = "",
+        pravotvet: correctAnswerString = "",
+        nompravotveta: correctAnswer = 0,
+        podskazka: hint = "",
+        picture: picture = "",
+        picturewidth: pictureW = 0,
+        pictureheight: pictureH = 0,
+    } = questionsSelectTheme[num]
 
-    const [nom] = questionsSelectTheme
-    console.log(nom)
-    const {} = nom
-    const picture = props.questionsSelectTheme[num].picture || "";
-    const pictureW = props.questionsSelectTheme[num].picturewidth || 0;
-    const pictureH = props.questionsSelectTheme[num].pictureheight || 0;
-    // console.log(picture,pictureW,pictureH)
+    console.log(question)
+
 
     //--------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
@@ -57,10 +64,10 @@ const TestAnswer = (props) => {
         setDisabledRadio(false);
     };
 
-    const correctAnswer = questionsSelectTheme[num].nompravotveta;
-    let questions = [props.questionsSelectTheme[num].otvet1,
-        props.questionsSelectTheme[num].otvet2,
-        props.questionsSelectTheme[num].otvet3]
+
+    let questions = [answer1, answer2, answer3]
+
+
     const data = [1, 2, 3];
     const Answers = data.map((x) =>
         <div key={x} className={cn(
@@ -125,7 +132,7 @@ const TestAnswer = (props) => {
                 <div className={s.question}>
 
                     <div className={s.questionText}><QuestionCircleOutlined
-                        style={{fontSize: '25px'}}/><br/> {questionsSelectTheme[num].vopros}
+                        style={{fontSize: '25px'}}/><br/> {question}
                     </div>
 
                     <div className={s.imageBox} style={picture != "" ? {display: 'block'} : {display: 'none'}}>
