@@ -6,6 +6,7 @@ import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import Image from "next/image";
 import cn from 'classnames';
+import {router} from "next/client";
 
 const {Panel} = Collapse;
 
@@ -15,7 +16,7 @@ const TestAnswer = (props) => {
     const selectNameTheme = props.selectNameTheme;
     const selectQuestionsRange = props.selectQuestionsRange;
     const mixQuestions = props.mixQuestions;
-    const [num, setNum] = useState(0);
+    const [num, setNum] = useState(1);
     //-----------------------------------------------------
     const {
         vopros: question = "",
@@ -28,7 +29,7 @@ const TestAnswer = (props) => {
         picture: picture = "",
         picturewidth: pictureW = 0,
         pictureheight: pictureH = 0,
-    } = props.questionsSelectTheme[num]
+    } = props.questionsSelectTheme[num-1]
     //-------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
     const [clickButton, setClickButton] = useState(false);
@@ -37,7 +38,6 @@ const TestAnswer = (props) => {
     const [noCorrect, setNoCorrect] = useState(0);
 //-------------------------------------------------------
     const onChangeRadio = (e) => {
-        // console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
         setDisabledRadio(true);
@@ -48,10 +48,15 @@ const TestAnswer = (props) => {
         console.log(key);
     };
     const startNew = () => {
-        setNum(num + 1);//следующий вопрос
-        setValueRadio(0);
-        setClickButton(false)
-        setDisabledRadio(false);
+        if(num===lengthQuestions){ router.push('/finish')}else {
+
+            setNum(num + 1);//следующий вопрос
+            setValueRadio(0);
+            setClickButton(false)
+            setDisabledRadio(false);
+
+        }
+
     };
 
 
@@ -77,24 +82,22 @@ const TestAnswer = (props) => {
     return (
         <>
             <div className={s.body}>
+
+
+
+
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`} key="1">
-
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
                         <div style={{fontStyle: "italic", textAlign: "center"}}>
                             {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions ? "перемешанные" : "не перемешанные"})`}
-
                         </div>
                         <div className={s.boxCountQuestions}>
                             <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
-
-
                         <div className={s.table}>
-
-
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во пройденных вопросов</div>
                                 <div className={s.tableS1}>{noCorrect + correct}</div>
@@ -102,7 +105,6 @@ const TestAnswer = (props) => {
                                     <Progress type="circle" percent={p1} strokeColor="blue" width={50}/>
                                 </div>
                             </div>
-
                             <div className={s.column}>
                                 <div className={s.tableText}>кол-во правильных ответов</div>
                                 <div className={s.tableS2}>{correct}</div>
@@ -118,13 +120,12 @@ const TestAnswer = (props) => {
                                 </div>
                             </div>
                         </div>
-
                     </Panel>
                 </Collapse>
 
 
-                <div className={s.question}>
 
+                <div className={s.question}>
                     <div className={s.questionText}><QuestionCircleOutlined
                         style={{fontSize: '25px'}}/><br/> {question}
                     </div>
