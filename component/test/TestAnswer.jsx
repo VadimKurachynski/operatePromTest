@@ -7,10 +7,14 @@ import {Collapse} from 'antd';
 import Image from "next/image";
 import cn from 'classnames';
 import {router} from "next/client";
+import ResultTable from "../resultTable/ResultTable";
+import {setCorrect, setmixQuestions, setNoCorrect} from "../../features/themes/themesSlice";
+import {useDispatch} from "react-redux";
 
 const {Panel} = Collapse;
 
 const TestAnswer = (props) => {
+    const dispatch = useDispatch()
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const selectNameTheme = props.selectNameTheme;
@@ -41,9 +45,19 @@ const TestAnswer = (props) => {
         setValueRadio(e.target.value);
         setClickButton(true)
         setDisabledRadio(true);
-        (e.target.value === correctAnswer) ? setCorrect(correct + 1)
-            : setNoCorrect(noCorrect + 1)
+            // (e.target.value === correctAnswer) ? dispatch(setCorrect(1))
+            //     : dispatch(setNoCorrect(1))
+
+                (e.target.value === correctAnswer) ? setCorrect(correct+1)
+                    : setNoCorrect(setNoCorrect+1)
+
+
     };
+
+
+
+
+
     const onChangePanel = (key) => {
         console.log(key);
     };
@@ -58,12 +72,6 @@ const TestAnswer = (props) => {
         }
 
     };
-
-
-    const p1 = (100 * (correct + noCorrect) / lengthQuestions).toFixed(0);
-    const p2 = (100 * (correct) / lengthQuestions).toFixed(0);
-    const p3 = (100 * (noCorrect) / lengthQuestions).toFixed(0);
-
 
     const data = [1, 2, 3];
     let questions = [answer1, answer2, answer3];
@@ -97,29 +105,15 @@ const TestAnswer = (props) => {
                             <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
-                        <div className={s.table}>
-                            <div className={s.column}>
-                                <div className={s.tableText}>кол-во пройденных вопросов</div>
-                                <div className={s.tableS1}>{noCorrect + correct}</div>
-                                <div className={s.circular}>
-                                    <Progress type="circle" percent={p1} strokeColor="blue" width={50}/>
-                                </div>
-                            </div>
-                            <div className={s.column}>
-                                <div className={s.tableText}>кол-во правильных ответов</div>
-                                <div className={s.tableS2}>{correct}</div>
-                                <div className={s.circular}>
-                                    <Progress type="circle" percent={p2} strokeColor="green" width={50}/>
-                                </div>
-                            </div>
-                            <div className={s.column}>
-                                <div className={s.tableText}>кол-во ошибок</div>
-                                <div className={s.tableS3}>{noCorrect}</div>
-                                <div className={s.circular}>
-                                    <Progress type="circle" percent={p3} strokeColor="red" width={50}/>
-                                </div>
-                            </div>
-                        </div>
+
+
+                        <ResultTable
+                            lengthQuestions={lengthQuestions}
+                            correct={correct}
+                            noCorrect={noCorrect}
+                        />
+
+
                     </Panel>
                 </Collapse>
 

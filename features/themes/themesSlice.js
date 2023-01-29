@@ -12,6 +12,8 @@ const initialState = {
     mixQuestions: false,
     mixAnswers: true,
     isLoader: false,
+    noCorrect:0,
+    correct:0
 }
 
 
@@ -65,6 +67,12 @@ export const themesSlice = createSlice({
         setmixQuestions: (state, action) => {
             state.mixQuestions = action.payload
         },
+        setCorrect: (state, action) => {
+            state.correct = state.correct+action.payload
+        },
+        setNoCorrect: (state, action) => {
+            state.noCorrect = state.noCorrect +action.payload
+        },
         setmixAnswers: (state, action) => {
             state.mixAnswers = action.payload
         },
@@ -84,7 +92,6 @@ export const themesSlice = createSlice({
             const {inputValueOne, inputValueTwo, disabledMixQuestions, disabledMixAnswers} = action.payload;
             state.mixQuestions = disabledMixQuestions;
             state.mixAnswers = disabledMixAnswers;
-
         },
     },
     extraReducers: (builder) => {
@@ -113,6 +120,8 @@ export const {
     setmixAnswers,
     setmixQuestions,
     setIsLoader,
-    setQuestionsSelectThemeRandom
+    setQuestionsSelectThemeRandom,
+    setCorrect,
+    setNoCorrect
 } = themesSlice.actions
 export default themesSlice.reducer
