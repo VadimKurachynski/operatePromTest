@@ -4,12 +4,11 @@ import {Radio, Space, Progress} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
-import Image from "next/image";
 import cn from 'classnames';
 import {router} from "next/client";
 import ResultTable from "../resultTable/ResultTable";
-import {setCorrect, setmixQuestions, setNoCorrect} from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
+import {setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
 
 const {Panel} = Collapse;
 
@@ -49,7 +48,7 @@ const TestAnswer = (props) => {
             //     : dispatch(setNoCorrect(1))
 
                 (e.target.value === correctAnswer) ? setCorrect(correct+1)
-                    : setNoCorrect(setNoCorrect+1)
+                    : setNoCorrect(noCorrect+1)
 
 
     };
@@ -62,7 +61,12 @@ const TestAnswer = (props) => {
         console.log(key);
     };
     const startNew = () => {
-        if(num===lengthQuestions){ router.push('/finish')}else {
+        if(num===lengthQuestions){
+            router.push('/finish' )
+            dispatch(setCorrectS(correct));
+            dispatch(setNoCorrectS(noCorrect));
+        }
+        else {
 
             setNum(num + 1);//следующий вопрос
             setValueRadio(0);

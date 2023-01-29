@@ -67,10 +67,10 @@ export const themesSlice = createSlice({
         setmixQuestions: (state, action) => {
             state.mixQuestions = action.payload
         },
-        setCorrect: (state, action) => {
+        setCorrectS: (state, action) => {
             state.correct = state.correct+action.payload
         },
-        setNoCorrect: (state, action) => {
+        setNoCorrectS: (state, action) => {
             state.noCorrect = state.noCorrect +action.payload
         },
         setmixAnswers: (state, action) => {
@@ -121,7 +121,7 @@ export const {
     setmixQuestions,
     setIsLoader,
     setQuestionsSelectThemeRandom,
-    setCorrect,
-    setNoCorrect
+    setCorrectS,
+    setNoCorrectS
 } = themesSlice.actions
 export default themesSlice.reducer
