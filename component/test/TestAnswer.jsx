@@ -54,9 +54,9 @@ const TestAnswer = (props) => {
     };
     const startNew = () => {
         if (num === lengthQuestions) {
-            router.push('/finish')
             dispatch(setCorrectS(correct));
             dispatch(setNoCorrectS(noCorrect));
+            router.push('/finish')
         }
         else {
             setNum(num + 1);//следующий вопрос
@@ -119,7 +119,7 @@ const TestAnswer = (props) => {
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
                         <Image
 
-                        src={`/image/theme${selectTheme}/${picture}`}
+                        src={`/image/${picture}`}
                         alt="Picture"
                         width={pictureW/2}
                         height={pictureH/2}
@@ -141,14 +141,8 @@ const TestAnswer = (props) => {
                     type="primary"><span
                     className={s.buttonNextText}>{(num === lengthQuestions)?'ЗАКОНЧИТЬ ТЕСТ':'СЛЕДУЮЩИЙ ВОПРОС'}</span></Button></div>
                 <div className={s.blokCorrectAnswer}>
-
-
                     <div>
-
-
                     </div>
-
-
                     <Collapse onChangePanel={onChangePanel}
                               style={clickButton ? {display: 'block'} : {display: 'none'}}>
                         <Panel header="Литература" key="1">
@@ -161,13 +155,8 @@ const TestAnswer = (props) => {
                             </div>
                         </Panel>
                     </Collapse>
-
-
                 </div>
-
             </div>
-
-
         </>
     )
 }
