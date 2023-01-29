@@ -37,11 +37,12 @@ const TestAnswer = (props) => {
     const [noCorrect, setNoCorrect] = useState(0);
 //-------------------------------------------------------
     const onChangeRadio = (e) => {
-        console.log('radio checked', e.target.value);
+        // console.log('radio checked', e.target.value);
         setValueRadio(e.target.value);
         setClickButton(true)
         setDisabledRadio(true);
-        (e.target.value === correctAnswer) ? setCorrect(correct + 1) : setNoCorrect(noCorrect + 1)
+        (e.target.value === correctAnswer) ? setCorrect(correct + 1)
+            : setNoCorrect(noCorrect + 1)
     };
     const onChangePanel = (key) => {
         console.log(key);
@@ -128,7 +129,8 @@ const TestAnswer = (props) => {
                         style={{fontSize: '25px'}}/><br/> {question}
                     </div>
 
-                    <div className={s.imageBox} style={picture !== null ? {display: 'block'} : {display: 'none'}}>
+                    <div className={s.imageBox}
+                         style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
 
                         {/*<Image*/}
                         {picture + pictureW + pictureH}

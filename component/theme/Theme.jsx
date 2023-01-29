@@ -4,10 +4,8 @@ import {InputNumber, Slider, Switch, Button, Space} from "antd";
 import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
 import {
     getThemeQuestions,
-    getThemes,
     setSelectNameTheme,
     setSelectTheme,
-    setThemeSetting
 } from "../../features/themes/themesSlice";
 import {useDispatch} from "react-redux";
 import { useRouter } from 'next/router'
@@ -62,6 +60,7 @@ const Theme = (props) => {
     }
 
 const startTest=(e)=>{
+    router.push('/test')
      dispatch(getThemeQuestions({
          numberThemes:e.currentTarget.id,
          inputValueOne:inputValueOne,
@@ -69,13 +68,7 @@ const startTest=(e)=>{
          disabledMixQuestions:disabledMixQuestions,
          disabledMixAnswers:disabledMixAnswers,
      }));
-   router.push('/test')
-    // dispatch(setThemeSetting({
-    //     inputValueOne:inputValueOne,
-    //     inputValueTwo:inputValueTwo,
-    //     disabledMixQuestions:disabledMixQuestions,
-    //     disabledMixAnswers:disabledMixAnswers}));
-    //   router.push('/test')
+
 
 }
 
