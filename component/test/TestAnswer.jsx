@@ -9,7 +9,7 @@ import {router} from "next/client";
 import ResultTable from "../resultTable/ResultTable";
 import {useDispatch} from "react-redux";
 import {setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
-
+import Image from 'next/image'
 const {Panel} = Collapse;
 
 const TestAnswer = (props) => {
@@ -21,7 +21,7 @@ const TestAnswer = (props) => {
     const mixQuestions = props.mixQuestions;
     const [num, setNum] = useState(1);
     //-----------------------------------------------------
-    const {
+    let {
         vopros: question = "",
         otvet1: answer1 = "",
         otvet2: answer2 = "",
@@ -32,7 +32,7 @@ const TestAnswer = (props) => {
         picture: picture = "",
         picturewidth: pictureW = 0,
         pictureheight: pictureH = 0,
-    } = props.questionsSelectTheme[num-1]
+    } = props.questionsSelectTheme[num - 1]
     //-------------------------------------------------
     const [valueRadio, setValueRadio] = useState(0);
     const [clickButton, setClickButton] = useState(false);
@@ -44,37 +44,26 @@ const TestAnswer = (props) => {
         setValueRadio(e.target.value);
         setClickButton(true)
         setDisabledRadio(true);
-            // (e.target.value === correctAnswer) ? dispatch(setCorrect(1))
-            //     : dispatch(setNoCorrect(1))
-
-                (e.target.value === correctAnswer) ? setCorrect(correct+1)
-                    : setNoCorrect(noCorrect+1)
-
-
+        (e.target.value === correctAnswer) ? setCorrect(correct + 1)
+            : setNoCorrect(noCorrect + 1)
     };
-
-
-
 
 
     const onChangePanel = (key) => {
         console.log(key);
     };
     const startNew = () => {
-        if(num===lengthQuestions){
-            router.push('/finish' )
+        if (num === lengthQuestions) {
+            router.push('/finish')
             dispatch(setCorrectS(correct));
             dispatch(setNoCorrectS(noCorrect));
         }
         else {
-
             setNum(num + 1);//следующий вопрос
             setValueRadio(0);
             setClickButton(false)
             setDisabledRadio(false);
-
         }
-
     };
 
     const data = [1, 2, 3];
@@ -91,18 +80,17 @@ const TestAnswer = (props) => {
     );
 
 
+
     return (
         <>
             <div className={s.body}>
-
-
 
 
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`} key="1">
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
-                        <div style={{fontStyle: "italic", textAlign: "center"}}>
+                        <div style={{fontStyle: "italic", textAlign: "center", fontSize:"16px" }}>
                             {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions ? "перемешанные" : "не перемешанные"})`}
                         </div>
                         <div className={s.boxCountQuestions}>
@@ -122,24 +110,23 @@ const TestAnswer = (props) => {
                 </Collapse>
 
 
-
                 <div className={s.question}>
-                    <div className={s.questionText}><QuestionCircleOutlined
-                        style={{fontSize: '25px'}}/><br/> {question}
-                    </div>
+                    <div className={s.questionAva}><QuestionCircleOutlined  style={{fontSize: '25px'}}/></div>
+                      <div className={s.questionText}> {question}</div>
+
 
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
+                        <Image
 
-                        {/*<Image*/}
-                        {picture + pictureW + pictureH}
-                        {/*src={picture}*/}
-                        {/*alt="Picture"*/}
-                        {/*width={pictureW && pictureW}*/}
-                        {/*height={pictureH && pictureH}*/}
-                        {/*/>*/}
+                        src={`/image/theme${selectTheme}/${picture}`}
+                        alt="Picture"
+                        width={pictureW/2}
+                        height={pictureH/2}
+                        />
                     </div>
                 </div>
+
                 <div className={s.boxRadio}>
                     <Radio.Group onChange={onChangeRadio} value={valueRadio}>
                         <Space direction="vertical">
@@ -152,7 +139,7 @@ const TestAnswer = (props) => {
                 <div className={s.buttonNext} style={clickButton ? {display: 'block'} : {display: 'none'}}><Button
                     onClick={startNew}
                     type="primary"><span
-                    className={s.buttonNextText}>СЛЕДУЮЩИЙ ВОПРОС</span></Button></div>
+                    className={s.buttonNextText}>{(num === lengthQuestions)?'ЗАКОНЧИТЬ ТЕСТ':'СЛЕДУЮЩИЙ ВОПРОС'}</span></Button></div>
                 <div className={s.blokCorrectAnswer}>
 
 

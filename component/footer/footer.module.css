@@ -5,3 +5,9 @@
     z-index: 1001;
     color: #f1f5f3;
 }
+
+.name{
+    text-align: right;
+    margin: 20px 20px 0px 0px;
+
+}

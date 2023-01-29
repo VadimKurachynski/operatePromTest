@@ -27,7 +27,6 @@
     box-shadow: 2px 5px 5px grey;
     padding: 5px;
     align-self: flex-start;
-    border: solid grey 3px;
     border-radius: 10px;
     font-weight: 600;
     color: #080c33;
@@ -68,10 +67,8 @@
 }
 
 .allBlock{
-
     display: flex;
     flex-flow: row;
-    /*gap: 0.8rem;*/
 }
 
 .nameBlock div{
@@ -80,9 +77,7 @@
 
 .item{
     margin: 10px;
-   /*border: solid 1px red;*/
     height: 30px;
-
 }
 
 .inputNumber{

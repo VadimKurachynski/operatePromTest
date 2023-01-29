@@ -8,7 +8,7 @@
 .nameTheme{
 font-weight: 600;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .boxCountQuestions{
@@ -17,44 +17,55 @@ font-weight: 600;
     justify-content: space-between;
     padding-top: 10px;
     font-weight: 600;
+    font-size: 16px;
 }
 
 
 .question{
-    font-size: 17px;
-}
-.questionText{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px 30px 10px;
+    font-size: 18px;
 
-    margin-top: 30px;
-    margin-bottom: 30px;
-/*font-weight: 600;*/
-    text-align: center;
-    box-shadow: 3px 3px 3px #b7b7bd;
 }
+
+.questionAva{
+    margin-top:10px;
+    text-align: center;
+}
+
+.questionText{
+margin: 10px 10px 20px 10px;
+    text-align: center;
+    box-shadow: 1px 2px 2px 3px #b7b7bd;
+    padding: 10px;
+
+
+}
+
+
+
 
 .boxRadio{
     display: flex;
     font-family: Arial;
-
     justify-content: center;
 }
 
 
 .radio {
     margin-bottom: 5px;
-
     border: 2px solid #ece8e8;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px #b7b7bd;
-
 }
 
 .radioText{
     font-family: Arial;
     color: #0f0f10;
     line-height: 1.0;
-    font-size: 1.2em;
+    font-size: 18px;
 }
 
 
@@ -74,7 +85,7 @@ font-weight: 600;
 }
 
 .blokCorrectAnswer{
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 40px;
 }
 
