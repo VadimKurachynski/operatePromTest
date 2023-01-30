@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import s from "./themes.module.css";
-import {InputNumber, Slider, Switch, Button, Space} from "antd";
+import {InputNumber, Slider, Switch, Button} from "antd";
 import {CheckOutlined, CloseOutlined,  IssuesCloseOutlined} from "@ant-design/icons";
 import {
     getThemeQuestions,

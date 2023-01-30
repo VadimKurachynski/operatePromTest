@@ -5,9 +5,11 @@ import s from "../component/theme/themes.module.css";
 import {Button} from "antd";
 import {IssuesCloseOutlined} from "@ant-design/icons";
 import {setCorrectS, setNoCorrectS} from "../features/themes/themesSlice";
-import {router} from "next/client";
+import {useRouter} from "next/router";
+
 
 const PageFinish = () => {
+    const router=useRouter()
     const dispatch=useDispatch();
     const {
         selectTheme,

@@ -5,14 +5,17 @@ import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
 import cn from 'classnames';
-import {router} from "next/client";
 import ResultTable from "../resultTable/ResultTable";
 import {useDispatch} from "react-redux";
 import {getThemes, setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
-import Image from 'next/image'
+
+import {useRouter} from "next/router";
+import Image from "next/image";
+
 const {Panel} = Collapse;
 
 const TestAnswer = (props) => {
+    const router = useRouter();
     const dispatch = useDispatch()
     useEffect(() => {
         // setCorrect(0);
@@ -20,7 +23,6 @@ const TestAnswer = (props) => {
         // dispatch(setCorrectS(0));
         // dispatch(setNoCorrectS(0));
     }, []);
-
 
 
     const lengthQuestions = props.questionsSelectTheme.length;
@@ -66,8 +68,7 @@ const TestAnswer = (props) => {
             dispatch(setCorrectS(correct));
             dispatch(setNoCorrectS(noCorrect));
             router.push('/finish')
-        }
-        else {
+        } else {
             setNum(num + 1);//следующий вопрос
             setValueRadio(0);
             setClickButton(false)
@@ -88,7 +89,9 @@ const TestAnswer = (props) => {
         </div>
     );
 
-
+    // picture="images__1.jpg";
+    // pictureW=200;
+    // pictureH=200;
 
     return (
         <>
@@ -99,7 +102,7 @@ const TestAnswer = (props) => {
                     <Panel header={`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`} key="1">
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
                         </div>
-                        <div style={{fontStyle: "italic", textAlign: "center", fontSize:"16px" }}>
+                        <div style={{fontStyle: "italic", textAlign: "center", fontSize: "16px"}}>
                             {`(Вопросы из диапазона: ${selectQuestionsRange[0]}--${selectQuestionsRange[1]}, ${mixQuestions ? "перемешанные" : "не перемешанные"})`}
                         </div>
                         <div className={s.boxCountQuestions}>
@@ -120,19 +123,25 @@ const TestAnswer = (props) => {
 
 
                 <div className={s.question}>
-                    <div className={s.questionAva}><QuestionCircleOutlined  style={{fontSize: '25px'}}/></div>
-                      <div className={s.questionText}> {question}</div>
+                    <div className={s.questionAva}><QuestionCircleOutlined style={{fontSize: '25px'}}/></div>
+                    <div className={s.questionText}> {question}</div>
 
 
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
-                        <Image
 
-                        src={`/image/${picture}`}
-                        alt="Picture"
-                        width={pictureW/2}
-                        height={pictureH/2}
-                        />
+                        {(String(picture) !== "null") ?
+                            <Image
+                                src={`/image/${picture}`}
+                                alt="Picture"
+                                width={+pictureW / 2}
+                                height={+pictureH / 2}
+                            />
+                            :
+                            ""
+                        }
+
+
                     </div>
                 </div>
 
@@ -148,7 +157,8 @@ const TestAnswer = (props) => {
                 <div className={s.buttonNext} style={clickButton ? {display: 'block'} : {display: 'none'}}><Button
                     onClick={startNew}
                     type="primary"><span
-                    className={s.buttonNextText}>{(num === lengthQuestions)?'ЗАКОНЧИТЬ ТЕСТ':'СЛЕДУЮЩИЙ ВОПРОС'}</span></Button></div>
+                    className={s.buttonNextText}>{(num === lengthQuestions) ? 'ЗАКОНЧИТЬ ТЕСТ' : 'СЛЕДУЮЩИЙ ВОПРОС'}</span></Button>
+                </div>
                 <div className={s.blokCorrectAnswer}>
                     <div>
                     </div>
