@@ -1,5 +1,5 @@
 import s from "../test/testAnswer.module.css";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Radio, Space, Progress} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
@@ -8,12 +8,21 @@ import cn from 'classnames';
 import {router} from "next/client";
 import ResultTable from "../resultTable/ResultTable";
 import {useDispatch} from "react-redux";
-import {setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
+import {getThemes, setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
 import Image from 'next/image'
 const {Panel} = Collapse;
 
 const TestAnswer = (props) => {
     const dispatch = useDispatch()
+    useEffect(() => {
+        // setCorrect(0);
+        // setNoCorrect(0);
+        // dispatch(setCorrectS(0));
+        // dispatch(setNoCorrectS(0));
+    }, []);
+
+
+
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const selectNameTheme = props.selectNameTheme;

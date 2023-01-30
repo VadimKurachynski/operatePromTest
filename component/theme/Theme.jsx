@@ -12,6 +12,15 @@ import { useRouter } from 'next/router'
 
 const Theme = (props) => {
     const dispatch=useDispatch()
+
+    useEffect(() => {
+        setDisabledSwitchBlock(false)
+        dispatch(setSelectTheme(0))
+
+    }, [])
+
+
+
     const idTheme=props.theme.themenumber;
     const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
     const text = props.theme.themename;

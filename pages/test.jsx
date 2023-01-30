@@ -15,7 +15,7 @@ const PageTest = () => {
         mixAnswers,
         isLoader,
     } = useSelector((state) => state.themes)
-    console.log(questionsSelectTheme.length);
+
 
 
     return (

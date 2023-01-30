@@ -68,10 +68,10 @@ export const themesSlice = createSlice({
             state.mixQuestions = action.payload
         },
         setCorrectS: (state, action) => {
-            state.correct = state.correct+action.payload
+            state.correct = action.payload
         },
         setNoCorrectS: (state, action) => {
-            state.noCorrect = state.noCorrect +action.payload
+            state.noCorrect = action.payload
         },
         setmixAnswers: (state, action) => {
             state.mixAnswers = action.payload
