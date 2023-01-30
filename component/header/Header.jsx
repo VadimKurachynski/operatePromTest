@@ -19,8 +19,6 @@ const HeaderTest = () => {
             </div>
             <div className={s.avatar}> {isAuth ? AvatarIsAuth : AvatarNoAuth}</div>
 
-
-
         </div>
     )
 }
