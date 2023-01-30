@@ -117,15 +117,12 @@ const TestAnswer = (props) => {
                             noCorrect={noCorrect}
                         />
 
-
                     </Panel>
                 </Collapse>
-
 
                 <div className={s.question}>
                     <div className={s.questionAva}><QuestionCircleOutlined style={{fontSize: '25px'}}/></div>
                     <div className={s.questionText}> {question}</div>
-
 
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
@@ -140,8 +137,6 @@ const TestAnswer = (props) => {
                             :
                             ""
                         }
-
-
                     </div>
                 </div>
 
