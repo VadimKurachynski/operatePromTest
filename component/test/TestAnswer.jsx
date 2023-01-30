@@ -22,7 +22,6 @@ const TestAnswer = (props) => {
     }, []);
 
 
-
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const selectNameTheme = props.selectNameTheme;
@@ -126,7 +125,6 @@ const TestAnswer = (props) => {
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
                         <Image
-
                         src={`/image/${picture}`}
                         alt="Picture"
                         width={pictureW/2}
