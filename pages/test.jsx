@@ -3,6 +3,7 @@ import TestAnswer from "../component/test/TestAnswer";
 import {useSelector} from "react-redux";
 import s from "../component/theme/themes.module.css";
 import Preloader from "../component/preloader/Preloader";
+import Head from "next/head";
 
 
 const PageTest = () => {
@@ -20,6 +21,11 @@ const PageTest = () => {
 
     return (
         <>
+            <Head>
+                <title>Тест</title>
+            </Head>
+
+
             {
 
                 isLoader ? <div className={s.override}><Preloader/></div>

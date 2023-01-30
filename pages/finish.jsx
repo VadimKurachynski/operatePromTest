@@ -6,9 +6,11 @@ import {Button} from "antd";
 import {IssuesCloseOutlined} from "@ant-design/icons";
 import {setCorrectS, setNoCorrectS} from "../features/themes/themesSlice";
 import {useRouter} from "next/router";
+import Head from "next/head";
 
 
 const PageFinish = () => {
+
     const router=useRouter()
     const dispatch=useDispatch();
     const {
@@ -33,6 +35,12 @@ const PageFinish = () => {
 
     return (
         <>
+            <Head>
+                <title>Результаты</title>
+            </Head>
+
+
+
             <div style={{textAlign: "center", margin: "20px"}}>Вы закончили тест</div>
 
             <div style={{textAlign: "center", fontWeight:"600"}}>Тема{selectTheme}</div>

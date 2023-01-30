@@ -11,7 +11,7 @@ const FooterTest = () => {
 
 
 
-           <div className={s.name}> operate</div>
+           <div className={s.name}> @</div>
 
 
 
