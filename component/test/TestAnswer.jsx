@@ -140,7 +140,6 @@ const TestAnswer = (props) => {
                             :
                             ""
                         }
-
                     </div>
                 </div>
 
