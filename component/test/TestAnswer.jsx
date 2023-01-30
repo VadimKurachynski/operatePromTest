@@ -8,7 +8,6 @@ import cn from 'classnames';
 import ResultTable from "../resultTable/ResultTable";
 import {useDispatch} from "react-redux";
 import {setCorrectS, setNoCorrectS} from "../../features/themes/themesSlice";
-
 import {useRouter} from "next/router";
 import Image from "next/image";
 
@@ -17,13 +16,6 @@ const {Panel} = Collapse;
 const TestAnswer = (props) => {
     const router = useRouter();
     const dispatch = useDispatch()
-    // useEffect(() => {
-    //     // setCorrect(0);
-    //     // setNoCorrect(0);
-    //     // dispatch(setCorrectS(0));
-    //     // dispatch(setNoCorrectS(0));
-    // }, []);
-
 
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
@@ -88,10 +80,6 @@ const TestAnswer = (props) => {
             <Radio value={x} disabled={disabledRadio}> <span className={s.radioText}> {questions[x - 1]}</span></Radio>
         </div>
     );
-
-    // picture="images__1.jpg";
-    // pictureW=200;
-    // pictureH=200;
 
     return (
         <>
