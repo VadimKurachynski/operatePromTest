@@ -123,7 +123,6 @@ const TestAnswer = (props) => {
                     <div className={s.questionAva}><QuestionCircleOutlined  style={{fontSize: '25px'}}/></div>
                       <div className={s.questionText}> {question}</div>
 
-
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
                         <Image
