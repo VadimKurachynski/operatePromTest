@@ -20,6 +20,8 @@ const PageThemes = () => {
 
     return (
         <>
+            <div className={s.head}>{(selectTheme === 0)?'Выберите тему для тренировки':'Выберите нужные настройки'}</div>
+
             {
                     themes.map((theme) => (
                         <div key={theme.themenumber}

@@ -14,7 +14,6 @@ const Theme = (props) => {
     const dispatch=useDispatch()
 
     useEffect(() => {
-        setDisabledSwitchBlock(false)
         dispatch(setSelectTheme(0))
 
     }, [])

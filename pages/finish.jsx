@@ -1,8 +1,14 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import React from "react";
 import ResultTable from "../component/resultTable/ResultTable";
+import s from "../component/theme/themes.module.css";
+import {Button} from "antd";
+import {IssuesCloseOutlined} from "@ant-design/icons";
+import {setCorrectS, setNoCorrectS} from "../features/themes/themesSlice";
+import {router} from "next/client";
 
 const PageFinish = () => {
+    const dispatch=useDispatch();
     const {
         selectTheme,
         questionsSelectTheme,
@@ -12,19 +18,31 @@ const PageFinish = () => {
         correct,
         noCorrect
     } = useSelector((state) => state.themes)
-    const lengthQuestions=questionsSelectTheme.length;
+    const lengthQuestions = questionsSelectTheme.length;
+
+    const startTest=()=>{
+        router.push('/themes')
+        dispatch(setCorrectS(0));
+        dispatch(setNoCorrectS(0));
+    }
+
+
+
+
     return (
         <>
-    <div>Вы закончили тест</div>
+            <div style={{textAlign: "center", margin: "20px"}}>Вы закончили тест</div>
+
+            <div style={{textAlign: "center", fontWeight:"600"}}>Тема{selectTheme}</div>
+            <div style={{textAlign: "center"}}>{selectNameTheme}</div>
+            <div style={{textAlign: "center",margin:"10px"}}>диапазон пройденных вопросов из темы:{selectQuestionsRange[0]}--{selectQuestionsRange[1]}</div>
 
             <ResultTable
                 lengthQuestions={lengthQuestions}
                 correct={correct}
                 noCorrect={noCorrect}
             />
-
-
-
+            <div  className={s.mainButton}><Button  type="primary"  onClick={startTest}>ПЕРЕЙТИ К ВЫБОРУ ТЕМЫ</Button></div>
 
         </>
     )
