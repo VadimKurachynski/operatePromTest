@@ -1,6 +1,6 @@
 import s from "../resultTable/resultTable.module.css";
 import {Progress} from "antd";
-import React, {useState} from "react";
+import React from "react";
 
 
 const ResultTable=(props)=>{

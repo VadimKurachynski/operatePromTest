@@ -1,5 +1,5 @@
 import s from "/component/preloader/preloader.module.css"
-import {Alert, Space, Spin} from "antd";
+import {Spin} from "antd";
 
 
 const Preloader=()=>{

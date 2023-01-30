@@ -1,4 +1,7 @@
 .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     position: fixed;
     width: 100%;
     /*  !*width: 100%;*!*/
@@ -8,6 +11,23 @@
     z-index: 1000;
     color: #f1f5f3;
 }
+
+.linksBox{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
 .links{
 margin: 13px;
+}
+.avatar{
+    cursor: pointer;
+    margin: 8px 20px 0px 20px;
+}
+.avatar:hover{
+    opacity: 0.6;
+}
+.links:hover {
+    opacity: 0.6;
+
 }
