@@ -13,7 +13,7 @@ const HeaderTest = () => {
     return (
         <div className={s.header}>
             <div className={s.linksBox}>
-                <div className={s.links}><Link href="/themes">Выбор темы</Link></div>
+                <div className={s.links}><Link href="/">Выбор темы</Link></div>
                 <div className={s.links}></div>
                 <div className={s.links}></div>
             </div>
