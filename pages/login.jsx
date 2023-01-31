@@ -3,12 +3,7 @@ import s from "../component/loginForm/loginForm.module.css"
 import Head from "next/head";
 import React from "react";
 
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-};
+
 
 
 const Login = () => {

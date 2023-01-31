@@ -1,13 +1,22 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
+import {Button, Checkbox, Form, Input} from 'antd';
+import {useDispatch} from "react-redux";
+import {postAunt} from "../../features/themes/themesSlice";
+
+
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
 
 
-const LoginForm=()=> {
+const LoginForm = () => {
+
+    const dispatch = useDispatch()
+
+    const onFinish = (values) => {
+        console.log('Success!:', values);
+        dispatch(postAunt());
+    };
+
 
     return (
         <>
@@ -39,7 +48,7 @@ const LoginForm=()=> {
                         },
                     ]}
                 >
-                    <Input />
+                    <Input/>
                 </Form.Item>
 
                 <Form.Item
@@ -52,7 +61,7 @@ const LoginForm=()=> {
                         },
                     ]}
                 >
-                    <Input.Password />
+                    <Input.Password/>
                 </Form.Item>
 
                 <Form.Item

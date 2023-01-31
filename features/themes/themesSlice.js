@@ -11,7 +11,8 @@ const initialState = {
     mixAnswers: true,
     isLoader: false,
     noCorrect:0,
-    correct:0
+    correct:0,
+    isAuth:false,
 }
 
 
@@ -48,6 +49,17 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
     const res = await axios.get('http://localhost:5000/api/themesname', {withCredentials: true})
     dispatch(setThemes(res.data))
 })
+
+export const postAunt = createAsyncThunk('aunt/postAunt', async (_, {rejectWithValue, dispatch}) => {
+    const res = await axios.post(`http://localhost:5000/login`,{ username:'admin', password:'tec16' },{withCredentials: true})
+
+            console.log(res);
+            console.log(res.data);
+        })
+
+
+
+
 
 export const themesSlice = createSlice({
     name: 'themes',
