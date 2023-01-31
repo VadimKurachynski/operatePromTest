@@ -14,7 +14,9 @@ const LoginForm = () => {
 
     const onFinish = (values) => {
         console.log('Success!:', values);
-        dispatch(postAunt());
+       const  {username,password}=values;
+        console.log(username,password)
+        dispatch(postAunt({username:username,password:password}));
     };
 
 

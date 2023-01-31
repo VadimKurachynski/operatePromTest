@@ -50,8 +50,8 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
     dispatch(setThemes(res.data))
 })
 
-export const postAunt = createAsyncThunk('aunt/postAunt', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://localhost:5000/login`,{ username:'admin', password:'tec16' },{withCredentials: true})
+export const postAunt = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
+    const res = await axios.post(`http://localhost:5000/login`,{ username:username, password:password },{withCredentials: true})
 
             console.log(res);
             console.log(res.data);
