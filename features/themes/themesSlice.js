@@ -52,12 +52,25 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
 
 export const postAunt = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
     const res = await axios.post(`http://localhost:5000/login`,{ username:username, password:password },{withCredentials: true})
+            const {Auth}=res.data;
+            console.log(Auth);
+            if(Auth===1){
+                dispatch(setIsAuth(true));
+            }
 
-            console.log(res);
-            console.log(res.data);
+            // console.log(res.data);
         })
 
+export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
+    const res = await axios.post(`http://localhost:5000/logout`,_,{withCredentials: true})
+    const {Auth}=res.data;
+    console.log(`вы вышли ${Auth}`);
+    if(Auth===0){
+        dispatch(setIsAuth(false));
+    }
 
+    // console.log(res.data);
+})
 
 
 
@@ -98,6 +111,9 @@ export const themesSlice = createSlice({
         setQuestionsSelectThemeRandom: (state, action) => {
             state.questionsSelectTheme = action.payload
         },
+        setIsAuth: (state, action) => {
+            state.isAuth = action.payload
+        },
         setThemeSetting: (state, action) => {
             const {inputValueOne, inputValueTwo, disabledMixQuestions, disabledMixAnswers} = action.payload;
             state.mixQuestions = disabledMixQuestions;
@@ -132,6 +148,7 @@ export const {
     setIsLoader,
     setQuestionsSelectThemeRandom,
     setCorrectS,
-    setNoCorrectS
+    setNoCorrectS,
+    setIsAuth
 } = themesSlice.actions
 export default themesSlice.reducer
