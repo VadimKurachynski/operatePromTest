@@ -1,12 +1,24 @@
 import LoginForm from "../component/loginForm/Login";
 import s from "../component/loginForm/loginForm.module.css"
 import Head from "next/head";
-import React from "react";
+import React, {useEffect} from "react";
+import {useSelector} from "react-redux";
+import {useRouter} from "next/router";
 
 
 
 
 const Login = () => {
+
+
+
+
+
+    const router=useRouter();
+    const {isAuth} = useSelector((state) => state.themes)
+
+    {if(isAuth){router.push('/')}}
+
     return (
         <>
             <Head>

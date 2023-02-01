@@ -18,7 +18,6 @@ const HeaderTest = () => {
     }
     const AvatarNoAuth = <div><Avatar icon={<UserOutlined/>}/></div>;
     const AvatarIsAuth = <div><Avatar style={{backgroundColor: '#87d068'}} icon={<UserOutlined/>}/></div>;
-    // const isAuth = true;
 
     return (
         <div className={s.header}>

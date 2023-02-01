@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import s from "../component/theme/themes.module.css";
 import Theme from "../component/theme/Theme";
 import {useDispatch, useSelector} from "react-redux";
-import {getThemes} from "../features/themes/themesSlice";
+import {getThemes, postAunt} from "../features/themes/themesSlice";
 import Head from "next/head";
 
 
@@ -13,11 +13,11 @@ const PageThemes = () => {
 
     useEffect(() => {
         dispatch(getThemes());
+
     }, []);
 
 
     const {themes, selectTheme, isLoader} = useSelector((state) => state.themes)
-
 
     return (
         <>
