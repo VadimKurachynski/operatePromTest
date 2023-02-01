@@ -16,7 +16,6 @@ const PageThemes = () => {
 
     }, []);
 
-
     const {themes, selectTheme, isLoader} = useSelector((state) => state.themes)
 
     return (
