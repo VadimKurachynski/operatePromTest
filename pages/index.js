@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import s from "../component/theme/themes.module.css";
 import Theme from "../component/theme/Theme";
 import {useDispatch, useSelector} from "react-redux";
-import {getThemes, postAunt} from "../features/themes/themesSlice";
+import {getAuth, getThemes, postAuth} from "../features/themes/themesSlice";
 import Head from "next/head";
 
 
@@ -13,6 +13,7 @@ const PageThemes = () => {
 
     useEffect(() => {
         dispatch(getThemes());
+        dispatch(getAuth());
 
     }, []);
 
@@ -23,11 +24,7 @@ const PageThemes = () => {
             <Head>
                 <title>Выбор темы</title>
             </Head>
-
-
-
             <div className={s.head}>{(selectTheme === 0)?'Выберите тему для тренировки':'Выберите нужные настройки'}</div>
-
             {
                     themes.map((theme) => (
                         <div key={theme.themenumber}
@@ -35,7 +32,6 @@ const PageThemes = () => {
                             <Theme theme={theme}/>
                         </div>))
             }
-
 
         </>
     )

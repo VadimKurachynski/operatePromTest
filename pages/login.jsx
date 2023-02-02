@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useRouter} from "next/router";
+import {getAuth, getThemes} from "../features/themes/themesSlice";
 
 
 
@@ -17,7 +18,11 @@ const Login = () => {
     const router=useRouter();
     const {isAuth} = useSelector((state) => state.themes)
 
-    {if(isAuth){router.push('/')}}
+
+
+    {if (isAuth) { router.push('/')}}
+
+
 
     return (
         <>

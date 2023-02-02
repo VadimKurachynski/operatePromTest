@@ -7,7 +7,7 @@ import {
     setSelectNameTheme,
     setSelectTheme,
 } from "../../features/themes/themesSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useRouter } from 'next/router'
 
 const Theme = (props) => {
@@ -17,6 +17,8 @@ const Theme = (props) => {
         dispatch(setSelectTheme(0))
 
     }, [])
+
+    const {isAuth} = useSelector((state) => state.themes)
 
 
 
@@ -56,6 +58,7 @@ const Theme = (props) => {
         setInputValueTwo(newValue);
     };
     const onClickSwitchBlock=(e)=> {
+        if(!isAuth){ router.push('/login')}
         const idT=e.currentTarget.id
         if (disabledSwitchBlock){
             dispatch(setSelectTheme(0))
@@ -64,7 +67,6 @@ const Theme = (props) => {
             dispatch(setSelectNameTheme(text))
         }
         setDisabledSwitchBlock(!disabledSwitchBlock);
-
     }
 
 const startTest=(e)=>{

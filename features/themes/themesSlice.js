@@ -50,10 +50,17 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
     dispatch(setThemes(res.data))
 })
 
-export const postAunt = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
+export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
+    const res = await axios.get('http://localhost:5000/api/auth', {withCredentials: true})
+    const {Auth}=res.data;
+        dispatch(setIsAuth(Auth));
+})
+
+
+
+export const postAuth = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
     const res = await axios.post(`http://localhost:5000/login`,{ username:username, password:password },{withCredentials: true})
             const {Auth}=res.data;
-            console.log(Auth);
             if(Auth===1){
                 dispatch(setIsAuth(true));
             }
