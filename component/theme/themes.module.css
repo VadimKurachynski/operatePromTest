@@ -52,7 +52,6 @@
         font-size: 0.9em;
     }
 }
-
 .myButtonFlex {
     display: flex;
     flex-flow: column nowrap;
