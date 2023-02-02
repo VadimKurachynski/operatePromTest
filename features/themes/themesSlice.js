@@ -71,7 +71,7 @@ export const postAuth = createAsyncThunk('aunt/postAunt', async ({username,passw
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.post(`http://localhost:5000/logout`,_,{withCredentials: true})
     const {Auth}=res.data;
-    console.log(`вы вышли ${Auth}`);
+    // console.log(`вы вышли ${Auth}`);
     if(Auth===0){
         dispatch(setIsAuth(false));
     }

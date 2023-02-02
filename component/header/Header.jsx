@@ -23,7 +23,6 @@ const HeaderTest = () => {
         router.push('/login')
     }
 
-
     const AvatarNoAuth = <div title={"войти"} onClick={ClickAvatarIn}><Avatar icon={<UserOutlined/>}/></div>;
     const AvatarIsAuth = <div title={"выйти"} onClick={ClickAvatarOut}><Avatar style={{backgroundColor: '#87d068'}} icon={<UserOutlined/>} /></div>;
 
