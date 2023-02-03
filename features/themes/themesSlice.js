@@ -10,9 +10,9 @@ const initialState = {
     mixQuestions: false,
     mixAnswers: true,
     isLoader: false,
-    noCorrect:0,
-    correct:0,
-    isAuth:false,
+    noCorrect: 0,
+    correct: 0,
+    isAuth: false,
 }
 
 export const getThemeQuestions = createAsyncThunk(
@@ -49,24 +49,28 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
 
 export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.get('http://localhost:5000/api/auth', {withCredentials: true})
-    const {Auth}=res.data;
-        dispatch(setIsAuth(Auth));
+    const {Auth} = res.data;
+    dispatch(setIsAuth(Auth));
 })
 
-export const postAuth = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://localhost:5000/login`,{ username:username, password:password },{withCredentials: true})
-            const {Auth}=res.data;
-            if(Auth===1){ dispatch(setIsAuth(true)); }
-        })
+export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, password}, {rejectWithValue, dispatch}) => {
+    const res = await axios.post(`http://localhost:5000/login`, {
+        username: username,
+        password: password
+    }, {withCredentials: true})
+    const {Auth} = res.data;
+    if (Auth === 1) {
+        dispatch(setIsAuth(true));
+    }
+})
 
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://localhost:5000/logout`,_,{withCredentials: true})
-    const {Auth}=res.data;
+    const res = await axios.post(`http://localhost:5000/logout`, _, {withCredentials: true})
+    const {Auth} = res.data;
     // console.log(`вы вышли ${Auth}`);
-    if(Auth===0){
+    if (Auth === 0) {
         dispatch(setIsAuth(false));
     }
-
 })
 
 export const themesSlice = createSlice({
@@ -117,11 +121,19 @@ export const themesSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getThemeQuestions.pending, (state,action)=> {state.isLoader=true})
-            .addCase(getThemeQuestions.fulfilled, (state,action)=> {state.isLoader=false})
+            .addCase(getThemeQuestions.pending, (state, action) => {
+                state.isLoader = true
+            })
+            .addCase(getThemeQuestions.fulfilled, (state, action) => {
+                state.isLoader = false
+            })
             .addCase(getThemeQuestions.rejected, () => console.log('getThemeQuestions: rejected'))
-            .addCase(getThemes.pending,  (state,action)=> {state.isLoader=true})
-            .addCase(getThemes.fulfilled, (state,action)=> {state.isLoader=false})
+            .addCase(getThemes.pending, (state, action) => {
+                state.isLoader = true
+            })
+            .addCase(getThemes.fulfilled, (state, action) => {
+                state.isLoader = false
+            })
             .addCase(getThemes.rejected, () => console.log('getThemes: rejected'))
     }
 })
@@ -135,13 +147,10 @@ export const {
     setThemes,
     setSelectTheme,
     setQuestionsSelectTheme,
-    setThemeSetting,
     setSelectNameTheme,
     setSelectQuestionsRange,
     setmixAnswers,
     setmixQuestions,
-    setIsLoader,
-    setQuestionsSelectThemeRandom,
     setCorrectS,
     setNoCorrectS,
     setIsAuth
