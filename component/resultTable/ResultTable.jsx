@@ -2,19 +2,16 @@ import s from "../resultTable/resultTable.module.css";
 import {Progress} from "antd";
 import React from "react";
 
-
-const ResultTable=(props)=>{
-
+const ResultTable = (props) => {
     const lengthQuestions = props.lengthQuestions;
-    const correct=props.correct
-   const noCorrect=props.noCorrect
+    const correct = props.correct
+    const noCorrect = props.noCorrect
     const p1 = (100 * (correct + noCorrect) / lengthQuestions).toFixed(0);
     const p2 = (100 * (correct) / lengthQuestions).toFixed(0);
     const p3 = (100 * (noCorrect) / lengthQuestions).toFixed(0);
 
-    return(
+    return (
         <>
-
             <div className={s.table}>
                 <div className={s.column}>
                     <div className={s.tableText}>кол-во пройденных вопросов</div>
@@ -38,24 +35,8 @@ const ResultTable=(props)=>{
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
         </>
-
-
-
-
     )
-
-
-
 }
 
 

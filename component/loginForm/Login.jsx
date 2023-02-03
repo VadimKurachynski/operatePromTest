@@ -2,23 +2,16 @@ import {Button, Checkbox, Form, Input} from 'antd';
 import {useDispatch} from "react-redux";
 import {postAuth} from "../../features/themes/themesSlice";
 
-
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
 
-
 const LoginForm = () => {
-
     const dispatch = useDispatch()
-
     const onFinish = (values) => {
-        // console.log('Success!:', values);
-       const  {username,password}=values;
-        // console.log(username,password)
-        dispatch(postAuth({username:username,password:password}));
+        const {username, password} = values;
+        dispatch(postAuth({username: username, password: password}));
     };
-
 
     return (
         <>
@@ -92,6 +85,5 @@ const LoginForm = () => {
         </>
     )
 }
-
 
 export default LoginForm
