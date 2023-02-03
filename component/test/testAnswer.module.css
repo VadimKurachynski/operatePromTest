@@ -1,17 +1,16 @@
-
-.body{
+.body {
     padding: 0 10px 0 10px;
     font-family: Arial;
     color: #0f0f10;
 }
 
-.nameTheme{
-font-weight: 600;
+.nameTheme {
+    font-weight: 600;
     text-align: center;
     font-size: 16px;
 }
 
-.boxCountQuestions{
+.boxCountQuestions {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,38 +19,30 @@ font-weight: 600;
     font-size: 16px;
 }
 
-
-.question{
+.question {
     display: flex;
     flex-direction: column;
     margin: 20px 10px 30px 10px;
     font-size: 18px;
-
 }
 
-.questionAva{
-    margin-top:10px;
+.questionAva {
+    margin-top: 10px;
     text-align: center;
 }
 
-.questionText{
-margin: 10px 10px 20px 10px;
+.questionText {
+    margin: 10px 10px 20px 10px;
     text-align: center;
     box-shadow: 1px 2px 2px 3px #b7b7bd;
     padding: 10px;
-
-
 }
 
-
-
-
-.boxRadio{
+.boxRadio {
     display: flex;
     font-family: Arial;
     justify-content: center;
 }
-
 
 .radio {
     margin-bottom: 5px;
@@ -61,44 +52,45 @@ margin: 10px 10px 20px 10px;
     box-shadow: 2px 2px 2px #b7b7bd;
 }
 
-.radioText{
+.radioText {
     font-family: Arial;
     color: #0f0f10;
     line-height: 1.0;
     font-size: 18px;
 }
 
+.radioAnswerOK {
+    background: #a3ffa7;
 
-
-.radioAnswerOK{
-    background:#a3ffa7;
-}
-.radioAnswerNO{
-    background:#ff8983;
 }
 
-.buttonNext{
-   margin-top: 25px;
+.radioAnswerNO {
+    background: #ff8983;
+}
+
+.buttonNext {
+    margin-top: 25px;
     text-align: center;
 }
-.buttonNextText{
+
+.buttonNextText {
 }
 
-.blokCorrectAnswer{
+.blokCorrectAnswer {
     font-size: 16px;
     margin-top: 40px;
 }
 
-.latin{
-   font-style: italic;
+.latin {
+    font-style: italic;
 }
 
-.hr{
+.hr {
     width: 100%;
     margin-bottom: 5px;
 }
 
-.imageBox{
+.imageBox {
     text-align: center;
     margin-bottom: 20px;
 }
