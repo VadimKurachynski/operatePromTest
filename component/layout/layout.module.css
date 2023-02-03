@@ -4,14 +4,12 @@
     width: 100vm;
     flex-direction: column;
     color: #0f0f10;
-    /*border: 3px solid green;*/
 }
 
 .content {
     flex: 1 1 auto;
     background: #f5f2f1;
     margin: 50px 0 0 0;
-    /*border:  3px solid blue ;*/
 }
 
 .container {
@@ -22,7 +20,5 @@
     padding-top: 10px;
     padding-bottom: 50px;
     background: #fdfdfe;
-    /*border: solid 1px red*/
-
 }
 
