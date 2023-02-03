@@ -1,6 +1,4 @@
-
-
-.myflexcont  {
+.myflexcont {
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
@@ -15,14 +13,16 @@
     opacity: 0.6;
     cursor: pointer;
 }
+
 .myflexcont:active .myflexboxName {
     background: #f1f5f3;
 }
+
 .myflexcont:active .myflexboxText {
     background: #f1f5f3;
 }
 
-.myflexboxName  {
+.myflexboxName {
     flex: 1 1 auto;
     box-shadow: 2px 5px 5px grey;
     padding: 5px;
@@ -34,7 +34,8 @@
     opacity: 1;
     border: 1px solid #4c3807;
 }
-.myflexboxText  {
+
+.myflexboxText {
     flex: 1 1 auto;
     box-shadow: 2px 5px 5px grey;
     padding: 5px;
@@ -43,15 +44,17 @@
     color: #0f0f10;
     opacity: 1;
 }
-.myflexboxText:hover .myflexboxName{
+
+.myflexboxText:hover .myflexboxName {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 600px) {
-    .myflexcont{
+    .myflexcont {
         font-size: 0.9em;
     }
 }
+
 .myButtonFlex {
     display: flex;
     flex-flow: column nowrap;
@@ -65,46 +68,50 @@
 
 }
 
-.allBlock{
+.allBlock {
     display: flex;
     flex-flow: row;
 }
 
-.nameBlock div{
-  margin: 10px;
+.nameBlock div {
+    margin: 10px;
 }
 
-.item{
+.item {
     margin: 10px;
     height: 30px;
 }
 
-.inputNumber{
+.inputNumber {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
     gap: 0.9rem;
 }
-.sliderBlockNone{
+
+.sliderBlockNone {
     display: none;
 }
-.sliderBlockContent{
+
+.sliderBlockContent {
     display: contents;
 }
+
 .mainButton {
     text-align: center;
 }
-.mainButton button{
+
+.mainButton button {
     margin: 20px;
 }
 
-.override{
+.override {
     display: block;
     margin: 0 auto;
     border: red;
 }
 
-.head{
+.head {
     text-align: center;
     margin-bottom: 10px;
 }

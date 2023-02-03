@@ -19,25 +19,17 @@ const Theme = (props) => {
     }, [])
 
     const {isAuth} = useSelector((state) => state.themes)
-
-
-
     const idTheme=props.theme.themenumber;
     const theme = `Тема `+props.theme.themenumber+` / Вопросов: `+props.theme.numberofquestions;
     const text = props.theme.themename;
     const countQuections=props.theme.numberofquestions;
     const router = useRouter()
-
-
-
-
     const [inputValueOne, setInputValueOne] = useState(1);
     const [inputValueTwo, setInputValueTwo] = useState(countQuections);
     const [disabledRange, setDisabledRange] = useState(false);
     const [disabledSwitchBlock, setDisabledSwitchBlock] = useState(false);
     const [disabledMixQuestions, setDisabledMixQuestions] = useState(false);
     const [disabledMixAnswers, setDisabledMixAnswers] = useState(true);
-
     const onChangeMixQuestions = (checked) => {
         setDisabledMixQuestions(checked);
     };
@@ -68,7 +60,6 @@ const Theme = (props) => {
         }
         setDisabledSwitchBlock(!disabledSwitchBlock);
     }
-
 const startTest=(e)=>{
     router.push('/test')
      dispatch(getThemeQuestions({
@@ -78,12 +69,7 @@ const startTest=(e)=>{
          disabledMixQuestions:disabledMixQuestions,
          disabledMixAnswers:disabledMixAnswers,
      }));
-
-
 }
-
-
-
     return (
         <>
             <div id={idTheme} className={s.myflexcont} onClick={onClickSwitchBlock}>
