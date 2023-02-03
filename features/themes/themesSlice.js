@@ -15,7 +15,6 @@ const initialState = {
     isAuth:false,
 }
 
-
 export const getThemeQuestions = createAsyncThunk(
     'theme/getThemeQuestions',
     async ({
@@ -29,7 +28,6 @@ export const getThemeQuestions = createAsyncThunk(
                dispatch
            }) => {
         const res = await axios.get(`http://localhost:5000/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
-
         let massiv = [...res.data]
         massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
         massiv = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
@@ -44,7 +42,6 @@ export const getThemeQuestions = createAsyncThunk(
 
     })
 
-
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
     const res = await axios.get('http://localhost:5000/api/themesname', {withCredentials: true})
     dispatch(setThemes(res.data))
@@ -56,16 +53,10 @@ export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWit
         dispatch(setIsAuth(Auth));
 })
 
-
-
 export const postAuth = createAsyncThunk('aunt/postAunt', async ({username,password}, {rejectWithValue, dispatch}) => {
     const res = await axios.post(`http://localhost:5000/login`,{ username:username, password:password },{withCredentials: true})
             const {Auth}=res.data;
-            if(Auth===1){
-                dispatch(setIsAuth(true));
-            }
-
-            // console.log(res.data);
+            if(Auth===1){ dispatch(setIsAuth(true)); }
         })
 
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
@@ -76,10 +67,7 @@ export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejec
         dispatch(setIsAuth(false));
     }
 
-    // console.log(res.data);
 })
-
-
 
 export const themesSlice = createSlice({
     name: 'themes',
