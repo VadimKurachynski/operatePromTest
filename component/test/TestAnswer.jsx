@@ -1,6 +1,6 @@
 import s from "../test/testAnswer.module.css";
-import React, {useEffect, useState} from 'react';
-import {Radio, Space, Progress} from 'antd';
+import React, {useState} from 'react';
+import {Radio, Space} from 'antd';
 import {Button} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import {Collapse} from 'antd';
@@ -16,7 +16,6 @@ const {Panel} = Collapse;
 const TestAnswer = (props) => {
     const router = useRouter();
     const dispatch = useDispatch()
-
     const lengthQuestions = props.questionsSelectTheme.length;
     const selectTheme = props.selectTheme;
     const selectNameTheme = props.selectNameTheme;
@@ -50,8 +49,6 @@ const TestAnswer = (props) => {
         (e.target.value === correctAnswer) ? setCorrect(correct + 1)
             : setNoCorrect(noCorrect + 1)
     };
-
-
     const onChangePanel = (key) => {
         console.log(key);
     };
@@ -84,8 +81,6 @@ const TestAnswer = (props) => {
     return (
         <>
             <div className={s.body}>
-
-
                 <Collapse onChangePanel={onChangePanel}>
                     <Panel header={`Тема ${selectTheme} -- Вопрос ${num} из ${lengthQuestions}`} key="1">
                         <div className={s.nameTheme}>Тема {selectTheme} - {selectNameTheme}
@@ -97,26 +92,18 @@ const TestAnswer = (props) => {
                             <div>Вопрос № {num}</div>
                             <div>Вопросов: {lengthQuestions}</div>
                         </div>
-
-
                         <ResultTable
                             lengthQuestions={lengthQuestions}
                             correct={correct}
                             noCorrect={noCorrect}
                         />
-
                     </Panel>
                 </Collapse>
-
                 <div className={s.question}>
-
-                    <div className={s.questionAva}><QuestionCircleOutlined  style={{fontSize: '25px'}}/></div>
-                      <div className={s.questionText}> {question}</div>
-
-
+                    <div className={s.questionAva}><QuestionCircleOutlined style={{fontSize: '25px'}}/></div>
+                    <div className={s.questionText}> {question}</div>
                     <div className={s.imageBox}
                          style={String(picture) !== "null" ? {display: 'block'} : {display: 'none'}}>
-
                         {(String(picture) !== "null") ?
                             <Image
                                 src={`/image/${picture}`}
@@ -127,10 +114,8 @@ const TestAnswer = (props) => {
                             :
                             ""
                         }
-
                     </div>
                 </div>
-
                 <div className={s.boxRadio}>
                     <Radio.Group onChange={onChangeRadio} value={valueRadio}>
                         <Space direction="vertical">
@@ -138,8 +123,6 @@ const TestAnswer = (props) => {
                         </Space>
                     </Radio.Group>
                 </div>
-
-
                 <div className={s.buttonNext} style={clickButton ? {display: 'block'} : {display: 'none'}}><Button
                     onClick={startNew}
                     type="primary"><span
