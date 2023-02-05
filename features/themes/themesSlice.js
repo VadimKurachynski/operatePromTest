@@ -1,6 +1,9 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
+// const URL='http://test.operate.su:5001';
+const URL='http://localhost:5001';
+
 const initialState = {
     themes: [],
     questionsSelectTheme: [],
@@ -26,7 +29,7 @@ export const getThemeQuestions = createAsyncThunk(
                rejectWithValue,
                dispatch
            }) => {
-        const res = await axios.get(`http://127.0.0.1:5001/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
+        const res = await axios.get(`${URL}/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
         let massiv = [...res.data]
         massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
         massiv = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
@@ -42,18 +45,18 @@ export const getThemeQuestions = createAsyncThunk(
     })
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get('http://127.0.0.1:5001/api/themesname', {withCredentials: true})
+    const res = await axios.get(`${URL}/api/themesname`, {withCredentials: true})
     dispatch(setThemes(res.data))
 })
 
 export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get('http://127.0.0.1:5001/api/auth', {withCredentials: true})
+    const res = await axios.get(`${URL}/api/auth`, {withCredentials: true})
     const {Auth} = res.data;
     dispatch(setIsAuth(Auth));
 })
 
 export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, password}, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://127.0.0.1:5001/login`, {
+    const res = await axios.post(`${URL}/login`, {
         username: username,
         password: password
     }, {withCredentials: true})
@@ -64,7 +67,7 @@ export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, pass
 })
 
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://127.0.0.1:5001/logout`, _, {withCredentials: true})
+    const res = await axios.post(`${URL}/logout`, _, {withCredentials: true})
     const {Auth} = res.data;
     // console.log(`вы вышли ${Auth}`);
     if (Auth === 0) {
