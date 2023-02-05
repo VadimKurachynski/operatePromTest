@@ -42,7 +42,7 @@ export const getThemeQuestions = createAsyncThunk(
     })
 
 export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get('http://localhost:5001/api/themesname', {withCredentials: true})
+    const res = await axios.get('http://127.0.0.1:5001/api/themesname', {withCredentials: true})
     dispatch(setThemes(res.data))
 })
 
