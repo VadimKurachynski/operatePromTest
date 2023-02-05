@@ -26,7 +26,7 @@ export const getThemeQuestions = createAsyncThunk(
                rejectWithValue,
                dispatch
            }) => {
-        const res = await axios.get(`http://localhost:5001/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
+        const res = await axios.get(`http://127.0.0.1:5001/api/theme?numberTheme=${numberThemes}`, {withCredentials: true})
         let massiv = [...res.data]
         massiv.sort((a, b) => a.nomvoprosa - b.nomvoprosa)//сортировка по номеру вопроса
         massiv = massiv.filter(a => a.nomvoprosa >= inputValueOne && a.nomvoprosa <= inputValueTwo)//фильтр по выбранному диапазону
@@ -47,13 +47,13 @@ export const getThemes = createAsyncThunk('themes/getThemes', async (_, {rejectW
 })
 
 export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.get('http://localhost:5001/api/auth', {withCredentials: true})
+    const res = await axios.get('http://127.0.0.1:5001/api/auth', {withCredentials: true})
     const {Auth} = res.data;
     dispatch(setIsAuth(Auth));
 })
 
 export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, password}, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://localhost:5001/login`, {
+    const res = await axios.post(`http://127.0.0.1:5001/login`, {
         username: username,
         password: password
     }, {withCredentials: true})
@@ -64,7 +64,7 @@ export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, pass
 })
 
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`http://localhost:5001/logout`, _, {withCredentials: true})
+    const res = await axios.post(`http://127.0.0.1:5001/logout`, _, {withCredentials: true})
     const {Auth} = res.data;
     // console.log(`вы вышли ${Auth}`);
     if (Auth === 0) {
