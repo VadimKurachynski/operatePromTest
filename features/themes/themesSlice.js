@@ -1,8 +1,8 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const URL='http://test.operate.su:5001';
-const URL='http://localhost:5001';
+const URL='http://test.operate.su:5001';
+// const URL='http://localhost:5001';
 
 const initialState = {
     themes: [],
