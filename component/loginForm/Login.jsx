@@ -1,7 +1,7 @@
 import {Button, Checkbox, Form, Input} from 'antd';
 import {useDispatch} from "react-redux";
 import {postAuth} from "../../features/themes/themesSlice";
-
+import s from "/component/loginForm/loginForm.module.css"
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
@@ -15,6 +15,7 @@ const LoginForm = () => {
 
     return (
         <>
+
             <Form
                 name="basic"
                 labelCol={{
@@ -24,7 +25,7 @@ const LoginForm = () => {
                     span: 16,
                 }}
                 style={{
-                    maxWidth: 600,
+                    maxWidth: 800,
                 }}
                 initialValues={{
                     remember: true,
