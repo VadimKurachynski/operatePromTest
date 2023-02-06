@@ -55,7 +55,7 @@ export const getAuth = createAsyncThunk('themes/getThemes', async (_, {rejectWit
 })
 
 export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, password}, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`${URL}/login`, {
+    const res = await axios.post(`${URL}/api/login`, {
         username: username,
         password: password
     }, {withCredentials: true})
@@ -66,7 +66,7 @@ export const postAuth = createAsyncThunk('aunt/postAunt', async ({username, pass
 })
 
 export const postLogOut = createAsyncThunk('logOut/postLogOut', async (_, {rejectWithValue, dispatch}) => {
-    const res = await axios.post(`${URL}/logout`, _, {withCredentials: true})
+    const res = await axios.post(`${URL}/api/logout`, _, {withCredentials: true})
     const {Auth} = res.data;
     // console.log(`вы вышли ${Auth}`);
     if (Auth === 0) {
