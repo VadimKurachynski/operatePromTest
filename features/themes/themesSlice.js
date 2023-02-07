@@ -143,7 +143,6 @@ export const themesSlice = createSlice({
 //fulfilled : Вызывается в том случае если запрос успешно выполнился
 //rejected : Вызывается в случае ошибки
 
-
 export const {
     setThemes,
     setSelectTheme,
