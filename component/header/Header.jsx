@@ -11,7 +11,6 @@ const HeaderTest = () => {
     const router = useRouter();
     const dispatch = useDispatch()
     const {isAuth} = useSelector((state) => state.themes)
-
     const ClickAvatarOut = () => {
         dispatch(postLogOut());
         router.push('/')
@@ -23,7 +22,6 @@ const HeaderTest = () => {
     const AvatarNoAuth = <div title={"войти"} onClick={ClickAvatarIn}><Avatar icon={<UserOutlined/>}/></div>;
     const AvatarIsAuth = <div title={"выйти"} onClick={ClickAvatarOut}><Avatar style={{backgroundColor: '#87d068'}}
                                                                                icon={<UserOutlined/>}/></div>;
-
     return (
         <div className={s.header}>
             <div className={s.linksBox}>
@@ -32,7 +30,6 @@ const HeaderTest = () => {
                 <div className={s.links}></div>
             </div>
             <div className={s.avatar}> {isAuth ? AvatarIsAuth : AvatarNoAuth}</div>
-
         </div>
     )
 }
